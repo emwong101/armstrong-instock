@@ -1,4 +1,5 @@
 import "./App.css";
+import "./styles/global.scss";
 import AddWarehouse from "./components/sections/addWarehouse/addWarehouse";
 import { WarehouseDetailsComponent } from "./components/sections/Warehouse-Details/WarehouseDetailsComponent";
 
