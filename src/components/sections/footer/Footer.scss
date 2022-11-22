@@ -1,0 +1,16 @@
+@use "../../../styles//partials/mixins";
+@use "../../../styles/partials/fonts" as *;
+@use "../../../styles//global.scss";
+@use "../../../styles/partials/colors" as *;
+
+.footer {
+	&__label {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		color: $Secondary-dark;
+		margin: 0;
+		padding: 2rem 0;
+		background-color: $Background-light;
+	}
+}
