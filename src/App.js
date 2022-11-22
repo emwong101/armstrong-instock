@@ -1,6 +1,6 @@
 import "./App.css";
 import AddWarehouse from "./components/sections/addWarehouse/addWarehouse";
-import { WarehouseDetailsComponent } from "./Components/Warehouse-Details/WarehouseDetailsComponent";
+import { WarehouseDetailsComponent } from "./components/sections/Warehouse-Details/WarehouseDetailsComponent";
 
 function App() {
   return (
