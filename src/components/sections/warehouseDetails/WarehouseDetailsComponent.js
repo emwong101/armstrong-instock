@@ -96,6 +96,279 @@ export const WarehouseDetailsComponent = () => {
 						/>
 					</div>
 				</section>
+				<section className="item-box">
+					<div className="item-box-top">
+						<div className="item-box-top_left">
+							<span className="item-box_label item-box_label-item">
+								inventory item
+							</span>
+							<div className="item-box_name-box">
+								<span className="item-box_name">Television</span>
+								<img
+									src={Chevron}
+									alt="closing tag"
+								/>
+							</div>
+							<span className="item-box_label item-box_label-category">
+								category
+							</span>
+							<span className="item-box_category">Electronics</span>
+						</div>
+						<div className="item-box-top_right">
+							<span className="item-box_label item-box_label-status">
+								status
+							</span>
+							<span className="item-box_status">in stock</span>
+
+							<span className="item-box_label item-box_label-qty">QTY</span>
+							<span className="item-box_qty">500</span>
+						</div>
+					</div>
+					<div className="item-box_bottom">
+						<img
+							src={Trash}
+							alt="trash"
+						/>
+						<img
+							src={Edit}
+							alt="trash"
+						/>
+					</div>
+				</section>
+				<section className="item-box">
+					<div className="item-box-top">
+						<div className="item-box-top_left">
+							<span className="item-box_label item-box_label-item">
+								inventory item
+							</span>
+							<div className="item-box_name-box">
+								<span className="item-box_name">Television</span>
+								<img
+									src={Chevron}
+									alt="closing tag"
+								/>
+							</div>
+							<span className="item-box_label item-box_label-category">
+								category
+							</span>
+							<span className="item-box_category">Electronics</span>
+						</div>
+						<div className="item-box-top_right">
+							<span className="item-box_label item-box_label-status">
+								status
+							</span>
+							<span className="item-box_status">in stock</span>
+
+							<span className="item-box_label item-box_label-qty">QTY</span>
+							<span className="item-box_qty">500</span>
+						</div>
+					</div>
+					<div className="item-box_bottom">
+						<img
+							src={Trash}
+							alt="trash"
+						/>
+						<img
+							src={Edit}
+							alt="trash"
+						/>
+					</div>
+				</section>
+				<section className="item-box">
+					<div className="item-box-top">
+						<div className="item-box-top_left">
+							<span className="item-box_label item-box_label-item">
+								inventory item
+							</span>
+							<div className="item-box_name-box">
+								<span className="item-box_name">Television</span>
+								<img
+									src={Chevron}
+									alt="closing tag"
+								/>
+							</div>
+							<span className="item-box_label item-box_label-category">
+								category
+							</span>
+							<span className="item-box_category">Electronics</span>
+						</div>
+						<div className="item-box-top_right">
+							<span className="item-box_label item-box_label-status">
+								status
+							</span>
+							<span className="item-box_status">in stock</span>
+
+							<span className="item-box_label item-box_label-qty">QTY</span>
+							<span className="item-box_qty">500</span>
+						</div>
+					</div>
+					<div className="item-box_bottom">
+						<img
+							src={Trash}
+							alt="trash"
+						/>
+						<img
+							src={Edit}
+							alt="trash"
+						/>
+					</div>
+				</section>
+				<section className="item-box">
+					<div className="item-box-top">
+						<div className="item-box-top_left">
+							<span className="item-box_label item-box_label-item">
+								inventory item
+							</span>
+							<div className="item-box_name-box">
+								<span className="item-box_name">Television</span>
+								<img
+									src={Chevron}
+									alt="closing tag"
+								/>
+							</div>
+							<span className="item-box_label item-box_label-category">
+								category
+							</span>
+							<span className="item-box_category">Electronics</span>
+						</div>
+						<div className="item-box-top_right">
+							<span className="item-box_label item-box_label-status">
+								status
+							</span>
+							<span className="item-box_status">in stock</span>
+
+							<span className="item-box_label item-box_label-qty">QTY</span>
+							<span className="item-box_qty">500</span>
+						</div>
+					</div>
+					<div className="item-box_bottom">
+						<img
+							src={Trash}
+							alt="trash"
+						/>
+						<img
+							src={Edit}
+							alt="trash"
+						/>
+					</div>
+				</section>
+				<section className="item-box">
+					<div className="item-box-top">
+						<div className="item-box-top_left">
+							<span className="item-box_label item-box_label-item">
+								inventory item
+							</span>
+							<div className="item-box_name-box">
+								<span className="item-box_name">Television</span>
+								<img
+									src={Chevron}
+									alt="closing tag"
+								/>
+							</div>
+							<span className="item-box_label item-box_label-category">
+								category
+							</span>
+							<span className="item-box_category">Electronics</span>
+						</div>
+						<div className="item-box-top_right">
+							<span className="item-box_label item-box_label-status">
+								status
+							</span>
+							<span className="item-box_status">in stock</span>
+
+							<span className="item-box_label item-box_label-qty">QTY</span>
+							<span className="item-box_qty">500</span>
+						</div>
+					</div>
+					<div className="item-box_bottom">
+						<img
+							src={Trash}
+							alt="trash"
+						/>
+						<img
+							src={Edit}
+							alt="trash"
+						/>
+					</div>
+				</section>
+				<section className="item-box">
+					<div className="item-box-top">
+						<div className="item-box-top_left">
+							<span className="item-box_label item-box_label-item">
+								inventory item
+							</span>
+							<div className="item-box_name-box">
+								<span className="item-box_name">Television</span>
+								<img
+									src={Chevron}
+									alt="closing tag"
+								/>
+							</div>
+							<span className="item-box_label item-box_label-category">
+								category
+							</span>
+							<span className="item-box_category">Electronics</span>
+						</div>
+						<div className="item-box-top_right">
+							<span className="item-box_label item-box_label-status">
+								status
+							</span>
+							<span className="item-box_status">in stock</span>
+
+							<span className="item-box_label item-box_label-qty">QTY</span>
+							<span className="item-box_qty">500</span>
+						</div>
+					</div>
+					<div className="item-box_bottom">
+						<img
+							src={Trash}
+							alt="trash"
+						/>
+						<img
+							src={Edit}
+							alt="trash"
+						/>
+					</div>
+				</section>
+				<section className="item-box">
+					<div className="item-box-top">
+						<div className="item-box-top_left">
+							<span className="item-box_label item-box_label-item">
+								inventory item
+							</span>
+							<div className="item-box_name-box">
+								<span className="item-box_name">Television</span>
+								<img
+									src={Chevron}
+									alt="closing tag"
+								/>
+							</div>
+							<span className="item-box_label item-box_label-category">
+								category
+							</span>
+							<span className="item-box_category">Electronics</span>
+						</div>
+						<div className="item-box-top_right">
+							<span className="item-box_label item-box_label-status">
+								status
+							</span>
+							<span className="item-box_status">in stock</span>
+
+							<span className="item-box_label item-box_label-qty">QTY</span>
+							<span className="item-box_qty">500</span>
+						</div>
+					</div>
+					<div className="item-box_bottom">
+						<img
+							src={Trash}
+							alt="trash"
+						/>
+						<img
+							src={Edit}
+							alt="trash"
+						/>
+					</div>
+				</section>
 			</div>
 		</>
 	);
