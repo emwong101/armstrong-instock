@@ -15,8 +15,21 @@
 	justify-content: space-between;
 	align-items: center;
 
-	&-left {
+	&-left,
+	&-right {
 		display: flex;
+		justify-content: center;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&-right {
+		@include breakpoints.tablet {
+			background-color: $Primary-medium;
+			width: 5rem;
+			height: 2.5rem;
+			border-radius: 1.25rem;
+		}
 	}
 
 	&_title {
@@ -33,6 +46,20 @@
 		padding: 0 0.6875rem;
 		width: 0.9375rem;
 		height: 2.25rem;
+
+		@include breakpoints.tablet {
+			padding-left: 0;
+			@include labelsLinksButtons;
+		}
+
+		&-text {
+			display: none;
+
+			@include breakpoints.tablet {
+				display: initial;
+				color: $Primary-light;
+			}
+		}
 	}
 }
 

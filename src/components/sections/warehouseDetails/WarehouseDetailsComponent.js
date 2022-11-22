@@ -19,11 +19,14 @@ export const WarehouseDetailsComponent = () => {
 						/>
 						<h1 className="title-box_title">Washington</h1>
 					</div>
-					<img
-						src={EditWhite}
-						alt="edit"
-						className="title-box_editing"
-					/>
+					<div className="title-box-right">
+						<img
+							src={EditWhite}
+							alt="edit"
+							className="title-box_editing"
+						/>
+						<span className="title-box_editing-text">Edit</span>
+					</div>
 				</section>
 				<section className="info-box">
 					<div className="info-box-top">
