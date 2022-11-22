@@ -1,6 +1,12 @@
+@use "../../../styles/partials/breakpoints" as breakpoints;
+@use "../../../styles/partials/colors" as *;
+@use "../../../styles/partials/fonts" as *;
+@use "../../../styles/partials/mixins" as *;
+
 .wd-container {
 	display: flex;
 	flex-direction: column;
+	font-family: "Titillium-Web";
 }
 
 .title-box {
@@ -16,13 +22,15 @@
 	&_title {
 		padding-left: 0.7rem;
 		font-size: 1rem;
+		font-family: "Titillium-Web-bold";
+		@include mobilePageHeader;
 	}
 
 	&_editing {
-		color: white;
-		background-color: blue;
+		color: $Primary-light;
+		background-color: $Primary-medium;
 		border-radius: 50%;
-		padding: 0.2rem;
+		padding: 0.4rem;
 		width: 1rem;
 		height: 1rem;
 	}
@@ -30,44 +38,93 @@
 
 .info-box {
 	padding: 1rem 1.5rem;
-	border-top: 1px solid gray;
-}
+	border-top: 1px solid $Secondary-light;
 
-.info-box-top {
-	display: flex;
-	flex-direction: column;
-}
-
-.info-box-bottom {
-	display: flex;
-
-	&_left,
-	&_right {
+	&-top {
 		display: flex;
 		flex-direction: column;
-		width: 50%;
+		padding-bottom: 2.25rem;
+	}
+
+	&_label {
+		text-transform: uppercase;
+		@include mobileTableHeader;
+		color: $Secondary-dark;
+		padding-bottom: 0.25rem;
+	}
+
+	&_detail {
+		@include mobileLabelsLinksButtons;
+		color: $Primary-dark;
+	}
+
+	&-bottom {
+		display: flex;
+
+		&_left,
+		&_right {
+			display: flex;
+			flex-direction: column;
+			width: 50%;
+		}
 	}
 }
 
-.item-box-top {
-	display: flex;
-	border-top: 1px solid gray;
-	padding: 1rem 1.5rem;
-
-	&_left,
-	&_right {
+.item-box {
+	&-top {
 		display: flex;
-		flex-direction: column;
-		width: 50%;
+		border-top: 1px solid $Secondary-light;
+		padding: 1rem 1.5rem;
+
+		&_left,
+		&_right {
+			display: flex;
+			flex-direction: column;
+			width: 50%;
+		}
 	}
-}
 
-.item-box_name-box {
-	display: flex;
-}
+	&_label {
+		text-transform: uppercase;
+		@include mobileTableHeader;
+		color: $Secondary-dark;
+		padding-bottom: 0.25rem;
 
-.item-box_bottom {
-	padding: 1.5rem;
-	display: flex;
-	justify-content: space-between;
+		&-qty {
+			padding-top: 1.25rem;
+		}
+	}
+
+	&_name-box {
+		display: flex;
+		padding-bottom: 1.25rem;
+	}
+
+	&_name {
+		@include mobileBodyMedium;
+		color: $Primary-medium;
+	}
+
+	&_status {
+		@include mobileBodySmall;
+		text-transform: uppercase;
+		color: $Support-dark;
+		background: rgba(21, 132, 99, 0.07);
+		padding: 0.25rem 0.5rem;
+		width: fit-content;
+		border-radius: 1.25rem;
+	}
+
+	&_category {
+		@include mobileBodyMedium;
+	}
+	&_qty {
+		@include mobileBodyMedium;
+	}
+
+	&_bottom {
+		padding: 1.5rem;
+		display: flex;
+		justify-content: space-between;
+	}
 }
