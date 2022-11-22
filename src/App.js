@@ -1,5 +1,7 @@
 import "./App.css";
-import AddWarehouse from "./Components/sections/addWarehouse/AddWarehouse";
+import Footer from "./Components/footer/footer";
+import "./styles/global.scss";
+import AddWarehouse from "./Components/sections/addWarehouse/addWarehouse";
 import { WarehouseDetailsComponent } from "./Components/sections/Warehouse-Details/WarehouseDetailsComponent";
 
 function App() {
@@ -7,6 +9,7 @@ function App() {
 		<>
 			<AddWarehouse />
 			<WarehouseDetailsComponent />
+			<Footer />
 		</>
 	);
 }
