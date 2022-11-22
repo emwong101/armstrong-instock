@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Titillium-Web";
+  src: url("../../assets/fonts/Titillium-Web-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Titillium-Web-Bold";
+  src: url("../../assets/fonts/Titillium-Web-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: bold;
+}
+
+$font-regular: "Titillium-Web";
+$font-bold: "Titillium-Web-Bold";
