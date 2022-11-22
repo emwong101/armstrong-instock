@@ -1,18 +1,19 @@
 import React from "react";
 import backArrow from "../../../assets/Icons/arrow_back-24px.svg";
+import "../warehouseForms/warehouseForms.scss";
 
 function WarehouseForms({ title, handleSubmit }) {
   return (
     <>
       <div className="warehouseForm__heading">
-        <button>
+        <button className="warehouseForm__back">
           <img src={backArrow} alt="back-arrow" />
         </button>
-        <h1>{title}</h1>
+        <h1 className="warehouseForm__title">{title}</h1>
       </div>
       <form className="warehouseForm__form" onSubmit={handleSubmit}>
         <div className="warehouse">
-          <h2>Warehouse Details</h2>
+          <h2 className="warehouseForm__subheading">Warehouse Details</h2>
           <label htmlFor="warehouseName" className="warehouseForm__label">
             Warehouse Name
           </label>
@@ -40,7 +41,9 @@ function WarehouseForms({ title, handleSubmit }) {
             type="text"
             placeholder="City"
           ></input>
-          <label htmlFor="warehouseCountry">Country</label>
+          <label htmlFor="warehouseCountry" className="warehouseForm__label">
+            Country
+          </label>
           <input
             id="warehouseCountry"
             className="warehouseForm__input"
@@ -49,7 +52,7 @@ function WarehouseForms({ title, handleSubmit }) {
           ></input>
         </div>
         <div className="contact">
-          <h2>Contact Details</h2>
+          <h2 className="warehouseForm__subheading">Contact Details</h2>
           <label htmlFor="contactName" className="warehouseForm__label">
             Contact Name
           </label>
@@ -87,8 +90,18 @@ function WarehouseForms({ title, handleSubmit }) {
             placeholder="Email"
           ></input>
         </div>
-        <input type="button" value="Cancel"></input>
-        <input type="submit" value="+ Add Warehouse"></input>
+        <div className="warehouseForm__buttons">
+          <input
+            type="button"
+            value="Cancel"
+            className="warehouseForm__cancel button"
+          ></input>
+          <input
+            type="submit"
+            value="+ Add Warehouse"
+            className="warehouseForm__submit button"
+          ></input>
+        </div>
       </form>
     </>
   );
