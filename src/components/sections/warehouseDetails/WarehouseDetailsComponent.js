@@ -3,6 +3,7 @@ import Arrow from "../../../assets/Icons/arrow_back-24px.svg";
 import Chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import Trash from "../../../assets/Icons/delete_outline-24px.svg";
 import Edit from "../../../assets/Icons/edit-24px.svg";
+import EditWhite from "../../../assets/Icons/edit_white.svg";
 import "./WarehouseDetailsComponent.scss";
 
 export const WarehouseDetailsComponent = () => {
@@ -19,7 +20,7 @@ export const WarehouseDetailsComponent = () => {
 						<h1 className="title-box_title">Washington</h1>
 					</div>
 					<img
-						src={Edit}
+						src={EditWhite}
 						alt="edit"
 						className="title-box_editing"
 					/>
