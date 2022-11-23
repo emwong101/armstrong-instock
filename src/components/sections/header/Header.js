@@ -4,7 +4,7 @@ import React from "react";
 import Logo from "../../../assets/Logo/InStock-Logo.svg";
 
 const Header = () => {
-  return (
+	return (
     <header className="header">
       <div to={"#"} className="header__company-logo">
         <img
@@ -16,11 +16,10 @@ const Header = () => {
 
       <div className="header__buttons-container">
         <button className="header__button" type="text">
-          Warehouses
+          <p className="header__button-txt">Warehouses</p>
         </button>
-
         <button className="header__button" type="text">
-          Inventory
+          <p className="header__button-txt">Inventory</p>
         </button>
       </div>
     </header>
