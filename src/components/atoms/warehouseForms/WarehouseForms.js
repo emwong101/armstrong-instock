@@ -27,12 +27,9 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
       contact_phone: contactPhone.value,
       contact_email: contactEmail.value,
     });
-  };
-  console.log(warehouseDetails);
-  const focusHandle = (event) => {
-    event.target.classList.remove("show");
-  };
 
+    console.log(warehouseDetails);
+  };
   return (
     <>
       <div className="warehouseForm__heading">
@@ -48,28 +45,26 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             Warehouse Name
           </label>
           <input
-            className={`warehouseForm__input ${
-              warehouseDetails?.warehouse_name !== "" ? "" : "error"
-            }`}
+            className={`warehouseForm__input 
+            ${warehouseDetails?.warehouse_name !== "" ? "" : "error"}
+            `}
             id="warehouseName"
             type="text"
             placeholder="Warehouse Name"
           ></input>
+
           <label
-            onFocus={focusHandle}
             htmlFor="warehouseName"
-            className={`hide ${
-              warehouseDetails?.warehouse_name !== "" ? "" : "show"
-            }`}
+            className={`hide 
+            ${warehouseDetails?.warehouse_name !== "" ? "" : "show"} `}
           >
-            <img src={errorIcon} className="error__icon" />
+            <img alt="error" src={errorIcon} className="error__icon" />
             This field is required
           </label>
           <label htmlFor="warehouseAddress" className="warehouseForm__label">
             Street Address
           </label>
           <input
-            onFocus={focusHandle}
             id="warehouseAddress"
             className={`warehouseForm__input ${
               warehouseDetails?.address !== "" ? "" : "error"
@@ -81,14 +76,13 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             htmlFor="warehouseAddress"
             className={`hide ${warehouseDetails?.address !== "" ? "" : "show"}`}
           >
-            <img src={errorIcon} className="error__icon" />
+            <img alt="error" src={errorIcon} className="error__icon" />
             This field is required
           </label>
           <label htmlFor="warehouseCity" className="warehouseForm__label">
             City
           </label>
           <input
-            onFocus={focusHandle}
             id="warehouseCity"
             className={`warehouseForm__input ${
               warehouseDetails?.city !== "" ? "" : "error"
@@ -100,14 +94,13 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             htmlFor="warehouseCity"
             className={`hide ${warehouseDetails?.city !== "" ? "" : "show"}`}
           >
-            <img src={errorIcon} className="error__icon" />
+            <img alt="error" src={errorIcon} className="error__icon" />
             This field is required
           </label>
           <label htmlFor="warehouseCountry" className="warehouseForm__label">
             Country
           </label>
           <input
-            onFocus={focusHandle}
             id="warehouseCountry"
             className={`warehouseForm__input ${
               warehouseDetails?.country !== "" ? "" : "error"
@@ -119,7 +112,7 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             htmlFor="warehouseCountry"
             className={`hide ${warehouseDetails?.country !== "" ? "" : "show"}`}
           >
-            <img src={errorIcon} className="error__icon" />
+            <img alt="error" src={errorIcon} className="error__icon" />
             This field is required
           </label>
         </div>
@@ -129,7 +122,6 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             Contact Name
           </label>
           <input
-            onFocus={focusHandle}
             id="contactName"
             type="text"
             className={`warehouseForm__input ${
@@ -143,14 +135,13 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
               warehouseDetails?.contact_name !== "" ? "" : "show"
             }`}
           >
-            <img src={errorIcon} className="error__icon" />
+            <img alt="error" src={errorIcon} className="error__icon" />
             This field is required
           </label>
           <label htmlFor="contactPosition" className="warehouseForm__label">
             Position
           </label>
           <input
-            onFocus={focusHandle}
             htmlFor="contactPosition"
             id="contactPosition"
             type="text"
@@ -165,14 +156,13 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
               warehouseDetails?.contact_position !== "" ? "" : "show"
             }`}
           >
-            <img src={errorIcon} className="error__icon" />
+            <img alt="error" src={errorIcon} className="error__icon" />
             This field is required
           </label>
           <label htmlFor="contactPhone" className="warehouseForm__label">
             Phone Number
           </label>
           <input
-            onFocus={focusHandle}
             id="contactPhone"
             type="text"
             className={`warehouseForm__input ${
@@ -186,14 +176,13 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
               warehouseDetails?.contact_phone !== "" ? "" : "show"
             }`}
           >
-            <img src={errorIcon} className="error__icon" />
+            <img alt="error" src={errorIcon} className="error__icon" />
             This field is required
           </label>
           <label htmlFor="contactEmail" className="warehouseForm__label">
             Email
           </label>
           <input
-            onFocus={focusHandle}
             id="contactEmail"
             type="text"
             className={`warehouseForm__input ${
@@ -207,7 +196,7 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
               warehouseDetails?.contact_email !== "" ? "" : "show"
             }`}
           >
-            <img src={errorIcon} className="error__icon" />
+            <img alt="error" src={errorIcon} className="error__icon" />
             This field is required
           </label>
         </div>
