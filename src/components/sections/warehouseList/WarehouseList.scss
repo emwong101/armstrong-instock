@@ -85,6 +85,7 @@
 		border-radius: 1.25rem;
 		margin-top: 1.5rem;
 		cursor: pointer;
+		width: 100%;
 
 		@include breakpoints.tablet {
 			margin-top: 0;
@@ -264,8 +265,8 @@
 		padding-bottom: 1.25rem;
 
 		@include breakpoints.tablet {
-			// padding-right: 7.5rem;
 			padding-bottom: 0;
+			padding-right: 0;
 		}
 		@include breakpoints.desktop {
 			padding-right: 15rem;
@@ -288,6 +289,7 @@
 
 		@include breakpoints.tablet {
 			@include bodyMedium;
+			width: 40%;
 		}
 		@include breakpoints.desktop {
 			padding-right: 13.5rem;
@@ -299,7 +301,7 @@
 		text-transform: capitalize;
 
 		@include breakpoints.tablet {
-			padding-right: 6rem;
+			// padding-right: 6rem;
 			@include bodyMedium;
 		}
 		@include breakpoints.desktop {
