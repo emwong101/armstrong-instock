@@ -75,6 +75,7 @@
 		display: flex;
 		justify-content: space-between;
 		border-top: none;
+		border-top: 1px solid $Secondary-light;
 	}
 
 	&-top {
@@ -84,6 +85,9 @@
 
 		@include breakpoints.tablet {
 			width: 25%;
+		}
+		@include breakpoints.tablet {
+			width: 15%;
 		}
 	}
 
@@ -142,6 +146,7 @@
 		display: flex;
 		padding: 1rem 1.5rem;
 		justify-content: space-between;
+		background-color: $Background-light;
 		@include bodySmall;
 		color: $Secondary-dark;
 		text-transform: uppercase;
@@ -155,8 +160,11 @@
 .item-box {
 	@include breakpoints.tablet {
 		display: flex;
-		// justify-content: space-between;
 		border-top: 1px solid $Secondary-light;
+	}
+
+	@include breakpoints.desktop {
+		justify-content: space-between;
 	}
 	&-top {
 		display: flex;
@@ -205,6 +213,10 @@
 			padding-right: 7.5rem;
 			padding-bottom: 0;
 		}
+		@include breakpoints.desktop {
+			padding-right: 15rem;
+			padding-bottom: 0;
+		}
 	}
 
 	&_name {
@@ -224,6 +236,9 @@
 			padding-right: 6rem;
 			@include bodyMedium;
 		}
+		@include breakpoints.desktop {
+			padding-right: 13.5rem;
+		}
 	}
 
 	&_status {
@@ -239,6 +254,9 @@
 		@include breakpoints.tablet {
 			margin-right: 5.5rem;
 			@include bodySmall;
+		}
+		@include breakpoints.desktop {
+			margin-right: 14rem;
 		}
 	}
 
