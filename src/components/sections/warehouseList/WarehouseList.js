@@ -17,13 +17,13 @@ export const WarehouseList = () => {
 					<div className="title-box-right">
 						<input
 							type="text"
-							className="title-box_serch"
+							className="title-box_search"
 							placeholder="Search..."
 						/>
 						<img
 							src={Search}
 							alt="search icon"
-							className="title-box-icon"
+							className="title-box_icon"
 						/>
 					</div>
 					<div className="title-box_button">

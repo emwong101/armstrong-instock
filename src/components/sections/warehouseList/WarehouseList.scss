@@ -13,7 +13,7 @@
 	display: flex;
 	padding: 2rem 1.5rem 1.5rem;
 	justify-content: space-between;
-	align-items: center;
+	// align-items: center;
 	flex-direction: column;
 
 	&-left,
@@ -22,116 +22,147 @@
 		justify-content: center;
 		justify-content: center;
 		align-items: center;
+		width: 100%;
 	}
 
-	&-right {
-		@include breakpoints.tablet {
-			background-color: $Primary-medium;
-			width: 5rem;
-			height: 2.5rem;
-			border-radius: 1.25rem;
-		}
-	}
+	
 
 	&_title {
-		padding-left: 0.7rem;
+	
 		font-size: 1rem;
 		font-family: "Titillium-Web-bold";
 		@include mobilePageHeader;
+		width: inherit;
 
 		@include breakpoints.tablet {
 			@include pageHeader;
 		}
 	}
-
-	&_editing {
-		color: $Primary-light;
-		background-color: $Primary-medium;
-		border-radius: 50%;
-		padding: 0 0.6875rem;
-		width: 0.9375rem;
-		height: 2.25rem;
-
+	&-right {
 		@include breakpoints.tablet {
-			padding-left: 0;
-			@include labelsLinksButtons;
+			background-color: $Primary-medium;
+			width: 5rem;
+			height: 2.5rem;
+			position: relative;
 		}
+	}
+
+	&_search {
+		border: 1px solid $Secondary-light;
+		width: 100%;
+		border-radius: 1.25rem;
+		height: 2.25rem;
+		padding: 0 1rem;
+	}
+
+	&_icon {
+		position: absolute;
+		right: 0;
+		right: 2.5rem;
+	}
+
+	&_button {
+		background-color: $Primary-medium;
+		color: $Primary-light;
+		text-align: center;
+		height: 2.25rem;
+		border-radius: 1.25rem;
+		margin-top: 1.5rem;
 
 		&-text {
-			display: none;
-
-			@include breakpoints.tablet {
-				display: initial;
-				color: $Primary-light;
-			}
-		}
-	}
-}
-
-.info-box {
-	padding: 1rem 1.5rem;
-	border-top: 1px solid $Secondary-light;
-
-	@include breakpoints.tablet {
-		display: flex;
-		justify-content: space-between;
-		border-top: none;
-		border-top: 1px solid $Secondary-light;
-	}
-
-	&-top {
-		display: flex;
-		flex-direction: column;
-		padding-bottom: 2.25rem;
-
-		@include breakpoints.tablet {
-			width: 25%;
-		}
-		@include breakpoints.tablet {
-			width: 15%;
+			vertical-align: -webkit-baseline-middle;
+			@include mobileLabelsLinksButtons;
 		}
 	}
 
-	&_label {
-		text-transform: uppercase;
-		@include mobileTableHeader;
-		color: $Secondary-dark;
-		padding-bottom: 0.25rem;
+// 	&_editing {
+// 		color: $Primary-light;
+// 		background-color: $Primary-medium;
+// 		border-radius: 50%;
+// 		padding: 0 0.6875rem;
+// 		width: 0.9375rem;
+// 		height: 2.25rem;
 
-		@include breakpoints.tablet {
-			@include tableHeader;
-		}
-	}
+// 		@include breakpoints.tablet {
+// 			padding-left: 0;
+// 			@include labelsLinksButtons;
+// 		}
 
-	&_detail {
-		@include mobileLabelsLinksButtons;
-		color: $Primary-dark;
+// 		&-text {
+// 			display: none;
 
-		@include breakpoints.tablet {
-			@include bodyMedium;
-		}
-	}
+// 			@include breakpoints.tablet {
+// 				display: initial;
+// 				color: $Primary-light;
+// 			}
+// 		}
+// 	}
+// }
 
-	&-bottom {
-		display: flex;
-		justify-content: space-between;
+// .info-box {
+// 	padding: 1rem 1.5rem;
+// 	border-top: 1px solid $Secondary-light;
 
-		@include breakpoints.tablet {
-			width: 65%;
-			justify-content: space-around;
-			border-left: 1px solid $Secondary-light;
-		}
+// 	@include breakpoints.tablet {
+// 		display: flex;
+// 		justify-content: space-between;
+// 		border-top: none;
+// 		border-top: 1px solid $Secondary-light;
+// 	}
 
-		&_left,
-		&_right {
-			display: flex;
-			flex-direction: column;
+	// &-top {
+	// 	display: flex;
+	// 	flex-direction: column;
+	// 	padding-bottom: 2.25rem;
 
-			@include breakpoints.tablet {
-				width: 30%;
-			}
-		}
-	}
+	// 	@include breakpoints.tablet {
+	// 		width: 25%;
+	// 	}
+	// 	@include breakpoints.tablet {
+	// 		width: 15%;
+	// 	}
+	// }
+
+	// &_label {
+	// 	text-transform: uppercase;
+	// 	@include mobileTableHeader;
+	// 	color: $Secondary-dark;
+	// 	padding-bottom: 0.25rem;
+
+	// 	@include breakpoints.tablet {
+	// 		@include tableHeader;
+	// 	}
+	// }
+
+	// &_detail {
+	// 	@include mobileLabelsLinksButtons;
+	// 	color: $Primary-dark;
+
+	// 	@include breakpoints.tablet {
+	// 		@include bodyMedium;
+	// 	}
+	// }
+
+	// &-bottom {
+	// 	display: flex;
+	// 	justify-content: space-between;
+
+	// 	@include breakpoints.tablet {
+	// 		width: 65%;
+	// 		justify-content: space-around;
+	// 		border-left: 1px solid $Secondary-light;
+	// 	}
+
+	// 	&_left,
+	// 	&_right {
+	// 		display: flex;
+	// 		flex-direction: column;
+
+	// 		@include breakpoints.tablet {
+	// 			width: 30%;
+	// 		}
+	// 	}
+	// }
 }
 
 .inventory-box {
