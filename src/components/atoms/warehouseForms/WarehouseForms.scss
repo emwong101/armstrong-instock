@@ -56,7 +56,7 @@
     border: 1px solid colors.$Secondary-light;
     height: 2.25rem;
     padding: 0 1rem;
-    margin-bottom: 1rem;
+    outline-color: colors.$Primary-medium;
 
     &::placeholder {
       color: colors.$Secondary-dark;
@@ -108,6 +108,29 @@
   padding: 0 1.5rem;
 }
 
+.hide {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+  display: flex;
+  align-items: center;
+  padding-bottom: 1rem;
+  padding-left: 0.5rem;
+  color: colors.$Support-light;
+  font-size: 0.8rem;
+}
+
+.error {
+  border: 2px solid colors.$Support-light;
+
+  &__icon {
+    width: 0.8rem;
+    margin-right: 0.25rem;
+  }
+}
+
 @include breakpoints.tablet {
   .button {
     width: fit-content;
@@ -150,7 +173,6 @@
     }
 
     &__input {
-      margin-bottom: 1.5rem;
       height: 38px;
       font-size: 0.875rem;
 
@@ -176,5 +198,13 @@
   .contact {
     flex-grow: 1;
     padding: 0 2rem;
+  }
+}
+
+@include breakpoints.desktop {
+  .warehouseForm {
+    &__back {
+      padding: 0;
+    }
   }
 }

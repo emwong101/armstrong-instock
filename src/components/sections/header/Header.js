@@ -6,6 +6,7 @@ import Logo from "../../../assets/Logo/InStock-Logo.svg";
 const Header = () => {
 	return (
     <header className="header">
+      {/* add a Link tag to logo later */}
       <div to={"#"} className="header__company-logo">
         <img
           className="header__logo"
@@ -18,7 +19,6 @@ const Header = () => {
         <button className="header__button" type="text">
           <p className="header__button-txt">Warehouses</p>
         </button>
-
         <button className="header__button" type="text">
           <p className="header__button-txt">Inventory</p>
         </button>

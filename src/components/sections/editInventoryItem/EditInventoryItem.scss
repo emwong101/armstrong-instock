@@ -1,0 +1,151 @@
+@use "../../../styles/partials/breakpoints" as *;
+@use "../../../styles/partials/colors" as *;
+@use "../../../styles/partials/fonts" as *;
+@use "../../../styles/partials/mixins" as *;
+
+// Edit Inventory Item for Mobile
+
+.editInventoryItem {
+  &__caption {
+    display: flex;
+    border-bottom: 1px solid $Secondary-light;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__arrow {
+    outline: none;
+    border: none;
+    background: none;
+    padding: 0;
+    padding-top: 0.5rem;
+    flex-grow: 1;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    margin: 0;
+    line-height: 36px;
+    flex-grow: 1;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label, &__label-radio, &__status {
+    font-weight: 600;
+    font-size: 0.815rem;
+    padding-bottom: 0.25rem;
+    line-height: 1.25rem;
+  }
+
+   &__label-radio {
+    align-self: center;
+     color: $Secondary-dark;
+     &:active {
+        color: $Primary-dark;
+     }
+   }
+  .outOfStock {
+    padding-right: 3rem;
+  }
+
+  input[type="radio"] {
+  margin-right: .5rem;
+ 
+}
+
+  &__status {
+    margin: 0;
+    padding-left: 0.5rem;
+  }
+
+  &__status-position {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+  }
+
+  &__label-quantity {
+    display: none;
+  }
+
+  &__input-quantity {
+    display: none;
+  }
+
+  &__input {
+    height: 2.25rem;
+  }
+
+  &__input,
+  &__input-description {
+    border-radius: 20px;
+    border: 1px solid $Secondary-light;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    resize: none;
+  }
+
+  ::placeholder {
+    color: $Secondary-dark;
+    font-family: "Titillium-Web";
+  }
+
+  .itemDetail,
+  .itemAvailability {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 1.5rem;
+  }
+  .itemDetail {
+    border-bottom: 1px solid $Secondary-light;
+   padding-bottom: 0.6rem;
+  }
+
+  &__button {
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+
+    &-cancel,
+    &-save {
+      height: 2.25rem;
+      padding: 0 1rem;
+      border-radius: 20px;
+      width: 100%;
+      font-family: "Titillium-Web";
+      font-weight: 600;
+      line-height: 20px;
+      font-style: normal;
+      font-size: 0.8rem;
+    }
+
+    &-cancel {
+      margin-right: 1rem;
+      border: 1px solid $Secondary-light;
+      background-color: $Primary-light;
+      color: $Secondary-dark;
+
+      &:hover {
+        border-color: $Primary-medium;
+        color: $Primary-medium;
+      }
+    }
+
+    &-save {
+      background-color: $Primary-medium;
+      color: $Primary-light;
+      border: none;
+
+      &:hover {
+        background-color: $Background-dark;
+      }
+    }
+  }
+}
