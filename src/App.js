@@ -9,9 +9,9 @@ function App() {
   return (
     <>
       <Header />
-      <AddWarehouse />
       <WarehouseDetailsComponent />
       <EditInventoryItem  />
+      <AddWarehouse />
       <Footer />
     </>
   );
