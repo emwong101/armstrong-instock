@@ -101,21 +101,27 @@ export const WarehouseList = () => {
 										adress
 									</span>
 									<span className="item-box_adress">
-										503 Broadway, New York, USA
+										{warehouse.address}, {warehouse.city}, {warehouse.country}
 									</span>
 								</div>
 								<div className="item-box-top_right">
 									<span className="item-box_label item-box_label-contact">
 										contact name
 									</span>
-									<span className="item-box_contact">parmin aujla</span>
+									<span className="item-box_contact">
+										{warehouse.contact_name}
+									</span>
 
 									<span className="item-box_label item-box_label-qty">
 										contact information
 									</span>
 									<div className="item-box_info-box">
-										<span className="item-box_info">+1 (629) 555-0129</span>
-										<span className="item-box_info">paujla@instock.com</span>
+										<span className="item-box_info">
+											{warehouse.contact_phone}
+										</span>
+										<span className="item-box_info">
+											{warehouse.contact_email}
+										</span>
 									</div>
 								</div>
 							</div>
