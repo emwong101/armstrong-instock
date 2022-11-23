@@ -16,6 +16,11 @@
 	// align-items: center;
 	flex-direction: column;
 
+	@include breakpoints.tablet {
+		flex-direction: row;
+		align-items: center;
+	}
+
 	&-left,
 	&-right {
 		display: flex;
@@ -23,12 +28,14 @@
 		justify-content: center;
 		align-items: center;
 		width: 100%;
+
+		@include breakpoints.tablet {
+			width: 50%;
+			text-align: start;
+		}
 	}
 
-	
-
 	&_title {
-	
 		font-size: 1rem;
 		font-family: "Titillium-Web-bold";
 		@include mobilePageHeader;
@@ -36,12 +43,13 @@
 
 		@include breakpoints.tablet {
 			@include pageHeader;
+			width: 100%;
 		}
 	}
 	&-right {
 		@include breakpoints.tablet {
-			background-color: $Primary-medium;
-			width: 5rem;
+			// background-color: $Primary-medium;
+			width: 11.5625rem;
 			height: 2.5rem;
 			position: relative;
 		}
@@ -53,6 +61,10 @@
 		border-radius: 1.25rem;
 		height: 2.25rem;
 		padding: 0 1rem;
+
+		@include breakpoints.tablet {
+			// width: 9.875rem;
+		}
 	}
 
 	&_icon {
@@ -69,46 +81,51 @@
 		border-radius: 1.25rem;
 		margin-top: 1.5rem;
 
+		@include breakpoints.tablet {
+			margin-top: 0;
+			width: 9.5rem;
+		}
+
 		&-text {
 			vertical-align: -webkit-baseline-middle;
 			@include mobileLabelsLinksButtons;
 		}
 	}
 
-// 	&_editing {
-// 		color: $Primary-light;
-// 		background-color: $Primary-medium;
-// 		border-radius: 50%;
-// 		padding: 0 0.6875rem;
-// 		width: 0.9375rem;
-// 		height: 2.25rem;
+	// 	&_editing {
+	// 		color: $Primary-light;
+	// 		background-color: $Primary-medium;
+	// 		border-radius: 50%;
+	// 		padding: 0 0.6875rem;
+	// 		width: 0.9375rem;
+	// 		height: 2.25rem;
 
-// 		@include breakpoints.tablet {
-// 			padding-left: 0;
-// 			@include labelsLinksButtons;
-// 		}
+	// 		@include breakpoints.tablet {
+	// 			padding-left: 0;
+	// 			@include labelsLinksButtons;
+	// 		}
 
-// 		&-text {
-// 			display: none;
+	// 		&-text {
+	// 			display: none;
 
-// 			@include breakpoints.tablet {
-// 				display: initial;
-// 				color: $Primary-light;
-// 			}
-// 		}
-// 	}
-// }
+	// 			@include breakpoints.tablet {
+	// 				display: initial;
+	// 				color: $Primary-light;
+	// 			}
+	// 		}
+	// 	}
+	// }
 
-// .info-box {
-// 	padding: 1rem 1.5rem;
-// 	border-top: 1px solid $Secondary-light;
+	// .info-box {
+	// 	padding: 1rem 1.5rem;
+	// 	border-top: 1px solid $Secondary-light;
 
-// 	@include breakpoints.tablet {
-// 		display: flex;
-// 		justify-content: space-between;
-// 		border-top: none;
-// 		border-top: 1px solid $Secondary-light;
-// 	}
+	// 	@include breakpoints.tablet {
+	// 		display: flex;
+	// 		justify-content: space-between;
+	// 		border-top: none;
+	// 		border-top: 1px solid $Secondary-light;
+	// 	}
 
 	// &-top {
 	// 	display: flex;
@@ -242,7 +259,7 @@
 		padding-bottom: 1.25rem;
 
 		@include breakpoints.tablet {
-			padding-right: 7.5rem;
+			// padding-right: 7.5rem;
 			padding-bottom: 0;
 		}
 		@include breakpoints.desktop {
@@ -265,7 +282,6 @@
 		@include mobileBodyMedium;
 
 		@include breakpoints.tablet {
-			padding-right: 6rem;
 			@include bodyMedium;
 		}
 		@include breakpoints.desktop {
@@ -288,15 +304,20 @@
 
 		// @include breakpoints.tablet {
 		// 	margin-right: 5.5rem;
-			
+
 		// }
 		// @include breakpoints.desktop {
 		// 	margin-right: 14rem;
 		// }
 	}
 
-	&_qty {
+	&_info {
 		@include mobileBodyMedium;
+
+		&-box {
+			display: flex;
+			flex-direction: column;
+		}
 	}
 
 	&_bottom {
