@@ -18,7 +18,6 @@ const Header = () => {
         <button className="header__button" type="text">
           <p className="header__button-txt">Warehouses</p>
         </button>
-
         <button className="header__button" type="text">
           <p className="header__button-txt">Inventory</p>
         </button>
