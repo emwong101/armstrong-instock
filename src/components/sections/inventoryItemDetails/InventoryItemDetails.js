@@ -1,8 +1,6 @@
 import React from "react";
 import Arrow from "../../../assets/Icons/arrow_back-24px.svg";
 
-import Trash from "../../../assets/Icons/delete_outline-24px.svg";
-import Edit from "../../../assets/Icons/edit-24px.svg";
 import EditWhite from "../../../assets/Icons/edit_white.svg";
 
 const inventoryItemDetails = () => {
@@ -33,12 +31,6 @@ const inventoryItemDetails = () => {
               </span>
               <span className="info-box_detail info-box_name">Electronics</span>
             </div>
-            <div className="info-box-bottom_right">
-              <span className="info-box_label info-box_label-info">
-                QUANTITY:{" "}
-              </span>
-              <span className="info-box_detail info-box_info">500</span>
-            </div>
           </div>
         </section>
         <section className="item-box">
@@ -59,10 +51,6 @@ const inventoryItemDetails = () => {
               </span>
               <span className="item-box_qty">500</span>
             </div>
-          </div>
-          <div className="item-box_bottom">
-            <img src={Trash} alt="trash" />
-            <img src={Edit} alt="trash" />
           </div>
         </section>
       </div>
