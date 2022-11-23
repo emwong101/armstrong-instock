@@ -28,7 +28,7 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
       contact_email: contactEmail.value,
     });
   };
-
+  console.log(warehouseDetails);
   const focusHandle = (event) => {
     event.target.classList.remove("show");
   };
