@@ -30,7 +30,6 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
 
     console.log(warehouseDetails);
   };
-
   return (
     <>
       <div className="warehouseForm__heading">
@@ -53,6 +52,7 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             type="text"
             placeholder="Warehouse Name"
           ></input>
+
           <label
             htmlFor="warehouseName"
             className={`hide 
