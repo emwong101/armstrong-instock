@@ -1,15 +1,73 @@
-import "../inventoryItemDetails/InventoryItemDetails.scss";
-
-//The user must be able to view the details for a specific inventory item when an item is clicked from the list view. The user must have the ability to navigate to the edit item functionality from this view. They should also be able to navigate back to the inventory list.
-
-//Create the UI and functionality for displaying the details of a specific inventory item.
-
-// Ensure this component works at and between all breakpoints and is fully responsive without any elements overlapping.
-//similar to warehouse details
 import React from "react";
+import Arrow from "../../../assets/Icons/arrow_back-24px.svg";
 
-function InventoryItemDetails() {
-  return <div>inventoryItemDetails</div>;
-}
+import Trash from "../../../assets/Icons/delete_outline-24px.svg";
+import Edit from "../../../assets/Icons/edit-24px.svg";
+import EditWhite from "../../../assets/Icons/edit_white.svg";
 
-export default InventoryItemDetails;
+const inventoryItemDetails = () => {
+  return (
+    <>
+      <div className="wd-container">
+        <section className="title-box">
+          <div className="title-box-left">
+            <img className="title-box_arrow" src={Arrow} alt="arrow" />
+            <h1 className="title-box_title">Television</h1>
+          </div>
+          <img src={EditWhite} alt="edit" className="title-box_editing" />
+        </section>
+        <section className="info-box">
+          <div className="info-box-top">
+            <span className="info-box_label info-box_label-adress">
+              ITEM DESCRIPTION:
+            </span>
+            <span className="info-box_detail info-box_address">
+              This 50", 4K LED TV provides a crystal-clear picture and vivid
+              colors.
+            </span>
+          </div>
+          <div className="info-box-bottom">
+            <div className="info-box-bottom_left">
+              <span className="info-box_label info-box_label-name">
+                Category:{" "}
+              </span>
+              <span className="info-box_detail info-box_name">Electronics</span>
+            </div>
+            <div className="info-box-bottom_right">
+              <span className="info-box_label info-box_label-info">
+                QUANTITY:{" "}
+              </span>
+              <span className="info-box_detail info-box_info">500</span>
+            </div>
+          </div>
+        </section>
+        <section className="item-box">
+          <div className="item-box-top">
+            <div className="item-box-top_left">
+              <span className="item-box_label item-box_label-item">
+                STATUS:
+              </span>
+              <span className="item-box_status">in stock</span>
+              <span className="item-box_label item-box_label-category">
+                Warehouse
+              </span>
+              <span className="item-box_category">Manhattan</span>
+            </div>
+            <div className="item-box-top_right">
+              <span className="item-box_label item-box_label-status">
+                QUANTITY:
+              </span>
+              <span className="item-box_qty">500</span>
+            </div>
+          </div>
+          <div className="item-box_bottom">
+            <img src={Trash} alt="trash" />
+            <img src={Edit} alt="trash" />
+          </div>
+        </section>
+      </div>
+    </>
+  );
+};
+
+export default inventoryItemDetails;
