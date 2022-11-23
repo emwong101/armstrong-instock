@@ -32,7 +32,6 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
   const focusHandle = (event) => {
     event.target.classList.remove("show");
   };
-
   return (
     <>
       <div className="warehouseForm__heading">
@@ -48,6 +47,7 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             Warehouse Name
           </label>
           <input
+
             className={`warehouseForm__input ${
               warehouseDetails?.warehouse_name !== "" ? "" : "error"
             }`}
@@ -55,6 +55,7 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             type="text"
             placeholder="Warehouse Name"
           ></input>
+
           <label
             onFocus={focusHandle}
             htmlFor="warehouseName"
