@@ -4,15 +4,17 @@ import Footer from "./components/sections/footer/Footer";
 import AddWarehouse from "./components/sections/addWarehouse/AddWarehouse";
 import { WarehouseDetailsComponent } from "./components/sections/warehouseDetails/WarehouseDetailsComponent";
 import EditInventoryItem from "./components/sections/editInventoryItem/EditInventoryItem";
+import EditWarehouse from "./components/sections/editWarehouse/EditWarehouse";
 
 function App() {
   return (
     <div className="main">
       <Header />
       <div className="components">
-        <WarehouseDetailsComponent />
-        <EditInventoryItem />
+        {/* <WarehouseDetailsComponent />
+        <EditInventoryItem /> */}
         <AddWarehouse />
+        <EditWarehouse />
       </div>
       <div className="footer">
         <Footer />
