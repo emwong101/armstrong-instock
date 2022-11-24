@@ -5,7 +5,6 @@ import AddWarehouse from "./components/sections/addWarehouse/AddWarehouse";
 import { WarehouseDetailsComponent } from "./components/sections/warehouseDetails/WarehouseDetailsComponent";
 import EditInventoryItem from "./components/sections/editInventoryItem/EditInventoryItem";
 import { WarehouseList } from "./components/sections/warehouseList/WarehouseList";
-import DeleteWarehouses from "./components/deleteWarehouses/DeleteWarehouses";
 
 function App() {
   return (
@@ -15,7 +14,7 @@ function App() {
         <WarehouseDetailsComponent />
         <EditInventoryItem />
         <AddWarehouse />
-        <DeleteWarehouses />
+        <WarehouseList />
       </div>
       <div className="footer">
         <Footer />
