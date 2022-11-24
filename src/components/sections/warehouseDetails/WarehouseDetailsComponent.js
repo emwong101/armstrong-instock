@@ -10,8 +10,21 @@ import TagTopBottom from "../../../assets/Icons/tags_top_bottom.svg";
 import "./WarehouseDetailsComponent.scss";
 
 export const WarehouseDetailsComponent = () => {
-	const [details, setDetails] = useState();
 	// const params = useParams();
+	const [details, setDetails] = useState();
+	const [warehouse, setWarehouse] = useState([]);
+
+	useEffect(() => {
+		const fetchWarehouse = async () => {
+			const { data } = await axios.get(
+				`http://localhost:5050/warehouse/2922c286-16cd-4d43-ab98-c79f698aeab0`
+			);
+			setWarehouse(data);
+			console.log(data);
+		};
+		fetchWarehouse();
+	}, []);
+
 	useEffect(() => {
 		const fetchinventries = async () => {
 			const { data } = await axios.get(
@@ -36,7 +49,7 @@ export const WarehouseDetailsComponent = () => {
 							src={Arrow}
 							alt="arrow"
 						/>
-						<h1 className="title-box_title">Washington</h1>
+						<h1 className="title-box_title">{warehouse.city}</h1>
 					</div>
 					<div className="title-box-right">
 						<img
@@ -47,13 +60,14 @@ export const WarehouseDetailsComponent = () => {
 						<span className="title-box_editing-text">Edit</span>
 					</div>
 				</section>
+
 				<section className="info-box">
 					<div className="info-box-top">
 						<span className="info-box_label info-box_label-adress">
 							warehouse address:
 						</span>
 						<span className="info-box_detail info-box_address">
-							33 Pearl Street SW, Washington, USA
+							{warehouse.address}, {warehouse.city}, {warehouse.country}
 						</span>
 					</div>
 					<div className="info-box-bottom">
@@ -61,9 +75,11 @@ export const WarehouseDetailsComponent = () => {
 							<span className="info-box_label info-box_label-name">
 								Contact name:{" "}
 							</span>
-							<span className="info-box_detail info-box_name">Graeme Lyon</span>
 							<span className="info-box_detail info-box_name">
-								Warehouse Manager
+								{warehouse.contact_name}
+							</span>
+							<span className="info-box_detail info-box_name">
+								{warehouse.contact_position}
 							</span>
 						</div>
 						<div className="info-box-bottom_right">
@@ -71,14 +87,15 @@ export const WarehouseDetailsComponent = () => {
 								Contact information:{" "}
 							</span>
 							<span className="info-box_detail info-box_info">
-								+1 (647) 504-0911
+								{warehouse.contact_phone}
 							</span>
 							<span className="info-box_detail info-box_info">
-								glyon@instock.com
+								{warehouse.contact_email}
 							</span>
 						</div>
 					</div>
 				</section>
+
 				<main className="inventory-box">
 					<section className="label-box">
 						<span className="label-box_label">
@@ -118,7 +135,10 @@ export const WarehouseDetailsComponent = () => {
 
 					{details &&
 						details.map((detail) => (
-							<section className="item-box">
+							<section
+								className="item-box"
+								key={detail.id}
+							>
 								<div className="item-box-top">
 									<div className="item-box-top_left">
 										<span className="item-box_label item-box_label-item">
