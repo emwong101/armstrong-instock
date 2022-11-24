@@ -4,6 +4,7 @@ import Footer from "./components/sections/footer/Footer";
 import AddWarehouse from "./components/sections/addWarehouse/AddWarehouse";
 import { WarehouseDetailsComponent } from "./components/sections/warehouseDetails/WarehouseDetailsComponent";
 import EditInventoryItem from "./components/sections/editInventoryItem/EditInventoryItem";
+import DeleteInventoryComponent from "./components/deleteInventoryComponent/DeleteInventoryComponent";
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         <WarehouseDetailsComponent />
         <EditInventoryItem />
         <AddWarehouse />
+
+        <DeleteInventoryComponent />
       </div>
       <div className="footer">
         <Footer />
