@@ -58,7 +58,6 @@ function WarehouseForms({
             type="text"
             placeholder="Warehouse Name"
           ></input>
-
           <label
             htmlFor="warehouseName"
             className={`hide 
