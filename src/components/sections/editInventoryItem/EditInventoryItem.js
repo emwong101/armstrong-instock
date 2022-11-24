@@ -6,16 +6,22 @@ const EditInventoryItem = ({ inventoryItem, setInventoryItem }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const { itemName, itemDescription, category, status, quantity, warehouse } =
-      event.target;
+    // const {
+    //   itemName,
+    //   itemDescription,
+    //   itemCategory,
+    //   itemStatus,
+    //   itemQuantity,
+    //   warehouseId,
+    // } = event.target;
 
     setInventoryItem({
-      itemName: itemName.value,
-      itemDescription: itemDescription.value,
-      category: category.value,
-      status: status.value,
-      quatity: quantity.value,
-      warehouse: warehouse.value,
+      item_name: event.target.itemName.value,
+      description: event.target.itemDescription.value,
+      category: event.target.itemCategory.value,
+      status: event.target.itemStatus.value,
+      quantity: event.target.itemQuantity.value,
+      warehouse_id: event.target.warehouseId.value,
     });
   };
   console.log(inventoryItem);
@@ -42,7 +48,7 @@ const EditInventoryItem = ({ inventoryItem, setInventoryItem }) => {
             type="text"
             rows="1"
             cols="30"
-            placeholder="Television"
+            placeholder={inventoryItem?.item_name}
           ></textarea>
 
           <label htmlFor="descripition" className="editInventoryItem__label">
@@ -55,7 +61,7 @@ const EditInventoryItem = ({ inventoryItem, setInventoryItem }) => {
             type="text"
             rows="7"
             cols="30"
-            placeholder='This 50", 4K LED TV provides a crystal-clear picture and vivid colors. '
+            placeholder={inventoryItem?.description}
           ></textarea>
 
           <label htmlFor="category" className="editInventoryItem__label">
@@ -68,7 +74,7 @@ const EditInventoryItem = ({ inventoryItem, setInventoryItem }) => {
             type="text"
             rows="1"
             cols="30"
-            placeholder="Eletronics"
+            placeholder={inventoryItem?.category}
           ></select>
         </div>
 
@@ -87,7 +93,7 @@ const EditInventoryItem = ({ inventoryItem, setInventoryItem }) => {
                 htmlFor="inStock"
                 className="editInventoryItem__label-radio"
               >
-                In Stock
+                {inventoryItem?.status}
               </label>
             </div>
 
@@ -101,7 +107,7 @@ const EditInventoryItem = ({ inventoryItem, setInventoryItem }) => {
                 htmlFor="outOfStock"
                 className="editInventoryItem__label-radio"
               >
-                Out of Stock
+                {inventoryItem?.status}
               </label>
             </div>
           </div>
@@ -119,7 +125,7 @@ const EditInventoryItem = ({ inventoryItem, setInventoryItem }) => {
             type="text"
             rows="1"
             cols="30"
-            placeholder="0"
+            placeholder={inventoryItem?.quantity}
           ></textarea>
 
           <label htmlFor="warehouse" className="editInventoryItem__label">
@@ -132,7 +138,7 @@ const EditInventoryItem = ({ inventoryItem, setInventoryItem }) => {
             type="text"
             rows="1"
             cols="30"
-            placeholder="Manhattan"
+            placeholder={inventoryItem?.warehouse_id}
           ></select>
         </div>
 
