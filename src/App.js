@@ -1,5 +1,4 @@
-import "./App.css";
-import { useState } from "react";
+import "./App.scss";
 import Header from "./components/sections/header/Header";
 import Footer from "./components/sections/footer/Footer";
 import AddWarehouse from "./components/sections/addWarehouse/AddWarehouse";
@@ -10,16 +9,17 @@ function App() {
 const [inventoryItem, setInventoryItem] = useState({});
 
   return (
-    <>
+    <div className="main">
       <Header />
-      <WarehouseDetailsComponent />
-      <EditInventoryItem
-        inventoryItem={inventoryItem}
-        setInventoryItem={setInventoryItem}
-      />
-      <AddWarehouse />
-      <Footer />
-    </>
+      <div className="components">
+        <WarehouseDetailsComponent />
+        <EditInventoryItem />
+        <AddWarehouse />
+      </div>
+      <div className="footer">
+        <Footer />
+      </div>
+    </div>
   );
 }
 export default App;
