@@ -4,7 +4,7 @@ import "./DeleteWarehouseButton.scss";
 import closeButton from "../../../assets/Icons/close-24px.svg";
 import Trash from "../../../assets/Icons/delete_outline-24px.svg";
 
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
+//Accessibility if needed- Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement("#root");
 
 const DeleteWarehouseButton = ({ warehouse, onDeleteWarehouse = () => {} }) => {
