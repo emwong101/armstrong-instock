@@ -8,7 +8,7 @@ import Trash from "../../../assets/Icons/delete_outline-24px.svg";
 Modal.setAppElement("#root");
 
 const DeleteWarehouseButton = ({ warehouse, onDeleteWarehouse = () => {} }) => {
-  const { id, warehouse_name = "Washington" } = warehouse;
+  const { warehouse_name = "Washington" } = warehouse;
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -21,7 +21,7 @@ const DeleteWarehouseButton = ({ warehouse, onDeleteWarehouse = () => {} }) => {
 
   function deleteWarehouse() {
     setIsOpen(false);
-    onDeleteWarehouse(id);
+    onDeleteWarehouse();
   }
 
   return (
