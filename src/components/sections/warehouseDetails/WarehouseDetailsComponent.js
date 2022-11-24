@@ -20,7 +20,7 @@ export const WarehouseDetailsComponent = () => {
 				`http://localhost:5050/warehouse/2922c286-16cd-4d43-ab98-c79f698aeab0`
 			);
 			setWarehouse(data);
-			console.log(data);
+			console.log("warehouse", data);
 		};
 		fetchWarehouse();
 	}, []);
@@ -31,9 +31,8 @@ export const WarehouseDetailsComponent = () => {
 				`http://localhost:5050/warehouse/2922c286-16cd-4d43-ab98-c79f698aeab0/inventories`
 			);
 
-			console.log(data);
+			console.log("inventory", data);
 			setDetails(data);
-			// console.log(params.id);
 		};
 		fetchinventries();
 	}, []);
@@ -134,54 +133,67 @@ export const WarehouseDetailsComponent = () => {
 					</section>
 
 					{details &&
-						details.map((detail) => (
-							<section
-								className="item-box"
-								key={detail.id}
-							>
-								<div className="item-box-top">
-									<div className="item-box-top_left">
-										<span className="item-box_label item-box_label-item">
-											inventory item
-										</span>
-										<div className="item-box_name-box">
-											<span className="item-box_name">{detail.item_name}</span>
-											<img
-												src={Chevron}
-												alt="closing tag"
-											/>
-										</div>
-										<span className="item-box_label item-box_label-category">
-											category
-										</span>
-										<span className="item-box_category">{detail.category}</span>
-									</div>
-									<div className="item-box-top_right">
-										<span className="item-box_label item-box_label-status">
-											status
-										</span>
-										<span className="item-box_status">{detail.status}</span>
+						details.map((detail) => {
+							let statusBgClass = "";
+							if (detail.status === "Out of Stock") {
+								statusBgClass = "redBG";
+							}
 
-										<span className="item-box_label item-box_label-qty">
-											QTY
-										</span>
-										<span className="item-box_qty">{detail.quantity}</span>
+							return (
+								<section
+									className="item-box"
+									key={detail.id}
+								>
+									<div className="item-box-top">
+										<div className="item-box-top_left">
+											<span className="item-box_label item-box_label-item">
+												inventory item
+											</span>
+											<div className="item-box_name-box">
+												<span className="item-box_name">
+													{detail.item_name}
+												</span>
+												<img
+													src={Chevron}
+													alt="closing tag"
+												/>
+											</div>
+											<span className="item-box_label item-box_label-category">
+												category
+											</span>
+											<span className="item-box_category">
+												{detail.category}
+											</span>
+										</div>
+										<div className="item-box-top_right">
+											<span className="item-box_label item-box_label-status">
+												status
+											</span>
+											<span className={`item-box_status ${statusBgClass}`}>
+												{detail.status}
+											</span>
+
+											<span className="item-box_label item-box_label-qty">
+												QTY
+											</span>
+											<span className="item-box_qty">{detail.quantity}</span>
+										</div>
 									</div>
-								</div>
-								<div className="item-box_bottom">
-									<img
-										className="item-box_bottom-icon"
-										src={Trash}
-										alt="trash"
-									/>
-									<img
-										className="item-box_bottom-icon"
-										src={Edit}
-										alt="trash"
-									/>
-								</div>
-							</section>
-						))}
+									<div className="item-box_bottom">
+										<img
+											className="item-box_bottom-icon"
+											src={Trash}
+											alt="trash"
+										/>
+										<img
+											className="item-box_bottom-icon"
+											src={Edit}
+											alt="trash"
+										/>
+									</div>
+								</section>
+							);
+						})}
 				</main>
 			</div>
 		</>
