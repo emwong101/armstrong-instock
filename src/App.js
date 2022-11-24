@@ -7,18 +7,19 @@ import EditInventoryItem from "./components/sections/editInventoryItem/EditInven
 import { WarehouseList } from "./components/sections/warehouseList/WarehouseList";
 
 function App() {
-	return (
-		<div className="main">
-			<Header />
-			<div className="components">
-				<WarehouseDetailsComponent />
-				<EditInventoryItem />
-				<AddWarehouse />
-			</div>
-			<div className="footer">
-				<Footer />
-			</div>
-		</div>
-	);
+  return (
+    <div className="main">
+      <Header />
+      <div className="components">
+        <WarehouseDetailsComponent />
+        <EditInventoryItem />
+        <AddWarehouse />
+        <WarehouseList />
+      </div>
+      <div className="footer">
+        <Footer />
+      </div>
+    </div>
+  );
 }
 export default App;
