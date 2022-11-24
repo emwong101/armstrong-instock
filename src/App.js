@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import Header from "./components/sections/header/Header";
 import Footer from "./components/sections/footer/Footer";
 import AddWarehouse from "./components/sections/addWarehouse/AddWarehouse";
@@ -7,15 +7,18 @@ import EditInventoryItem from "./components/sections/editInventoryItem/EditInven
 import { WarehouseList } from "./components/sections/warehouseList/WarehouseList";
 
 function App() {
-	return (
-		<>
-			<Header />
-			<WarehouseDetailsComponent />
-			<EditInventoryItem />
-			<AddWarehouse />
-			<WarehouseList />
-			<Footer />
-		</>
-	);
+  return (
+    <div className="main">
+      <Header />
+      <div className="components">
+        <WarehouseDetailsComponent />
+        <EditInventoryItem />
+        <AddWarehouse />
+      </div>
+      <div className="footer">
+        <Footer />
+      </div>
+    </div>
+  );
 }
 export default App;
