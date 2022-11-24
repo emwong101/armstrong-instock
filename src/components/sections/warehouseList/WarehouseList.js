@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import Edit from "../../../assets/Icons/edit-24px.svg";
 import Search from "../../../assets/Icons/search-24px.svg";
@@ -7,29 +7,31 @@ import TagTopBottom from "../../../assets/Icons/tags_top_bottom.svg";
 import DeleteWarehouseButton from "../../atoms/deleteWarehouseButton/DeleteWarehouseButton";
 import "./WarehouseList.scss";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:8080";
+
 export const WarehouseList = () => {
   const [warehouses, setWarehouses] = useState([]);
+
+  const fetchWarehouses = useCallback(async () => {
+    const { data } = await axios.get(`${BASE_URL}/warehouse`);
+    setWarehouses(data);
+    // setVideos(data.filter((video) => video.id !== videoId));
+    console.log(data);
+  }, []);
 
   const deleteWarehouse = async (id) => {
     return axios({
       method: "delete",
       url: `/warehouse/${id}`,
-      baseURL: "http://localhost:5050/",
+      baseURL: BASE_URL,
     }).then(() => {
       fetchWarehouses();
     });
   };
 
-  const fetchWarehouses = async () => {
-    const { data } = await axios.get(`http://localhost:5050/warehouse`);
-    setWarehouses(data);
-    // setVideos(data.filter((video) => video.id !== videoId));
-    console.log(data);
-  };
-
   useEffect(() => {
     fetchWarehouses();
-  }, []);
+  }, [fetchWarehouses]);
   return (
     <>
       <div className="wd-container">
