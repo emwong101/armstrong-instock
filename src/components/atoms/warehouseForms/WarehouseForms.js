@@ -52,7 +52,6 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             type="text"
             placeholder="Warehouse Name"
           ></input>
-
           <label
             htmlFor="warehouseName"
             className={`hide 
