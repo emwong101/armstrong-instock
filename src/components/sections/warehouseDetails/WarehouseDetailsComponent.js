@@ -41,22 +41,22 @@ export const WarehouseDetailsComponent = () => {
 	return (
 		<>
 			<div className="wd-container">
-				<section className="title-box">
-					<div className="title-box-left">
+				<section className="header-box">
+					<div className="header-box-top">
 						<img
-							className="title-box_arrow"
+							className="header-box_arrow"
 							src={Arrow}
 							alt="arrow"
 						/>
-						<h1 className="title-box_title">{warehouse.city}</h1>
+						<h1 className="header-box_header">{warehouse.city}</h1>
 					</div>
-					<div className="title-box-right">
+					<div className="header-box-bottom">
 						<img
 							src={EditWhite}
 							alt="edit"
-							className="title-box_editing"
+							className="header-box_editing"
 						/>
-						<span className="title-box_editing-text">Edit</span>
+						<span className="header-box_editing-text">Edit</span>
 					</div>
 				</section>
 
