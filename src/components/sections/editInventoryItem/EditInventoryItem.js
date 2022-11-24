@@ -2,7 +2,24 @@ import "./EditInventoryItem.scss";
 import React from "react";
 import ArrowBack from "../../../assets/Icons/arrow_back-24px.svg";
 
-const EditInventoryItem = () => {
+const EditInventoryItem = ({ inventoryItem, setInventoryItem }) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const { itemName, itemDescription, category, status, quantity, warehouse } =
+      event.target;
+
+    setInventoryItem({
+      itemName: itemName.value,
+      itemDescription: itemDescription.value,
+      category: category.value,
+      status: status.value,
+      quatity: quantity.value,
+      warehouse: warehouse.value,
+    });
+  };
+  console.log(inventoryItem);
+
   return (
     <div className="editInventoryItem">
       <div className="editInventoryItem__caption">
@@ -12,7 +29,7 @@ const EditInventoryItem = () => {
         <h1 className="editInventoryItem__title">Edit Inventory Item</h1>
       </div>
 
-      <form className="editInventoryItem__form">
+      <form className="editInventoryItem__form" onSubmit={handleSubmit}>
         <div className="itemDetail">
           <h3 className="editInventoryItem__subtitle">Item Details</h3>
           <label htmlFor="itemName" className="editInventoryItem__label">
@@ -45,14 +62,14 @@ const EditInventoryItem = () => {
             Category
           </label>
 
-          <textarea
-            className="editInventoryItem__input"
+          <select
+            className="editInventoryItem__input-select"
             id="category"
             type="text"
             rows="1"
             cols="30"
             placeholder="Eletronics"
-          ></textarea>
+          ></select>
         </div>
 
         <div className="itemAvailability">
@@ -109,14 +126,14 @@ const EditInventoryItem = () => {
             Warehouse
           </label>
 
-          <textarea
-            className="editInventoryItem__input"
+          <select
+            className="editInventoryItem__input-select"
             id="warehouse"
             type="text"
             rows="1"
             cols="30"
             placeholder="Manhattan"
-          ></textarea>
+          ></select>
         </div>
 
         <div className="editInventoryItem__button">

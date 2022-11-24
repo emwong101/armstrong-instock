@@ -77,11 +77,23 @@
     display: none;
   }
 
-  &__input {
+  &__input, &__input-select {
     height: 2.25rem;
   }
 
-  &__input,
+  &__input-select {
+    appearance: none;
+    background: url(../../../assets/Icons/arrow_drop_down-24px.svg);
+     background-repeat: no-repeat;
+      background-position-y: center;
+      background-position-x: 14.5rem;
+      &:active {
+        color:$Primary-medium ;
+      }
+      // background-size: 1.5rem;
+  }
+
+  &__input, &__input-select,
   &__input-description {
     border-radius: 20px;
     border: 1px solid $Secondary-light;
