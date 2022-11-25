@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import Trash from "../../../assets/Icons/delete_outline-24px.svg";
 import Edit from "../../../assets/Icons/edit-24px.svg";
@@ -7,6 +7,7 @@ import Search from "../../../assets/Icons/search-24px.svg";
 import TagTopBottom from "../../../assets/Icons/tags_top_bottom.svg";
 import { Link } from "react-router-dom";
 import "./InventoryList.scss";
+import DeleteInventoryButton from "../../atoms/deleteInventoryComponent/DeleteInventoryButton";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:8080";
 
@@ -17,14 +18,34 @@ export const InventoryList = ({
   setShowDetails,
 }) => {
   const [inventories, setInventories] = useState([]);
+  //change here?
+  const fetchInventories = useCallback(async () => {
+    const { data } = await axios.get(`${BASE_URL}/inventory`);
+    setInventories(data);
+    // setVideos(data.filter((video) => video.id !== videoId));
+  }, []);
+
+  // useEffect(() => {
+  //   const fetchInventories = async () => {
+  //     const { data } = await axios.get(`${BASE_URL}/inventory`);
+  //     setInventories(data);
+  //   };
+  //   fetchInventories();
+  // }, []);
+
+  const deleteInventory = async (id) => {
+    return axios({
+      method: "delete",
+      url: `/inventory/${id}`,
+      baseURL: BASE_URL,
+    }).then(() => {
+      fetchInventories();
+    });
+  };
 
   useEffect(() => {
-    const fetchInventories = async () => {
-      const { data } = await axios.get(`${BASE_URL}/inventory`);
-      setInventories(data);
-    };
     fetchInventories();
-  }, []);
+  }, [fetchInventories]);
 
   return (
     <>
@@ -152,10 +173,9 @@ export const InventoryList = ({
                     </div>
                   </div>
                   <div className="inventory-list_item-bottom">
-                    <img
-                      className="inventory-list_item-bottom-icon"
-                      src={Trash}
-                      alt="trash"
+                    <DeleteInventoryButton
+                      item={item}
+                      onDeleteInventory={() => deleteInventory(item.id)}
                     />
                     <Link
                       to={`/inventory/${item.id}`}

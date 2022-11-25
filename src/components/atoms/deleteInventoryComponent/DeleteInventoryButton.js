@@ -1,14 +1,13 @@
 import React, { useState } from "react";
+import ReactDOM from "react-dom";
 import Modal from "react-modal";
-import "./DeleteWarehouseButton.scss";
 import closeButton from "../../../assets/Icons/close-24px.svg";
 import Trash from "../../../assets/Icons/delete_outline-24px.svg";
 
-//Accessibility if needed- Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement("#root");
+Modal.setAppElement("#root"); //whatisroot
 
-const DeleteWarehouseButton = ({ warehouse, onDeleteWarehouse = () => {} }) => {
-  const { warehouse_name = "Washington" } = warehouse;
+const DeleteInventoryButton = ({ item, onDeleteInventory = () => {} }) => {
+  const { item_name = "blah" } = item;
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -19,9 +18,9 @@ const DeleteWarehouseButton = ({ warehouse, onDeleteWarehouse = () => {} }) => {
     setIsOpen(false);
   }
 
-  function deleteWarehouse() {
+  function deleteItem() {
     setIsOpen(false);
-    onDeleteWarehouse();
+    onDeleteInventory();
   }
 
   return (
@@ -37,25 +36,27 @@ const DeleteWarehouseButton = ({ warehouse, onDeleteWarehouse = () => {} }) => {
         //onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         //style={customStyles}
-        contentLabel="Delete Warehouse"
+        contentLabel="Delete Inventory"
       >
-        <div className="delete-w">
+        <div className="delete">
           <img
             src={closeButton}
             className="delete-w__x-button"
             alt="close button"
             onClick={closeModal}
           />
-          <h1 className="delete-w__title">{`Delete ${warehouse_name} warehouse?`}</h1>
-          <p className="delete-w__details">
-            {`Please confirm that you'd like to delete the ${warehouse_name} from the
-            list of warehouses. you won't be able to undo this action.`}
+          <h1 className="delete__title">
+            {`Delete ${item_name}inventory item?`}{" "}
+          </h1>
+          <p className="delete__details">
+            Please confirm that you'd like to delete Television//add item_name
+            from the inventory list. You won't be able to undo this action.
           </p>
-          <div className="delete-w__button-container">
+          <div className="delete__button-container">
             <button className="delete-w__cancel-btn" onClick={closeModal}>
               cancel
             </button>
-            <button className="delete-w__delete-btn" onClick={deleteWarehouse}>
+            <button className="delete-w__delete-btn" onClick={deleteItem}>
               delete
             </button>
           </div>
@@ -66,4 +67,4 @@ const DeleteWarehouseButton = ({ warehouse, onDeleteWarehouse = () => {} }) => {
   );
 };
 
-export default DeleteWarehouseButton;
+export default DeleteInventoryButton;
