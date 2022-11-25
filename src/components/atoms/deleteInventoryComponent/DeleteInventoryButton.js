@@ -46,7 +46,7 @@ const DeleteInventoryButton = ({ item, onDeleteInventory = () => {} }) => {
             onClick={closeModal}
           />
           <h1 className="delete__title">
-            {`Delete ${item_name}inventory item?`}{" "}
+            {`Delete ${item_name} inventory item?`}{" "}
           </h1>
           <p className="delete__details">
             Please confirm that you'd like to delete Television//add item_name
