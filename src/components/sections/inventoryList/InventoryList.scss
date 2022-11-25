@@ -53,6 +53,10 @@
 			height: 2.5rem;
 			position: relative;
 		}
+
+		@include breakpoints.desktop {
+			width: 20rem;
+		}
 	}
 
 	&_search {
@@ -75,6 +79,10 @@
 		position: absolute;
 		right: 0;
 		right: 3.5rem;
+
+		@include breakpoints.tablet {
+			right: 1rem;
+		}
 	}
 
 	&_button {
@@ -89,7 +97,7 @@
 
 		@include breakpoints.tablet {
 			margin-top: 0;
-			width: 9.5rem;
+			width: 7.5rem;
 		}
 
 		&-text {
@@ -116,10 +124,10 @@
 			color: $Secondary-dark;
 			text-transform: uppercase;
 		}
+	}
 
-		&_icon {
-			padding-left: 1rem;
-		}
+	&_icon {
+		padding-left: 1rem;
 	}
 }
 
@@ -130,7 +138,7 @@
 	}
 
 	@include breakpoints.desktop {
-		justify-content: space-between;
+		// justify-content: space-between;
 	}
 	&-top {
 		display: flex;
@@ -150,7 +158,7 @@
 
 			@include breakpoints.tablet {
 				flex-direction: row;
-				width: initial;
+				// width: initial;
 				align-items: center;
 			}
 		}
@@ -179,10 +187,10 @@
 			padding-bottom: 0;
 			padding-right: 0;
 		}
-		@include breakpoints.desktop {
-			padding-right: 15rem;
-			padding-bottom: 0;
-		}
+		// @include breakpoints.desktop {
+		// 	padding-bottom: 0;
+		// 	padding-right: 0;
+		// }
 	}
 
 	&-name {
@@ -203,7 +211,7 @@
 			width: 40%;
 		}
 		@include breakpoints.desktop {
-			padding-right: 13.5rem;
+			// padding-right: 13.5rem;
 		}
 	}
 
@@ -222,7 +230,7 @@
 			@include bodySmall;
 		}
 		@include breakpoints.desktop {
-			padding-right: 13.5rem;
+			// padding-right: 13.5rem;
 		}
 	}
 

@@ -8,6 +8,7 @@ import { WarehouseDetailsComponent } from "./components/sections/warehouseDetail
 import { WarehouseList } from "./components/sections/warehouseList/WarehouseList";
 import EditInventoryItem from "./components/sections/editInventoryItem/EditInventoryItem";
 import EditWarehouse from "./components/sections/editWarehouse/EditWarehouse";
+import { InventoryList } from "./components/sections/inventoryList/InventoryList";
 
 function App() {
 	const [inventoryItem, setInventoryItem] = useState({});
@@ -37,6 +38,7 @@ function App() {
 				/>
 				<AddWarehouse />
 				<WarehouseList />
+				<InventoryList />
 			</div>
 			<div className="footer">
 				<Footer />

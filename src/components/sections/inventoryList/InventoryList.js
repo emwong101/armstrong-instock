@@ -7,12 +7,14 @@ import Search from "../../../assets/Icons/search-24px.svg";
 import TagTopBottom from "../../../assets/Icons/tags_top_bottom.svg";
 import "./InventoryList.scss";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:8080";
+
 export const InventoryList = () => {
 	const [inventories, setInventories] = useState([]);
 
 	useEffect(() => {
 		const fetchInventories = async () => {
-			const { data } = await axios.get(`http://localhost:5050/inventory`);
+			const { data } = await axios.get(`${BASE_URL}/inventory`);
 			setInventories(data);
 			console.log("inventories", data);
 		};
@@ -64,7 +66,7 @@ export const InventoryList = () => {
 						<span className="inventory-list_label">
 							contact name
 							<img
-								className="label-box_icon"
+								className="inventory-list_icon"
 								src={TagTopBottom}
 								alt="tags top and bottom"
 							/>
@@ -72,7 +74,7 @@ export const InventoryList = () => {
 						<span className="label-box_label">
 							contact information
 							<img
-								className="label-box_icon"
+								className="inventory-list_icon"
 								src={TagTopBottom}
 								alt="tags top and bottom"
 							/>
