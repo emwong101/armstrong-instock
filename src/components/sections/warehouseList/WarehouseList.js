@@ -39,21 +39,21 @@ export const WarehouseList = ({
 	}, [fetchWarehouses]);
 	return (
 		<>
-			<div className="wd-container">
-				<section className="title-box">
-					<div className="title-box-left">
-						<h1 className="title-box_title">Warehouses</h1>
+			<div className="wh-container">
+				<section className="title-container">
+					<div className="title-container-left">
+						<h1 className="title-container_title">Warehouses</h1>
 					</div>
-					<div className="title-box-right">
+					<div className="title-container-right">
 						<input
 							type="text"
-							className="title-box_search"
+							className="title-container_search"
 							placeholder="Search..."
 						/>
 						<img
 							src={Search}
 							alt="search icon"
-							className="title-box_icon"
+							className="title-container_icon"
 						/>
 					</div>
 					<Link
@@ -63,56 +63,58 @@ export const WarehouseList = ({
 							setShowList(false);
 						}}
 					>
-						<div className="title-box_button">
-							<span className="title-box_button-text">+ Add New Warehouse</span>
+						<div className="title-container_button">
+							<span className="title-container_button-text">
+								+ Add New Warehouse
+							</span>
 						</div>
 					</Link>
 				</section>
 
-				<main className="inventory-box">
-					<section className="label-box">
-						<span className="label-box_label">
+				<main className="warehouse-list_box">
+					<section className="warehouse-list_label-box">
+						<span className="warehouse-list_label">
 							warehouse
 							<img
-								className="label-box_icon"
+								className="warehouse-list_icon"
 								src={TagTopBottom}
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="label-box_label">
+						<span className="warehouse-list_label">
 							address
 							<img
-								className="label-box_icon"
+								className="warehouse-list_icon"
 								src={TagTopBottom}
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="label-box_label">
+						<span className="warehouse-list_label">
 							contact name
 							<img
-								className="label-box_icon"
+								className="warehouse-list_icon"
 								src={TagTopBottom}
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="label-box_label">
+						<span className="warehouse-list_label">
 							contact information
 							<img
-								className="label-box_icon"
+								className="warehouse-list_icon"
 								src={TagTopBottom}
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="label-box_label">actions</span>
+						<span className="warehouse-list_label">actions</span>
 					</section>
 					{warehouses.map((warehouse) => (
 						<section
-							className="item-box"
+							className="warehouse-item"
 							key={warehouse.id}
 						>
-							<div className="item-box-top">
-								<div className="item-box-top_left">
-									<span className="item-box_label item-box_label-item">
+							<div className="warehouse-item_top">
+								<div className="warehouse-item_top-left">
+									<span className="warehouse-item_label warehouse-item_label-item">
 										warehouse
 									</span>
 									<Link
@@ -122,8 +124,8 @@ export const WarehouseList = ({
 											setShowList(false);
 										}}
 									>
-										<div className="item-box_name-box">
-											<span className="item-box_name">
+										<div className="warehouse-item_name-box">
+											<span className="warehouse-item_name">
 												{warehouse.warehouse_name}
 											</span>
 											<img
@@ -132,35 +134,35 @@ export const WarehouseList = ({
 											/>
 										</div>
 									</Link>
-									<span className="item-box_label item-box_label-category">
+									<span className="warehouse-item_label warehouse-item_label-category">
 										adress
 									</span>
-									<span className="item-box_adress">
+									<span className="warehouse-item_adress">
 										{warehouse.address}, {warehouse.city}, {warehouse.country}
 									</span>
 								</div>
-								<div className="item-box-top_right">
-									<span className="item-box_label item-box_label-contact">
+								<div className="warehouse-item_top-right">
+									<span className="warehouse-item_label warehouse-item_label-contact">
 										contact name
 									</span>
-									<span className="item-box_contact">
+									<span className="warehouse-item_contact">
 										{warehouse.contact_name}
 									</span>
 
-									<span className="item-box_label item-box_label-qty">
+									<span className="warehouse-item_label warehouse-item_label-qty">
 										contact information
 									</span>
-									<div className="item-box_info-box">
-										<span className="item-box_info">
+									<div className="warehouse-item_info-box">
+										<span className="warehouse-item_info">
 											{warehouse.contact_phone}
 										</span>
-										<span className="item-box_info">
+										<span className="warehouse-item_info">
 											{warehouse.contact_email}
 										</span>
 									</div>
 								</div>
 							</div>
-							<div className="item-box_bottom">
+							<div className="warehouse-item_bottom">
 								<DeleteWarehouseButton
 									warehouse={warehouse}
 									onDeleteWarehouse={() => deleteWarehouse(warehouse.id)}
@@ -173,7 +175,7 @@ export const WarehouseList = ({
 									}}
 								>
 									<img
-										className="item-box_bottom-icon"
+										className="warehouse-item_bottom-icon"
 										src={Edit}
 										alt="edit"
 									/>
