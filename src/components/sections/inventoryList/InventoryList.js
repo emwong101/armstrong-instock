@@ -104,6 +104,7 @@ export const InventoryList = ({
 								statusBgRed = "redBG";
 							}
 
+
 							return (
 								<section
 									className="inventory-list_item"
@@ -114,7 +115,11 @@ export const InventoryList = ({
 											<span className="inventory-list_item-label inventory-list_item-label-item">
 												invenotory item
 											</span>
-											<Link>
+											<Link  to={`/inventory/${item.id}`}
+                        onClick={() => {
+                          setShowDetails(true);
+                          setShowList(false);
+                        }}>
 												<div className="inventory-list_item-name-box">
 													<span className="inventory-list_item-name">
 														{item.item_name}
@@ -139,6 +144,7 @@ export const InventoryList = ({
 											>
 												{item.status}
 											</span>
+
 
 											<span className="inventory-list_item-label inventory-list_item-label-qty">
 												qty
