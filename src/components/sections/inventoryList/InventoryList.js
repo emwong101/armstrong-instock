@@ -5,18 +5,23 @@ import Trash from "../../../assets/Icons/delete_outline-24px.svg";
 import Edit from "../../../assets/Icons/edit-24px.svg";
 import Search from "../../../assets/Icons/search-24px.svg";
 import TagTopBottom from "../../../assets/Icons/tags_top_bottom.svg";
+import { Link } from "react-router-dom";
 import "./InventoryList.scss";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:8080";
 
-export const InventoryList = () => {
+export const InventoryList = ({
+	setDisplayAdd,
+	setDisplayEdit,
+	setShowList,
+	setShowDetails,
+}) => {
 	const [inventories, setInventories] = useState([]);
 
 	useEffect(() => {
 		const fetchInventories = async () => {
 			const { data } = await axios.get(`${BASE_URL}/inventory`);
 			setInventories(data);
-			console.log("inventories", data);
 		};
 		fetchInventories();
 	}, []);
@@ -40,9 +45,19 @@ export const InventoryList = () => {
 							className="title-inventory_icon"
 						/>
 					</div>
-					<div className="title-inventory_button">
-						<span className="title-inventory_button-text">+ Add New Item</span>
-					</div>
+					<Link
+						to="/inventory"
+						onClick={() => {
+							setDisplayAdd(true);
+							setShowList(false);
+						}}
+					>
+						<div className="title-inventory_button">
+							<span className="title-inventory_button-text">
+								+ Add New Item
+							</span>
+						</div>
+					</Link>
 				</section>
 
 				<main className="inventory-list">
@@ -79,14 +94,6 @@ export const InventoryList = () => {
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="label-box_label">
-							warehouse
-							<img
-								className="inventory-list_icon"
-								src={TagTopBottom}
-								alt="tags top and bottom"
-							/>
-						</span>
 						<span className="label-box_label">actions</span>
 					</section>
 
@@ -107,15 +114,17 @@ export const InventoryList = () => {
 											<span className="inventory-list_item-label inventory-list_item-label-item">
 												invenotory item
 											</span>
-											<div className="inventory-list_item-name-box">
-												<span className="inventory-list_item-name">
-													{item.item_name}
-												</span>
-												<img
-													src={Chevron}
-													alt="closing tag"
-												/>
-											</div>
+											<Link>
+												<div className="inventory-list_item-name-box">
+													<span className="inventory-list_item-name">
+														{item.item_name}
+													</span>
+													<img
+														src={Chevron}
+														alt="closing tag"
+													/>
+												</div>
+											</Link>
 											<span className="inventory-list_item-label inventory-list_item-label-category">
 												category
 											</span>
@@ -154,11 +163,19 @@ export const InventoryList = () => {
 											src={Trash}
 											alt="trash"
 										/>
-										<img
-											className="inventory-list_item-bottom-icon"
-											src={Edit}
-											alt="trash"
-										/>
+										<Link
+											to={`/inventory/${item.id}`}
+											onClick={() => {
+												setDisplayEdit(true);
+												setShowList(false);
+											}}
+										>
+											<img
+												className="inventory-list_item-bottom-icon"
+												src={Edit}
+												alt="trash"
+											/>
+										</Link>
 									</div>
 								</section>
 							);
