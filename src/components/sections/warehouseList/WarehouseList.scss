@@ -48,7 +48,6 @@
 	}
 	&-right {
 		@include breakpoints.tablet {
-			// background-color: $Primary-medium;
 			width: 11.5625rem;
 			height: 2.5rem;
 			position: relative;
@@ -73,8 +72,11 @@
 
 	&_icon {
 		position: absolute;
-		right: 0;
-		right: 2.5rem;
+		right: 3.5rem;
+
+		@include breakpoints.tablet {
+			right: 1rem;
+		}
 	}
 
 	&_button {
@@ -93,7 +95,7 @@
 		}
 
 		&-text {
-			vertical-align: -webkit-baseline-middle;
+			vertical-align: middle;
 			@include mobileLabelsLinksButtons;
 		}
 	}
@@ -118,10 +120,9 @@
 			color: $Secondary-dark;
 			text-transform: uppercase;
 		}
-
-		&_icon {
-			padding-left: 1rem;
-		}
+	}
+	&_icon {
+		padding-left: 1rem;
 	}
 }
 
