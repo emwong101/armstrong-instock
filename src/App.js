@@ -7,8 +7,6 @@ import Footer from "./components/sections/footer/Footer";
 import Inventory from "./pages/Inventory";
 import Warehouse from "./pages/Warehouse";
 
-
-
 function App() {
   const [inventoryItem, setInventoryItem] = useState({});
 
@@ -33,7 +31,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/inventory" element={<Inventory />} />
-            <Route path="/warehouse" element={<Warehouse />}/>
+            <Route path="/warehouse" element={<Warehouse />} />
           </Routes>
         </BrowserRouter>
       </div>
