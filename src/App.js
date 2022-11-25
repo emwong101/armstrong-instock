@@ -6,6 +6,7 @@ import Header from "./components/sections/header/Header";
 import Footer from "./components/sections/footer/Footer";
 import Inventory from "./pages/Inventory";
 import Warehouse from "./pages/Warehouse";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [inventoryItem, setInventoryItem] = useState({});
@@ -43,6 +44,7 @@ function App() {
             }
           />
         </Routes>
+        <ToastContainer />
       </div>
 
       <div className="footer">

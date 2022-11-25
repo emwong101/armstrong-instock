@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import WarehouseForms from "../../atoms/warehouseForms/WarehouseForms";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function AddWarehouse({ setShowList, setDisplayAdd }) {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
   const [warehouseDetails, setWarehouseDetails] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     if (warehouseDetails !== null) {
       const post = async () => {
@@ -27,6 +28,11 @@ function AddWarehouse({ setShowList, setDisplayAdd }) {
             theme: "colored",
             hideProgressBar: true,
             autoClose: 1000,
+            onClose: setTimeout(() => {
+              setDisplayAdd(false);
+              setShowList(true);
+              navigate("/warehouse");
+            }, 1500),
           });
           await axios.get("http://localhost:8080/warehouse");
         } catch {
