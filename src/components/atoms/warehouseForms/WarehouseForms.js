@@ -3,7 +3,12 @@ import backArrow from "../../../assets/Icons/arrow_back-24px.svg";
 import errorIcon from "../../../assets/Icons/error-24px.svg";
 import "./WarehouseForms.scss";
 
-function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
+function WarehouseForms({
+  title,
+  setWarehouseDetails,
+  warehouseDetails,
+  fetchDetails,
+}) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const {
@@ -45,6 +50,7 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             Warehouse Name
           </label>
           <input
+            defaultValue={fetchDetails?.warehouse_name}
             className={`warehouseForm__input 
             ${warehouseDetails?.warehouse_name !== "" ? "" : "error"}
             `}
@@ -52,7 +58,6 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             type="text"
             placeholder="Warehouse Name"
           ></input>
-
           <label
             htmlFor="warehouseName"
             className={`hide 
@@ -65,6 +70,7 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             Street Address
           </label>
           <input
+            defaultValue={fetchDetails?.address}
             id="warehouseAddress"
             className={`warehouseForm__input ${
               warehouseDetails?.address !== "" ? "" : "error"
@@ -83,6 +89,7 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             City
           </label>
           <input
+            defaultValue={fetchDetails?.city}
             id="warehouseCity"
             className={`warehouseForm__input ${
               warehouseDetails?.city !== "" ? "" : "error"
@@ -101,6 +108,7 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             Country
           </label>
           <input
+            defaultValue={fetchDetails?.country}
             id="warehouseCountry"
             className={`warehouseForm__input ${
               warehouseDetails?.country !== "" ? "" : "error"
@@ -122,6 +130,7 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             Contact Name
           </label>
           <input
+            defaultValue={fetchDetails?.contact_name}
             id="contactName"
             type="text"
             className={`warehouseForm__input ${
@@ -142,6 +151,7 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             Position
           </label>
           <input
+            defaultValue={fetchDetails?.contact_position}
             htmlFor="contactPosition"
             id="contactPosition"
             type="text"
@@ -163,6 +173,7 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             Phone Number
           </label>
           <input
+            defaultValue={fetchDetails?.contact_phone}
             id="contactPhone"
             type="text"
             className={`warehouseForm__input ${
@@ -183,6 +194,7 @@ function WarehouseForms({ title, setWarehouseDetails, warehouseDetails }) {
             Email
           </label>
           <input
+            defaultValue={fetchDetails?.contact_email}
             id="contactEmail"
             type="text"
             className={`warehouseForm__input ${

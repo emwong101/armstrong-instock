@@ -2,8 +2,10 @@
 @use "../../../styles/partials/colors" as *;
 @use "../../../styles/partials/fonts" as *;
 
-// Edit Inventory Item for Mobile
-.editInventoryItem {
+
+
+// Add New Inventory Item for Mobile
+.addInventoryItem {
   &__caption {
     display: flex;
     border-bottom: 1px solid $Secondary-light;
@@ -33,29 +35,28 @@
     flex-direction: column;
   }
 
-  &__label,
-  &__label-radio,
-  &__status {
+  &__label, &__label-radio, &__status {
     font-weight: 600;
     font-size: 0.815rem;
     padding-bottom: 0.25rem;
     line-height: 1.25rem;
   }
 
-  &__label-radio {
+   &__label-radio {
     align-self: center;
-    color: $Secondary-dark;
-    &:active {
-      color: $Primary-dark;
-    }
-  }
+     color: $Secondary-dark;
+     &:active {
+        color: $Primary-dark;
+     }
+   }
   .outOfStock {
     padding-right: 3rem;
   }
 
   input[type="radio"] {
-    margin-right: 0.5rem;
-  }
+  margin-right: .5rem;
+ 
+}
 
   &__status {
     margin: 0;
@@ -76,24 +77,11 @@
     display: none;
   }
 
-  &__input,
-  &__input-select {
+  &__input {
     height: 2.25rem;
   }
 
-  &__input-select {
-    appearance: none;
-    background: url(../../../assets/Icons/arrow_drop_down-24px.svg);
-    background-repeat: no-repeat;
-    background-position-y: center;
-    background-position-x: 10.5rem;
-    &:active {
-      color: $Primary-medium;
-    }
-  }
-
   &__input,
-  &__input-select,
   &__input-description {
     border-radius: 20px;
     border: 1px solid $Secondary-light;
@@ -116,7 +104,7 @@
   }
   .itemDetail {
     border-bottom: 1px solid $Secondary-light;
-    padding-bottom: 0.6rem;
+   padding-bottom: 0.6rem;
   }
 
   &__button {
