@@ -12,9 +12,14 @@ import InventoryItemDetails from "./components/sections/inventoryItemDetails/Inv
 import EditWarehouse from "./components/sections/editWarehouse/EditWarehouse";
 import Inventory from "./pages/Inventory";
 import Warehouse from "./pages/Warehouse";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [inventoryItem, setInventoryItem] = useState({});
+  const [displayAdd, setDisplayAdd] = useState(false);
+  const [displayEdit, setDisplayEdit] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
+  const [showList, setShowList] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,25 +37,22 @@ function App() {
 
   return (
     <div className="main">
-      <Header />
-      <div className="components">
-        <Routes>
-          <Route path="/" element={<Warehouse />} />
-          <Route path="/inventory" element={<Inventory />} />
-          <Route path="/inventory/:inventoryID" element={<Inventory />} />
-          <Route path="/warehouse" element={<Warehouse />} />
-          <Route path="warehouse/:warehouseID" element={<Warehouse />} />
-          <Route
-            path="*"
-            element={
-              <>
-                <h1>Page not found</h1>
-              </>
-            }
-          />
-        </Routes>
-      </div>
-
+      <Routes>
+        <Route path="/" element={<Warehouse />} />
+        <Route path="/inventory" element={<Inventory />} />
+        <Route path="/inventory/:inventoryID" element={<Inventory />} />
+        <Route path="/warehouse" element={<Warehouse />} />
+        <Route path="warehouse/:warehouseID" element={<Warehouse />} />
+        <Route
+          path="*"
+          element={
+            <>
+              <h1>Page not found</h1>
+            </>
+          }
+        />
+      </Routes>
+      <ToastContainer />
       <div className="footer">
         <Footer />
       </div>

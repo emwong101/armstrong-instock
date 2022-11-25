@@ -11,6 +11,7 @@ function WarehouseForms({
   fetchDetails,
   back,
   nav,
+  submit,
 }) {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,8 +36,6 @@ function WarehouseForms({
       contact_phone: contactPhone.value,
       contact_email: contactEmail.value,
     });
-
-    console.log(warehouseDetails);
   };
   return (
     <>
@@ -216,16 +215,16 @@ function WarehouseForms({
           </label>
         </div>
         <div className="warehouseForm__buttons">
-          <Link to={back} onClick={nav}>
-            <input
-              type="button"
-              value="Cancel"
-              className="warehouseForm__cancel button"
-            ></input>
+          <Link
+            to={back}
+            onClick={nav}
+            className="warehouseForm__cancel button"
+          >
+            Cancel
           </Link>
           <input
             type="submit"
-            value="+ Add Warehouse"
+            value={submit}
             className="warehouseForm__submit button"
           ></input>
         </div>
