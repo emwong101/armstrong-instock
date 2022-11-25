@@ -1,17 +1,19 @@
 import "./App.scss";
+import { Routes, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./components/sections/header/Header";
 import Footer from "./components/sections/footer/Footer";
-import AddWarehouse from "./components/sections/addWarehouse/AddWarehouse";
-import { WarehouseDetailsComponent } from "./components/sections/warehouseDetails/WarehouseDetailsComponent";
-import { WarehouseList } from "./components/sections/warehouseList/WarehouseList";
-import EditInventoryItem from "./components/sections/editInventoryItem/EditInventoryItem";
-import DeleteInventoryButton from "./components/deleteInventoryComponent/DeleteInventoryButton";
-import EditWarehouse from "./components/sections/editWarehouse/EditWarehouse";
+import Inventory from "./pages/Inventory";
+import Warehouse from "./pages/Warehouse";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [inventoryItem, setInventoryItem] = useState({});
+  const [displayAdd, setDisplayAdd] = useState(false);
+  const [displayEdit, setDisplayEdit] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
+  const [showList, setShowList] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,18 +31,22 @@ function App() {
 
   return (
     <div className="main">
-      <Header />
-      <div className="components">
-        <WarehouseDetailsComponent />
-        <EditInventoryItem
-          inventoryItem={inventoryItem}
-          setInventoryItem={setInventoryItem}
+      <Routes>
+        <Route path="/" element={<Warehouse />} />
+        <Route path="/inventory" element={<Inventory />} />
+        <Route path="/inventory/:inventoryID" element={<Inventory />} />
+        <Route path="/warehouse" element={<Warehouse />} />
+        <Route path="warehouse/:warehouseID" element={<Warehouse />} />
+        <Route
+          path="*"
+          element={
+            <>
+              <h1>Page not found</h1>
+            </>
+          }
         />
-        <AddWarehouse />
-
-        <DeleteInventoryButton />
-        <WarehouseList />
-      </div>
+      </Routes>
+      <ToastContainer />
       <div className="footer">
         <Footer />
       </div>
