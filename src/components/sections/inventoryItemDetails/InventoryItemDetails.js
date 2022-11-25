@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Arrow from "../../../assets/Icons/arrow_back-24px.svg";
 import EditWhite from "../../../assets/Icons/edit_white.svg";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:8080";
 
-const InventoryItemDetails = ({ setShowDetails, setShowList }) => {
+const InventoryItemDetails = () => {
   const { inventoryID } = useParams();
   const [inventoryItem, setInventoryItem] = useState({});
   const navigate = useNavigate();
@@ -19,23 +19,18 @@ const InventoryItemDetails = ({ setShowDetails, setShowList }) => {
 
   const { item_name, description, category, status, quantity, warehouse_name } =
     inventoryItem;
-
   return (
     <>
       <div className="wd-container">
         <section className="title-box">
           <div className="title-box-left">
             <Link
-              to="/inventory"
               onClick={() => {
                 navigate(-1);
-                setShowDetails(false);
-                setShowList(true);
               }}
             >
               <img className="title-box_arrow" src={Arrow} alt="arrow" />
             </Link>
-
             <h1 className="title-box_title">{`${item_name}`}</h1>
           </div>
           <img src={EditWhite} alt="edit" className="title-box_editing" />
