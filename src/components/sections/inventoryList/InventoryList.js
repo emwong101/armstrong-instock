@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import Trash from "../../../assets/Icons/delete_outline-24px.svg";
 import Edit from "../../../assets/Icons/edit-24px.svg";
@@ -7,19 +7,36 @@ import Search from "../../../assets/Icons/search-24px.svg";
 import TagTopBottom from "../../../assets/Icons/tags_top_bottom.svg";
 import { Link } from "react-router-dom";
 import "./InventoryList.scss";
+import DeleteInventoryButton from "../../atoms/deleteInventoryComponent/DeleteInventoryButton";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:8080";
 
-export const InventoryList = () => {
+export const InventoryList = ({
+  setDisplayAdd,
+  setDisplayEdit,
+  setShowList,
+  setShowDetails,
+}) => {
   const [inventories, setInventories] = useState([]);
 
-  useEffect(() => {
-    const fetchInventories = async () => {
-      const { data } = await axios.get(`${BASE_URL}/inventory`);
-      setInventories(data);
-    };
-    fetchInventories();
+  const fetchInventories = useCallback(async () => {
+    const { data } = await axios.get(`${BASE_URL}/inventory`);
+    setInventories(data);
   }, []);
+
+  const deleteInventory = async (id) => {
+    return axios({
+      method: "delete",
+      url: `/inventory/${id}`,
+      baseURL: BASE_URL,
+    }).then(() => {
+      fetchInventories();
+    });
+  };
+
+  useEffect(() => {
+    fetchInventories();
+  }, [fetchInventories]);
 
   return (
     <>
@@ -40,7 +57,13 @@ export const InventoryList = () => {
               className="title-inventory_icon"
             />
           </div>
-          <Link to="/inventory/add">
+          <Link
+            to="/inventory"
+            onClick={() => {
+              setDisplayAdd(true);
+              setShowList(false);
+            }}
+          >
             <div className="title-inventory_button">
               <span className="title-inventory_button-text">
                 + Add New Item
@@ -100,7 +123,13 @@ export const InventoryList = () => {
                       <span className="inventory-list_item-label inventory-list_item-label-item">
                         invenotory item
                       </span>
-                      <Link to={`/inventory/${item.id}`}>
+                      <Link
+                        to={`/inventory/${item.id}`}
+                        onClick={() => {
+                          setShowDetails(true);
+                          setShowList(false);
+                        }}
+                      >
                         <div className="inventory-list_item-name-box">
                           <span className="inventory-list_item-name">
                             {item.item_name}
@@ -123,6 +152,7 @@ export const InventoryList = () => {
                         {item.status}
                       </span>
 
+
                       <span className="inventory-list_item-label inventory-list_item-label-qty">
                         qty
                       </span>
@@ -141,12 +171,19 @@ export const InventoryList = () => {
                     </div>
                   </div>
                   <div className="inventory-list_item-bottom">
-                    <img
-                      className="inventory-list_item-bottom-icon"
-                      src={Trash}
-                      alt="trash"
+
+                    <DeleteInventoryButton
+                      item={item}
+                      onDeleteInventory={() => deleteInventory(item.id)}
                     />
-                    <Link to={`/inventory/${item.id}/edit`}>
+                    <Link
+                      to={`/inventory/${item.id}`}
+                      onClick={() => {
+                        setDisplayEdit(true);
+                        setShowList(false);
+                      }}
+                    >
+
                       <img
                         className="inventory-list_item-bottom-icon"
                         src={Edit}

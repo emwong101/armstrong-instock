@@ -4,6 +4,9 @@ import axios from "axios";
 import ArrowBack from "../../../assets/Icons/arrow_back-24px.svg";
 import { Link, useNavigate } from "react-router-dom";
 
+// const setWarehouse = () => {};
+// const warehouse = {};
+//delete before merge for it to work!!!
 const EditInventoryItem = ({
   inventoryItem,
   setInventoryItem,
