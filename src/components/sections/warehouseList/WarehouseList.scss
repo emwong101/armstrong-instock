@@ -1,0 +1,345 @@
+@use "../../../styles/partials/breakpoints" as breakpoints;
+@use "../../../styles/partials/colors" as *;
+@use "../../../styles/partials/fonts" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.wd-container {
+	display: flex;
+	flex-direction: column;
+	font-family: "Titillium-Web";
+}
+
+.title-box {
+	display: flex;
+	padding: 2rem 1.5rem 1.5rem;
+	justify-content: space-between;
+	// align-items: center;
+	flex-direction: column;
+
+	@include breakpoints.tablet {
+		flex-direction: row;
+		align-items: center;
+	}
+
+	&-left,
+	&-right {
+		display: flex;
+		justify-content: center;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+
+		@include breakpoints.tablet {
+			width: 50%;
+			text-align: start;
+		}
+	}
+
+	&_title {
+		font-size: 1rem;
+		font-family: "Titillium-Web-bold";
+		@include mobilePageHeader;
+		width: inherit;
+
+		@include breakpoints.tablet {
+			@include pageHeader;
+			width: 100%;
+		}
+	}
+	&-right {
+		@include breakpoints.tablet {
+			// background-color: $Primary-medium;
+			width: 11.5625rem;
+			height: 2.5rem;
+			position: relative;
+		}
+	}
+
+	&_search {
+		border: 1px solid $Secondary-light;
+		width: 100%;
+		border-radius: 1.25rem;
+		height: 2.25rem;
+		padding: 0 1rem;
+
+		&:hover {
+			border-color: $Primary-medium;
+		}
+
+		@include breakpoints.tablet {
+			// width: 9.875rem;
+		}
+	}
+
+	&_icon {
+		position: absolute;
+		right: 0;
+		right: 2.5rem;
+	}
+
+	&_button {
+		background-color: $Primary-medium;
+		color: $Primary-light;
+		text-align: center;
+		height: 2.25rem;
+		border-radius: 1.25rem;
+		margin-top: 1.5rem;
+		cursor: pointer;
+		width: 100%;
+
+		@include breakpoints.tablet {
+			margin-top: 0;
+			width: 9.5rem;
+		}
+
+		&-text {
+			vertical-align: -webkit-baseline-middle;
+			@include mobileLabelsLinksButtons;
+		}
+	}
+
+	// 	&_editing {
+	// 		color: $Primary-light;
+	// 		background-color: $Primary-medium;
+	// 		border-radius: 50%;
+	// 		padding: 0 0.6875rem;
+	// 		width: 0.9375rem;
+	// 		height: 2.25rem;
+
+	// 		@include breakpoints.tablet {
+	// 			padding-left: 0;
+	// 			@include labelsLinksButtons;
+	// 		}
+
+	// 		&-text {
+	// 			display: none;
+
+	// 			@include breakpoints.tablet {
+	// 				display: initial;
+	// 				color: $Primary-light;
+	// 			}
+	// 		}
+	// 	}
+	// }
+
+	// .info-box {
+	// 	padding: 1rem 1.5rem;
+	// 	border-top: 1px solid $Secondary-light;
+
+	// 	@include breakpoints.tablet {
+	// 		display: flex;
+	// 		justify-content: space-between;
+	// 		border-top: none;
+	// 		border-top: 1px solid $Secondary-light;
+	// 	}
+
+	// &-top {
+	// 	display: flex;
+	// 	flex-direction: column;
+	// 	padding-bottom: 2.25rem;
+
+	// 	@include breakpoints.tablet {
+	// 		width: 25%;
+	// 	}
+	// 	@include breakpoints.tablet {
+	// 		width: 15%;
+	// 	}
+	// }
+
+	// &_label {
+	// 	text-transform: uppercase;
+	// 	@include mobileTableHeader;
+	// 	color: $Secondary-dark;
+	// 	padding-bottom: 0.25rem;
+
+	// 	@include breakpoints.tablet {
+	// 		@include tableHeader;
+	// 	}
+	// }
+
+	// &_detail {
+	// 	@include mobileLabelsLinksButtons;
+	// 	color: $Primary-dark;
+
+	// 	@include breakpoints.tablet {
+	// 		@include bodyMedium;
+	// 	}
+	// }
+
+	// &-bottom {
+	// 	display: flex;
+	// 	justify-content: space-between;
+
+	// 	@include breakpoints.tablet {
+	// 		width: 65%;
+	// 		justify-content: space-around;
+	// 		border-left: 1px solid $Secondary-light;
+	// 	}
+
+	// 	&_left,
+	// 	&_right {
+	// 		display: flex;
+	// 		flex-direction: column;
+
+	// 		@include breakpoints.tablet {
+	// 			width: 30%;
+	// 		}
+	// 	}
+	// }
+}
+
+.inventory-box {
+	display: flex;
+	flex-direction: column;
+}
+
+.label-box {
+	display: none;
+
+	@include breakpoints.tablet {
+		display: initial;
+		display: flex;
+		padding: 1rem 1.5rem;
+		justify-content: space-between;
+		background-color: $Background-light;
+		@include bodySmall;
+		color: $Secondary-dark;
+		text-transform: uppercase;
+	}
+
+	&_icon {
+		padding-left: 1rem;
+	}
+}
+
+.item-box {
+	@include breakpoints.tablet {
+		display: flex;
+		border-top: 1px solid $Secondary-light;
+	}
+
+	@include breakpoints.desktop {
+		justify-content: space-between;
+	}
+	&-top {
+		display: flex;
+		padding: 1rem 1.5rem;
+		border-top: 1px solid $Secondary-light;
+
+		@include breakpoints.tablet {
+			width: 80%;
+			border: none;
+		}
+
+		&_left,
+		&_right {
+			display: flex;
+			flex-direction: column;
+			width: 50%;
+
+			@include breakpoints.tablet {
+				flex-direction: row;
+				width: initial;
+				align-items: center;
+			}
+		}
+	}
+
+	&_label {
+		text-transform: uppercase;
+		@include mobileTableHeader;
+		color: $Secondary-dark;
+		padding-bottom: 0.25rem;
+
+		@include breakpoints.tablet {
+			display: none;
+		}
+
+		&-qty {
+			padding-top: 1.25rem;
+		}
+	}
+
+	&_name-box {
+		display: flex;
+		padding-bottom: 1.25rem;
+
+		@include breakpoints.tablet {
+			padding-bottom: 0;
+			padding-right: 0;
+		}
+		@include breakpoints.desktop {
+			padding-right: 15rem;
+			padding-bottom: 0;
+		}
+	}
+
+	&_name {
+		@include mobileBodyMedium;
+		font-weight: 600;
+		color: $Primary-medium;
+
+		@include breakpoints.tablet {
+			@include bodyMedium;
+		}
+	}
+
+	&_adress {
+		@include mobileBodyMedium;
+
+		@include breakpoints.tablet {
+			@include bodyMedium;
+			width: 40%;
+		}
+		@include breakpoints.desktop {
+			padding-right: 13.5rem;
+		}
+	}
+
+	&_contact {
+		@include mobileBodyMedium;
+		text-transform: capitalize;
+
+		@include breakpoints.tablet {
+			// padding-right: 6rem;
+			@include bodyMedium;
+		}
+		@include breakpoints.desktop {
+			padding-right: 13.5rem;
+		}
+		// font-weight: 600;
+
+		// @include breakpoints.tablet {
+		// 	margin-right: 5.5rem;
+
+		// }
+		// @include breakpoints.desktop {
+		// 	margin-right: 14rem;
+		// }
+	}
+
+	&_info {
+		@include mobileBodyMedium;
+
+		&-box {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	&_bottom {
+		padding: 0 1.5rem 1.5rem;
+		display: flex;
+		justify-content: space-between;
+
+		@include breakpoints.tablet {
+			padding: 1.25rem;
+			@include bodyMedium;
+		}
+
+		&-icon {
+			padding: 0 0.5rem;
+			cursor: pointer;
+		}
+	}
+}

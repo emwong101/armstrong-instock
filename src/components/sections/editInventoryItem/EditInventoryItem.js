@@ -2,7 +2,30 @@ import "./EditInventoryItem.scss";
 import React from "react";
 import ArrowBack from "../../../assets/Icons/arrow_back-24px.svg";
 
-const EditInventoryItem = () => {
+const EditInventoryItem = ({ inventoryItem, setInventoryItem }) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // const {
+    //   itemName,
+    //   itemDescription,
+    //   itemCategory,
+    //   itemStatus,
+    //   itemQuantity,
+    //   warehouseId,
+    // } = event.target;
+
+    setInventoryItem({
+      item_name: event.target.itemName.value,
+      description: event.target.itemDescription.value,
+      category: event.target.itemCategory.value,
+      status: event.target.itemStatus.value,
+      quantity: event.target.itemQuantity.value,
+      warehouse_id: event.target.warehouseId.value,
+    });
+  };
+  console.log(inventoryItem);
+
   return (
     <div className="editInventoryItem">
       <div className="editInventoryItem__caption">
@@ -12,7 +35,7 @@ const EditInventoryItem = () => {
         <h1 className="editInventoryItem__title">Edit Inventory Item</h1>
       </div>
 
-      <form className="editInventoryItem__form">
+      <form className="editInventoryItem__form" onSubmit={handleSubmit}>
         <div className="itemDetail">
           <h3 className="editInventoryItem__subtitle">Item Details</h3>
           <label htmlFor="itemName" className="editInventoryItem__label">
@@ -25,7 +48,7 @@ const EditInventoryItem = () => {
             type="text"
             rows="1"
             cols="30"
-            placeholder="Television"
+            placeholder={inventoryItem?.item_name}
           ></textarea>
 
           <label htmlFor="descripition" className="editInventoryItem__label">
@@ -38,21 +61,21 @@ const EditInventoryItem = () => {
             type="text"
             rows="7"
             cols="30"
-            placeholder='This 50", 4K LED TV provides a crystal-clear picture and vivid colors. '
+            placeholder={inventoryItem?.description}
           ></textarea>
 
           <label htmlFor="category" className="editInventoryItem__label">
             Category
           </label>
 
-          <textarea
-            className="editInventoryItem__input"
+          <select
+            className="editInventoryItem__input-select"
             id="category"
             type="text"
             rows="1"
             cols="30"
-            placeholder="Eletronics"
-          ></textarea>
+            placeholder={inventoryItem?.category}
+          ></select>
         </div>
 
         <div className="itemAvailability">
@@ -70,7 +93,7 @@ const EditInventoryItem = () => {
                 htmlFor="inStock"
                 className="editInventoryItem__label-radio"
               >
-                In Stock
+                {inventoryItem?.status}
               </label>
             </div>
 
@@ -84,7 +107,7 @@ const EditInventoryItem = () => {
                 htmlFor="outOfStock"
                 className="editInventoryItem__label-radio"
               >
-                Out of Stock
+                {inventoryItem?.status}
               </label>
             </div>
           </div>
@@ -102,21 +125,21 @@ const EditInventoryItem = () => {
             type="text"
             rows="1"
             cols="30"
-            placeholder="0"
+            placeholder={inventoryItem?.quantity}
           ></textarea>
 
           <label htmlFor="warehouse" className="editInventoryItem__label">
             Warehouse
           </label>
 
-          <textarea
-            className="editInventoryItem__input"
+          <select
+            className="editInventoryItem__input-select"
             id="warehouse"
             type="text"
             rows="1"
             cols="30"
-            placeholder="Manhattan"
-          ></textarea>
+            placeholder={inventoryItem?.warehouse_id}
+          ></select>
         </div>
 
         <div className="editInventoryItem__button">

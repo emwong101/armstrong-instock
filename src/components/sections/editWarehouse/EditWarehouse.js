@@ -1,11 +1,34 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import WarehouseForms from "../../atoms/warehouseForms/WarehouseForms";
+import axios from "axios";
 
-function editWarehouse() {
+function EditWarehouse() {
+  const [fetchWarehouseDetails, setFetchWarehouseDetails] = useState({});
   const [warehouseDetails, setWarehouseDetails] = useState({});
-  const [contactDetails, setContactDetails] = useState({});
 
-  const handleSubmit = (key) => {};
-  return <div>editWarehouse</div>;
+  useEffect(() => {
+    const getWarehouses = async () => {
+      try {
+        const { data } = await axios.get(
+          "http://localhost:8080/warehouse/150a36cf-f38e-4f59-8e31-39974207372d"
+        );
+        setFetchWarehouseDetails(data);
+      } catch {
+        console.log("error");
+      }
+    };
+    getWarehouses();
+  }, []);
+
+  return (
+    <>
+      <WarehouseForms
+        fetchDetails={fetchWarehouseDetails}
+        setWarehouseDetails={setWarehouseDetails}
+        title="Edit Warehouse"
+      />
+    </>
+  );
 }
 
-export default editWarehouse;
+export default EditWarehouse;
