@@ -1,8 +1,15 @@
 import "./EditInventoryItem.scss";
 import React from "react";
 import ArrowBack from "../../../assets/Icons/arrow_back-24px.svg";
+import { Link, useNavigate } from "react-router-dom";
 
-const EditInventoryItem = ({ inventoryItem, setInventoryItem }) => {
+const EditInventoryItem = ({
+  inventoryItem,
+  setInventoryItem,
+  setShowList,
+  setDisplayEdit,
+}) => {
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -29,9 +36,21 @@ const EditInventoryItem = ({ inventoryItem, setInventoryItem }) => {
   return (
     <div className="editInventoryItem">
       <div className="editInventoryItem__caption">
-        <button className="editInventoryItem__arrow">
-          <img src={ArrowBack} alt="Blue back arrow to the left of the title" />
-        </button>
+        <Link
+          to="/inventory"
+          onClick={() => {
+            navigate(-1);
+            setDisplayEdit(false);
+            setShowList(true);
+          }}
+        >
+          <button className="editInventoryItem__arrow">
+            <img
+              src={ArrowBack}
+              alt="Blue back arrow to the left of the title"
+            />
+          </button>
+        </Link>
         <h1 className="editInventoryItem__title">Edit Inventory Item</h1>
       </div>
 
@@ -143,9 +162,17 @@ const EditInventoryItem = ({ inventoryItem, setInventoryItem }) => {
         </div>
 
         <div className="editInventoryItem__button">
-          <button className="editInventoryItem__button-cancel" type="submit">
-            Cancel
-          </button>
+          <Link
+            to="/inventory"
+            onClick={() => {
+              setShowList(true);
+              setDisplayEdit(false);
+            }}
+          >
+            <button className="editInventoryItem__button-cancel" type="submit">
+              Cancel
+            </button>
+          </Link>
           <button className="editInventoryItem__button-save" type="submit">
             Save
           </button>
