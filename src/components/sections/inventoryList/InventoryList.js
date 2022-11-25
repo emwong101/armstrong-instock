@@ -62,7 +62,7 @@ export const InventoryList = ({
 
 				<main className="inventory-list">
 					<section className="inventory-list_label-box">
-						<span className="inventory-list_label">
+						<span className="inventory-list_label-1">
 							inventory item
 							<img
 								className="inventory-list_icon"
@@ -70,7 +70,7 @@ export const InventoryList = ({
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="inventory-list_label">
+						<span className="inventory-list_label-2">
 							category
 							<img
 								className="inventory-list_icon"
@@ -78,7 +78,7 @@ export const InventoryList = ({
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="inventory-list_label">
+						<span className="inventory-list_label-3">
 							status
 							<img
 								className="inventory-list_icon"
@@ -86,7 +86,7 @@ export const InventoryList = ({
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="label-box_label">
+						<span className="inventory-list_label-4">
 							qty
 							<img
 								className="inventory-list_icon"
@@ -94,7 +94,15 @@ export const InventoryList = ({
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="label-box_label">actions</span>
+						<span className="inventory-list_label-5">
+							warehouse
+							<img
+								className="inventory-list_icon"
+								src={TagTopBottom}
+								alt="tags top and bottom"
+							/>
+						</span>
+						<span className="inventory-list_label-6">actions</span>
 					</section>
 
 					{inventories &&
@@ -105,79 +113,151 @@ export const InventoryList = ({
 							}
 
 							return (
-								<section
-									className="inventory-list_item"
-									key={item.id}
-								>
-									<div className="inventory-list_item-top">
-										<div className="inventory-list_item-top-left">
-											<span className="inventory-list_item-label inventory-list_item-label-item">
-												invenotory item
-											</span>
-											<Link>
-												<div className="inventory-list_item-name-box">
-													<span className="inventory-list_item-name">
-														{item.item_name}
+								<>
+									<section
+										className="inventory-list_item"
+										key={item.id}
+									>
+										<div className="inventory-list_item-top">
+											<div className="inventory-list_item-top-left">
+												<span className="inventory-list_item-label inventory-list_item-label-item">
+													invenotory item
+												</span>
+												<Link>
+													<div className="inventory-list_item-name-box">
+														<span className="inventory-list_item-name">
+															{item.item_name}
+														</span>
+														<img
+															src={Chevron}
+															alt="closing tag"
+														/>
+													</div>
+												</Link>
+												<span className="inventory-list_item-label inventory-list_item-label-category">
+													category
+												</span>
+												<span className="inventory-list_item-category">
+													{item.category}
+												</span>
+											</div>
+											<div className="inventory-list_item-top-right">
+												<span className="inventory-list_item-label ">
+													status
+												</span>
+												<span
+													className={`inventory-list_item-status ${statusBgRed}`}
+												>
+													{item.status}
+												</span>
+
+												<span className="inventory-list_item-label inventory-list_item-label-qty">
+													qty
+												</span>
+												<span className="inventory-list_item-qty">
+													{item.quantity}
+												</span>
+												<span className="inventory-list_item-label inventory-list_item-label-qty">
+													warehouse
+												</span>
+												<span className="inventory-list_item-info">
+													{" "}
+													<span className="inventory-list_item-info">
+														{item.warehouse_name}
 													</span>
-													<img
-														src={Chevron}
-														alt="closing tag"
-													/>
-												</div>
-											</Link>
-											<span className="inventory-list_item-label inventory-list_item-label-category">
-												category
-											</span>
-											<span className="inventory-list_item-category">
-												{item.category}
-											</span>
+												</span>
+											</div>
 										</div>
-										<div className="inventory-list_item-top-right">
-											<span className="inventory-list_item-label ">status</span>
+										<div className="inventory-list_item-bottom">
+											<img
+												className="inventory-list_item-bottom-icon"
+												src={Trash}
+												alt="trash"
+											/>
+											<Link
+												to={`/inventory/${item.id}`}
+												onClick={() => {
+													setDisplayEdit(true);
+													setShowList(false);
+												}}
+											>
+												<img
+													className="inventory-list_item-bottom-icon"
+													src={Edit}
+													alt="trash"
+												/>
+											</Link>
+										</div>
+									</section>
+
+									<section className="inventory-list_item-tablet">
+										<span className="inventory-list_item-tablet-label inventory-list_item-tablet-label-item">
+											invenotory item
+										</span>
+										<Link>
+											<div className="inventory-list_item-tablet-name-box">
+												<span className="inventory-list_item-tablet-name">
+													{item.item_name}
+												</span>
+												<img
+													src={Chevron}
+													alt="closing tag"
+												/>
+											</div>
+										</Link>
+										<span className="inventory-list_item-tablet-label inventory-list_item-tablet-label-category">
+											category
+										</span>
+										<span className="inventory-list_item-tablet-category">
+											{item.category}
+										</span>
+
+										<span className="inventory-list_item-tablet-label ">
+											status
+										</span>
+										<div className="inventory-list_item-tablet-status-box">
 											<span
-												className={`inventory-list_item-status ${statusBgRed}`}
+												className={`inventory-list_item-tablet-status ${statusBgRed}`}
 											>
 												{item.status}
 											</span>
-
-											<span className="inventory-list_item-label inventory-list_item-label-qty">
-												qty
-											</span>
-											<span className="inventory-list_item-info">
-												{item.quantity}
-											</span>
-											<span className="inventory-list_item-label inventory-list_item-label-qty">
-												warehouse
-											</span>
-											<span className="inventory-list_item-info">
-												{" "}
-												<span className="inventory-list_item-info">
-													{item.warehouse_name}
-												</span>
-											</span>
 										</div>
-									</div>
-									<div className="inventory-list_item-bottom">
-										<img
-											className="inventory-list_item-bottom-icon"
-											src={Trash}
-											alt="trash"
-										/>
-										<Link
-											to={`/inventory/${item.id}`}
-											onClick={() => {
-												setDisplayEdit(true);
-												setShowList(false);
-											}}
-										>
+
+										<span className="inventory-list_item-tablet-label inventory-list_item-tablet-label-qty">
+											qty
+										</span>
+										<span className="inventory-list_item-tablet-qty">
+											{item.quantity}
+										</span>
+										<span className="inventory-list_item-tablet-label inventory-list_item-tablet-label-warehouse">
+											warehouse
+										</span>
+										<span className="inventory-list_item-tablet-warehouse">
+											{item.warehouse_name}
+										</span>
+
+										<div className="inventory-list_item-tablet-bottom">
 											<img
-												className="inventory-list_item-bottom-icon"
-												src={Edit}
+												className="inventory-list_item-tablet-bottom-icon"
+												src={Trash}
 												alt="trash"
 											/>
-										</Link>
-									</div>
-								</section>
+											<Link
+												to={`/inventory/${item.id}`}
+												onClick={() => {
+													setDisplayEdit(true);
+													setShowList(false);
+												}}
+											>
+												<img
+													className="inventory-list_item-tablet-bottom-icon"
+													src={Edit}
+													alt="trash"
+												/>
+											</Link>
+										</div>
+									</section>
+								</>
 							);
 						})}
 				</main>
