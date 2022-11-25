@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
 import WarehouseForms from "../../atoms/warehouseForms/WarehouseForms";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
-function EditWarehouse() {
+function EditWarehouse({ setDisplayEdit, setShowList, setShowDetails }) {
   const [fetchWarehouseDetails, setFetchWarehouseDetails] = useState({});
   const [warehouseDetails, setWarehouseDetails] = useState({});
-
+  const params = useParams();
+  const { warehouseID } = params;
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   useEffect(() => {
     const getWarehouses = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:8080/warehouse/150a36cf-f38e-4f59-8e31-39974207372d"
+          `${BASE_URL}/warehouse/${warehouseID}`
         );
         setFetchWarehouseDetails(data);
       } catch {
@@ -26,6 +29,11 @@ function EditWarehouse() {
         fetchDetails={fetchWarehouseDetails}
         setWarehouseDetails={setWarehouseDetails}
         title="Edit Warehouse"
+        back="/warehouse"
+        nav={() => {
+          setDisplayEdit(false);
+          setShowList(true);
+        }}
       />
     </>
   );
