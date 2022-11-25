@@ -17,10 +17,10 @@ export const WarehouseDetailsComponent = () => {
 	useEffect(() => {
 		const fetchWarehouse = async () => {
 			const { data } = await axios.get(
-				`http://localhost:5050/warehouse/2922c286-16cd-4d43-ab98-c79f698aeab0`
+				`http://localhost:8080/warehouse/2922c286-16cd-4d43-ab98-c79f698aeab0`
 			);
 			setWarehouse(data);
-			console.log("warehouse", data);
+			// console.log("warehouse", data);
 		};
 		fetchWarehouse();
 	}, []);
@@ -28,10 +28,10 @@ export const WarehouseDetailsComponent = () => {
 	useEffect(() => {
 		const fetchinventries = async () => {
 			const { data } = await axios.get(
-				`http://localhost:5050/warehouse/2922c286-16cd-4d43-ab98-c79f698aeab0/inventories`
+				`http://localhost:8080/warehouse/2922c286-16cd-4d43-ab98-c79f698aeab0/inventories`
 			);
 
-			console.log("inventory", data);
+			// console.log("inventory", data);
 			setDetails(data);
 		};
 		fetchinventries();

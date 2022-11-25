@@ -1,30 +1,66 @@
 import "./EditInventoryItem.scss";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import ArrowBack from "../../../assets/Icons/arrow_back-24px.svg";
 
-const EditInventoryItem = ({ inventoryItem, setInventoryItem }) => {
+const EditInventoryItem = () => {
+const [inventoryItem, setInventoryItem] = useState({});
+const [warehouse, setWarehouse] = useState({});
+
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const { data } = await axios.get(
+        "http://localhost:8080/inventory/9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3/"
+      );
+      setInventoryItem(data);
+    } catch (error) {
+      console.log("error");
+    }
+  };
+  fetchData();
+}, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // const {
-    //   itemName,
-    //   itemDescription,
-    //   itemCategory,
-    //   itemStatus,
-    //   itemQuantity,
-    //   warehouseId,
-    // } = event.target;
-
     setInventoryItem({
-      item_name: event.target.itemName.value,
-      description: event.target.itemDescription.value,
-      category: event.target.itemCategory.value,
-      status: event.target.itemStatus.value,
-      quantity: event.target.itemQuantity.value,
-      warehouse_id: event.target.warehouseId.value,
+      item_name: event.target.value,
+      description: event.target.value,
+      category: event.target.value,
+      status: event.target.value,
+      quantity: event.target.value,
+      warehouse_id: event.target.value,
+    });
+
+    setWarehouse({
+      id: event.target.value,
+      warehouse_name: event.target.value,
+      address: event.target.value,
+      city: event.target.value,
+      country: event.target.value,
+      contact_name: event.target.value,
+      contact_position: event.target.value,
+      contact_phone: event.target.value,
+      contact_email: event.target.value,
     });
   };
-  console.log(inventoryItem);
+  // console.log(inventoryItem);
+
+  useEffect(() => {
+    const fetchWarehouse = async () => {
+      try {
+        const { data } = await axios.get(
+          "http://localhost:8080/warehouse/2922c286-16cd-4d43-ab98-c79f698aeab0"
+        );
+          setWarehouse(data);
+      } catch {
+        console.log("error");
+      }
+    };
+    fetchWarehouse();
+  }, []);
+
 
   return (
     <div className="editInventoryItem">
@@ -38,62 +74,63 @@ const EditInventoryItem = ({ inventoryItem, setInventoryItem }) => {
       <form className="editInventoryItem__form" onSubmit={handleSubmit}>
         <div className="itemDetail">
           <h3 className="editInventoryItem__subtitle">Item Details</h3>
-          <label htmlFor="itemName" className="editInventoryItem__label">
+
+          {/* {inventoryItem?.map((inventoryItem) => ( */}
+            <label htmlFor="itemName" className="editInventoryItem__label">
             Item Name
           </label>
-
           <textarea
-            className="editInventoryItem__input"
-            id="itemName"
-            type="text"
-            rows="1"
-            cols="30"
-            placeholder={inventoryItem?.item_name}
+          // defaultValue={inventoryItem?.item_name}
+          className="editInventoryItem__input"
+          id="itemName"
+          type="text"
+          rows="1"
+          cols="30"
+          placeholder="Item Name"
           ></textarea>
-
           <label htmlFor="descripition" className="editInventoryItem__label">
             Description
           </label>
-
           <textarea
+            // defaultValue={inventoryItem?.description}
             className="editInventoryItem__input-description"
             id="description"
             type="text"
             rows="7"
             cols="30"
-            placeholder={inventoryItem?.description}
-          ></textarea>
+            placeholder="Item description"
+            ></textarea>
 
           <label htmlFor="category" className="editInventoryItem__label">
             Category
           </label>
-
-          <select
-            className="editInventoryItem__input-select"
-            id="category"
-            type="text"
-            rows="1"
-            cols="30"
-            placeholder={inventoryItem?.category}
-          ></select>
+          <select className="editInventoryItem__input-select">
+            <option value="">
+              {inventoryItem?.category}
+              {/* defaultValue= id="category" type="text" rows="1" cols="30" */}
+            </option>
+          </select>
+    
         </div>
 
-        <div className="itemAvailability">
+<div className="itemAvailability">
           <h3 className="editInventoryItem__subtitle">Item Availability</h3>
           <p className="editInventoryItem__status">Status</p>
 
           <div className="editInventoryItem__status-position">
-            <div>
+            <div className="inStock">
               <input
                 className="editInventoryItem__inStock"
                 id="inStock"
                 type="radio"
-              ></input>
+                name="radio"
+                ></input>
               <label
                 htmlFor="inStock"
                 className="editInventoryItem__label-radio"
-              >
-                {inventoryItem?.status}
+                >
+                In Stock
+                {/* {inventoryItem?.status} */}
               </label>
             </div>
 
@@ -102,45 +139,48 @@ const EditInventoryItem = ({ inventoryItem, setInventoryItem }) => {
                 className="editInventoryItem__outOfStock"
                 id="outOfStock"
                 type="radio"
-              ></input>
+                name="radio"
+                ></input>
               <label
                 htmlFor="outOfStock"
                 className="editInventoryItem__label-radio"
-              >
-                {inventoryItem?.status}
+                >
+                Out of Stock
+                {/* {inventoryItem?.status} */}
               </label>
             </div>
           </div>
 
           <label
             htmlFor="quantity"
-            className="editInventoryItem__label-quantity"
-          >
+            className={`hide ${
+              inventoryItem?.status !== "In Stock" ? "In Stock" : "label__show"
+            }`}
+            >
             Quantity
           </label>
 
           <textarea
-            className="editInventoryItem__input-quantity"
+            className={`hide ${
+              inventoryItem?.status !== "In Stock" ? "In Stock" : "input__show"
+            }`}
+            // defaultValue={inventoryItem?.quantity}
             id="quantity"
             type="text"
             rows="1"
             cols="30"
-            placeholder={inventoryItem?.quantity}
-          ></textarea>
+            ></textarea>
 
           <label htmlFor="warehouse" className="editInventoryItem__label">
             Warehouse
           </label>
 
-          <select
-            className="editInventoryItem__input-select"
-            id="warehouse"
-            type="text"
-            rows="1"
-            cols="30"
-            placeholder={inventoryItem?.warehouse_id}
-          ></select>
+          <select className="editInventoryItem__input-select">
+            <option>{warehouse?.warehouse_name}</option>
+            {/* defaultValue= id="warehouse" type="text" rows="1" cols="30" */}
+          </select>
         </div>
+        {/* ))}; */}
 
         <div className="editInventoryItem__button">
           <button className="editInventoryItem__button-cancel" type="submit">
