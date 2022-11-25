@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Arrow from "../../../assets/Icons/arrow_back-24px.svg";
 import Chevron from "../../../assets/Icons/chevron_right-24px.svg";
@@ -10,44 +10,62 @@ import EditWhite from "../../../assets/Icons/edit_white.svg";
 import TagTopBottom from "../../../assets/Icons/tags_top_bottom.svg";
 import "./WarehouseDetailsComponent.scss";
 
-export const WarehouseDetailsComponent = () => {
-	// const params = useParams();
-	const [details, setDetails] = useState();
-	const [warehouse, setWarehouse] = useState([]);
+export const WarehouseDetailsComponent = ({
+  setDisplayEdit,
+  setShowList,
+  setShowDetails,
+}) => {
+  const params = useParams();
+  const [details, setDetails] = useState();
+  const [warehouse, setWarehouse] = useState([]);
 
-	useEffect(() => {
-		const fetchWarehouse = async () => {
-			const { data } = await axios.get(
-				`http://localhost:5050/warehouse/2922c286-16cd-4d43-ab98-c79f698aeab0`
-			);
-			setWarehouse(data);
-			console.log("warehouse", data);
-		};
-		fetchWarehouse();
-	}, []);
+  useEffect(() => {
+    const fetchWarehouse = async () => {
+      const { data } = await axios.get(
+        `http://localhost:8080/warehouse/${params.warehouseID}`
+      );
+      setWarehouse(data);
+      console.log("warehouse", data);
+    };
+    fetchWarehouse();
+  }, []);
 
-	useEffect(() => {
-		const fetchinventries = async () => {
-			const { data } = await axios.get(
-				`http://localhost:5050/warehouse/2922c286-16cd-4d43-ab98-c79f698aeab0/inventories`
-			);
+  useEffect(() => {
+    const fetchinventries = async () => {
+      const { data } = await axios.get(
+        `http://localhost:8080/warehouse/${params.warehouseID}/inventories`
+      );
 
-			console.log("inventory", data);
-			setDetails(data);
-		};
-		fetchinventries();
-	}, []);
-	// [params.id]
+      console.log("inventory", data);
+      setDetails(data);
+    };
+    fetchinventries();
+  }, []);
+  // [params.id]
 
-	return (
+  return (
     <>
       <div className="wd-container">
         <section className="header-box">
           <div className="header-box-top">
-            <img className="header-box_arrow" src={Arrow} alt="arrow" />
+            <Link
+              to="/warehouse"
+              onClick={() => {
+                setShowList(true);
+                setShowDetails(false);
+              }}
+            >
+              <img className="header-box_arrow" src={Arrow} alt="arrow" />
+            </Link>
             <h1 className="header-box_header">{warehouse.city}</h1>
           </div>
-          <Link to="/warehouse">
+          <Link
+            to="/warehouse"
+            onClick={() => {
+              setDisplayEdit(true);
+              setShowDetails(false);
+            }}
+          >
             <div className="header-box-bottom">
               <img src={EditWhite} alt="edit" className="header-box_editing" />
               <span className="header-box_editing-text">Edit</span>
@@ -141,7 +159,7 @@ export const WarehouseDetailsComponent = () => {
                       <span className="item-box_label item-box_label-item">
                         inventory item
                       </span>
-                      <Link to="/warehouse">
+                      <Link to="/inventory/:inventoryID">
                         <div className="item-box_name-box">
                           <span className="item-box_name">
                             {detail.item_name}
@@ -176,7 +194,7 @@ export const WarehouseDetailsComponent = () => {
                       src={Trash}
                       alt="trash"
                     />
-                    <Link to="/warehouse">
+                    <Link to="/inventory/:inventoryID">
                       <img
                         className="item-box_bottom-icon"
                         src={Edit}

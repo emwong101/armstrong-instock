@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import backArrow from "../../../assets/Icons/arrow_back-24px.svg";
 import errorIcon from "../../../assets/Icons/error-24px.svg";
 import "./WarehouseForms.scss";
@@ -8,6 +9,8 @@ function WarehouseForms({
   setWarehouseDetails,
   warehouseDetails,
   fetchDetails,
+  back,
+  nav,
 }) {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -38,9 +41,9 @@ function WarehouseForms({
   return (
     <>
       <div className="warehouseForm__heading">
-        <button className="warehouseForm__back">
+        <Link to={back} onClick={nav} className="warehouseForm__back">
           <img src={backArrow} alt="back-arrow" />
-        </button>
+        </Link>
         <h1 className="warehouseForm__title">{title}</h1>
       </div>
       <form className="warehouseForm__form" onSubmit={handleSubmit}>
@@ -213,11 +216,13 @@ function WarehouseForms({
           </label>
         </div>
         <div className="warehouseForm__buttons">
-          <input
-            type="button"
-            value="Cancel"
-            className="warehouseForm__cancel button"
-          ></input>
+          <Link to={back} onClick={nav}>
+            <input
+              type="button"
+              value="Cancel"
+              className="warehouseForm__cancel button"
+            ></input>
+          </Link>
           <input
             type="submit"
             value="+ Add Warehouse"

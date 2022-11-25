@@ -1,6 +1,7 @@
 import "./AddNewInventoryItem.scss";
 import React from "react";
-import ArrowBack from "../../../assets/Icons/Icons/arrow_back-24px.svg";
+import ArrowBack from "../../../assets/Icons/arrow_back-24px.svg";
+import { Link } from "react-router-dom";
 
 const AddNewInventoryItem = () => {
   return (
@@ -12,7 +13,7 @@ const AddNewInventoryItem = () => {
         <h1 className="addInventoryItem__title">Add New Inventory Item</h1>
       </div>
 
-      <form className="addInventoryItem__form" onSubmit={handleSubmit}>
+      <form className="addInventoryItem__form">
         <div className="itemDetail">
           <h3 className="addInventoryItem__subtitle">Item Details</h3>
           <label htmlFor="itemName" className="addInventoryItem__label">
@@ -120,9 +121,11 @@ const AddNewInventoryItem = () => {
         </div>
 
         <div className="addInventoryItem__button">
-          <button className="editInventoryItem__button-cancel" type="submit">
-            Cancel
-          </button>
+          <Link to="/inventory">
+            <button className="editInventoryItem__button-cancel" type="submit">
+              Cancel
+            </button>
+          </Link>
           <button className="editInventoryItem__button-save" type="submit">
             Save
           </button>

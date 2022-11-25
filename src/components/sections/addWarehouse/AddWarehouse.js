@@ -4,7 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function AddWarehouse() {
+function AddWarehouse({ setShowList, setDisplayAdd }) {
   const [warehouseDetails, setWarehouseDetails] = useState(null);
 
   useEffect(() => {
@@ -42,6 +42,11 @@ function AddWarehouse() {
         title="Add New Warehouse"
         setWarehouseDetails={setWarehouseDetails}
         warehouseDetails={warehouseDetails}
+        back="/warehouse"
+        nav={() => {
+          setDisplayAdd(false);
+          setShowList(true);
+        }}
       />
       <ToastContainer />
     </>
