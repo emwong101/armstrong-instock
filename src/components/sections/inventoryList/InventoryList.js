@@ -22,7 +22,6 @@ export const InventoryList = ({
     const fetchInventories = async () => {
       const { data } = await axios.get(`${BASE_URL}/inventory`);
       setInventories(data);
-      console.log("inventories", data);
     };
     fetchInventories();
   }, []);
