@@ -2,25 +2,15 @@ import "./EditInventoryItem.scss";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ArrowBack from "../../../assets/Icons/arrow_back-24px.svg";
+import { Link, useNavigate } from "react-router-dom";
 
-const EditInventoryItem = () => {
-const [inventoryItem, setInventoryItem] = useState({});
-const [warehouse, setWarehouse] = useState({});
-
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const { data } = await axios.get(
-        "http://localhost:8080/inventory/9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3/"
-      );
-      setInventoryItem(data);
-    } catch (error) {
-      console.log("error");
-    }
-  };
-  fetchData();
-}, []);
-
+const EditInventoryItem = ({
+  inventoryItem,
+  setInventoryItem,
+  setShowList,
+  setDisplayEdit,
+}) => {
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -65,9 +55,21 @@ useEffect(() => {
   return (
     <div className="editInventoryItem">
       <div className="editInventoryItem__caption">
-        <button className="editInventoryItem__arrow">
-          <img src={ArrowBack} alt="Blue back arrow to the left of the title" />
-        </button>
+        <Link
+          to="/inventory"
+          onClick={() => {
+            navigate(-1);
+            setDisplayEdit(false);
+            setShowList(true);
+          }}
+        >
+          <button className="editInventoryItem__arrow">
+            <img
+              src={ArrowBack}
+              alt="Blue back arrow to the left of the title"
+            />
+          </button>
+        </Link>
         <h1 className="editInventoryItem__title">Edit Inventory Item</h1>
       </div>
 
@@ -183,9 +185,17 @@ useEffect(() => {
         {/* ))}; */}
 
         <div className="editInventoryItem__button">
-          <button className="editInventoryItem__button-cancel" type="submit">
-            Cancel
-          </button>
+          <Link
+            to="/inventory"
+            onClick={() => {
+              setShowList(true);
+              setDisplayEdit(false);
+            }}
+          >
+            <button className="editInventoryItem__button-cancel" type="submit">
+              Cancel
+            </button>
+          </Link>
           <button className="editInventoryItem__button-save" type="submit">
             Save
           </button>
