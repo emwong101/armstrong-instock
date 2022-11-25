@@ -1,7 +1,15 @@
 import React from "react";
 import closeButton from "../../assets/Icons/close-24px.svg";
+import ReactDOM from "react-dom";
+import Modal from "react-modal";
 
-const DeleteInventoryComponent = () => {
+Modal.setAppElement("#root");
+
+const DeleteInventoryButton = ({ warehouse, onDeleteWarehouse = () => {} }) => {
+
+  
+
+const DeleteInventoryButton = () => {
   return (
     <>
       <div className="delete">
@@ -10,10 +18,10 @@ const DeleteInventoryComponent = () => {
           className="delete__x-button"
           alt="close button"
         ></img>
-        <h1 className="delete__title">Delete Washington warehouse?</h1>
+        <h1 className="delete__title">Delete Television inventory item?</h1>
         <p className="delete__details">
-          Please confirm that you'd like to delete the Washington from the list
-          of warehouses. you won't be able to undo this action.
+          Please confirm that you'd like to delete Television from the inventory
+          list. You won't be able to undo this action.
         </p>
         <div className="delete__button-container">
           <button className="delete__cancel-btn">cancel</button>
@@ -25,4 +33,4 @@ const DeleteInventoryComponent = () => {
   );
 };
 
-export default DeleteInventoryComponent;
+export default DeleteInventoryButton;
