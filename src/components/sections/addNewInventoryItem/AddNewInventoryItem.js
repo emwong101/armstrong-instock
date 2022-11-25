@@ -7,13 +7,7 @@ const AddNewInventoryItem = ({ setShowList, setDisplayAdd }) => {
   return (
     <div className="addInventoryItem">
       <div className="addInventoryItem__caption">
-        <Link
-          to="/inventory"
-          onClick={() => {
-            setDisplayAdd(false);
-            setShowList(true);
-          }}
-        >
+        <Link to="/inventory">
           <button className="addInventoryItem__arrow">
             <img
               src={ArrowBack}
@@ -132,13 +126,7 @@ const AddNewInventoryItem = ({ setShowList, setDisplayAdd }) => {
         </div>
 
         <div className="addInventoryItem__button">
-          <Link
-            to="/inventory"
-            onClick={() => {
-              setDisplayAdd(false);
-              setShowList(true);
-            }}
-          >
+          <Link to="/inventory">
             <button className="editInventoryItem__button-cancel" type="submit">
               Cancel
             </button>

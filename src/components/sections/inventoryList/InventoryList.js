@@ -152,6 +152,7 @@ export const InventoryList = ({
                         {item.status}
                       </span>
 
+
                       <span className="inventory-list_item-label inventory-list_item-label-qty">
                         qty
                       </span>
@@ -170,6 +171,7 @@ export const InventoryList = ({
                     </div>
                   </div>
                   <div className="inventory-list_item-bottom">
+
                     <DeleteInventoryButton
                       item={item}
                       onDeleteInventory={() => deleteInventory(item.id)}
@@ -181,6 +183,7 @@ export const InventoryList = ({
                         setShowList(false);
                       }}
                     >
+
                       <img
                         className="inventory-list_item-bottom-icon"
                         src={Edit}

@@ -13,6 +13,7 @@ const EditInventoryItem = ({
   setShowList,
   setDisplayEdit,
 }) => {
+  const [warehouse, setWarehouse] = useState();
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -57,14 +58,7 @@ const EditInventoryItem = ({
   return (
     <div className="editInventoryItem">
       <div className="editInventoryItem__caption">
-        <Link
-          to="/inventory"
-          onClick={() => {
-            navigate(-1);
-            setDisplayEdit(false);
-            setShowList(true);
-          }}
-        >
+        <Link to={`/inventory/${inventoryItem?.id}`}>
           <button className="editInventoryItem__arrow">
             <img
               src={ArrowBack}
@@ -186,13 +180,7 @@ const EditInventoryItem = ({
         {/* ))}; */}
 
         <div className="editInventoryItem__button">
-          <Link
-            to="/inventory"
-            onClick={() => {
-              setShowList(true);
-              setDisplayEdit(false);
-            }}
-          >
+          <Link to={`/inventory/${inventoryItem?.id}`}>
             <button className="editInventoryItem__button-cancel" type="submit">
               Cancel
             </button>
