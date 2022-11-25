@@ -5,16 +5,16 @@ import Trash from "../../../assets/Icons/delete_outline-24px.svg";
 import Edit from "../../../assets/Icons/edit-24px.svg";
 import Search from "../../../assets/Icons/search-24px.svg";
 import TagTopBottom from "../../../assets/Icons/tags_top_bottom.svg";
-// import "./WarehouseList.scss";
+import "./InventoryList.scss";
 
 export const InventoryList = () => {
-	const [inventory, setInventory] = useState([]);
+	const [inventories, setInventories] = useState([]);
 
 	useEffect(() => {
 		const fetchInventories = async () => {
 			const { data } = await axios.get(`http://localhost:5050/inventory`);
-			setInventory(data);
-			console.log("inventory", data);
+			setInventories(data);
+			console.log("inventories", data);
 		};
 		fetchInventories();
 	}, []);
@@ -22,46 +22,46 @@ export const InventoryList = () => {
 	return (
 		<>
 			<div className="wd-container">
-				<section className="title-box">
-					<div className="title-box-left">
-						<h1 className="title-box_title">inventory</h1>
+				<section className="title-inventory">
+					<div className="title-inventory-left">
+						<h1 className="title-inventory_title">Inventory</h1>
 					</div>
-					<div className="title-box-right">
+					<div className="title-inventory-right">
 						<input
 							type="text"
-							className="title-box_search"
+							className="title-inventory_search"
 							placeholder="Search..."
 						/>
 						<img
 							src={Search}
 							alt="search icon"
-							className="title-box_icon"
+							className="title-inventory_icon"
 						/>
 					</div>
-					<div className="title-box_button">
-						<span className="title-box_button-text">+ Add New Warehouse</span>
+					<div className="title-inventory_button">
+						<span className="title-inventory_button-text">+ Add New Item</span>
 					</div>
 				</section>
 
-				<main className="inventory-box">
-					<section className="label-box">
-						<span className="label-box_label">
+				<main className="inventory-list">
+					<section className="inventory-list_label-box">
+						<span className="inventory-list_label">
 							warehouse
 							<img
-								className="label-box_icon"
+								className="inventory-list_icon"
 								src={TagTopBottom}
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="label-box_label">
+						<span className="inventory-list_label">
 							address
 							<img
-								className="label-box_icon"
+								className="inventory-list_icon"
 								src={TagTopBottom}
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="label-box_label">
+						<span className="inventory-list_label">
 							contact name
 							<img
 								className="label-box_icon"
@@ -79,57 +79,80 @@ export const InventoryList = () => {
 						</span>
 						<span className="label-box_label">actions</span>
 					</section>
-					{inventory.map((item) => (
-						<section
-							className="item-box"
-							key={item.id}
-						>
-							<div className="item-box-top">
-								<div className="item-box-top_left">
-									<span className="item-box_label item-box_label-item">
-										item
-									</span>
-									<div className="item-box_name-box">
-										<span className="item-box_name">{item.item_name}</span>
+
+					{inventories &&
+						inventories.map((item) => {
+							let statusBgRed = "";
+							if (item.status === "Out of Stock") {
+								statusBgRed = "redBG";
+							}
+
+							return (
+								<section
+									className="inventory-list_item"
+									key={item.id}
+								>
+									<div className="inventory-list_item-top">
+										<div className="inventory-list_item-top-left">
+											<span className="inventory-list_item-label inventory-list_item-label-item">
+												invenotory item
+											</span>
+											<div className="inventory-list_item-name-box">
+												<span className="inventory-list_item-name">
+													{item.item_name}
+												</span>
+												<img
+													src={Chevron}
+													alt="closing tag"
+												/>
+											</div>
+											<span className="inventory-list_item-label inventory-list_item-label-category">
+												category
+											</span>
+											<span className="inventory-list_item-category">
+												{item.category}
+											</span>
+										</div>
+										<div className="inventory-list_item-top-right">
+											<span className="inventory-list_item-label ">status</span>
+											<span
+												className={`inventory-list_item-status ${statusBgRed}`}
+											>
+												{item.status}
+											</span>
+
+											<span className="inventory-list_item-label inventory-list_item-label-qty">
+												qty
+											</span>
+											<span className="inventory-list_item-info">
+												{item.quantity}
+											</span>
+											<span className="inventory-list_item-label inventory-list_item-label-qty">
+												warehouse
+											</span>
+											<span className="inventory-list_item-info">
+												{" "}
+												<span className="inventory-list_item-info">
+													{item.warehouse_name}
+												</span>
+											</span>
+										</div>
+									</div>
+									<div className="inventory-list_item-bottom">
 										<img
-											src={Chevron}
-											alt="closing tag"
+											className="inventory-list_item-bottom-icon"
+											src={Trash}
+											alt="trash"
+										/>
+										<img
+											className="inventory-list_item-bottom-icon"
+											src={Edit}
+											alt="trash"
 										/>
 									</div>
-									<span className="item-box_label item-box_label-category">
-										adress
-									</span>
-									<span className="item-box_adress">{item.category}</span>
-								</div>
-								<div className="item-box-top_right">
-									<span className="item-box_label item-box_label-contact">
-										contact name
-									</span>
-									<span className="item-box_contact">{item.status}</span>
-
-									<span className="item-box_label item-box_label-qty">
-										contact information
-									</span>
-									<div className="item-box_info-box">
-										<span className="item-box_info">{item.quantity}</span>
-										<span className="item-box_info">{item.warehouse_name}</span>
-									</div>
-								</div>
-							</div>
-							<div className="item-box_bottom">
-								<img
-									className="item-box_bottom-icon"
-									src={Trash}
-									alt="trash"
-								/>
-								<img
-									className="item-box_bottom-icon"
-									src={Edit}
-									alt="trash"
-								/>
-							</div>
-						</section>
-					))}
+								</section>
+							);
+						})}
 				</main>
 			</div>
 		</>

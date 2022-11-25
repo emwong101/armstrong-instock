@@ -1,0 +1,258 @@
+@use "../../../styles/partials/breakpoints" as breakpoints;
+@use "../../../styles/partials/colors" as *;
+@use "../../../styles/partials/fonts" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.wd-container {
+	display: flex;
+	flex-direction: column;
+	font-family: "Titillium-Web";
+}
+
+.title-inventory {
+	display: flex;
+	padding: 2rem 1.5rem 1.5rem;
+	justify-content: space-between;
+	// align-items: center;
+	flex-direction: column;
+
+	@include breakpoints.tablet {
+		flex-direction: row;
+		align-items: center;
+	}
+
+	&-left,
+	&-right {
+		display: flex;
+		justify-content: center;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+
+		@include breakpoints.tablet {
+			width: 50%;
+			text-align: start;
+		}
+	}
+
+	&_title {
+		font-size: 1rem;
+		font-family: "Titillium-Web-bold";
+		@include mobilePageHeader;
+		width: inherit;
+
+		@include breakpoints.tablet {
+			@include pageHeader;
+			width: 100%;
+		}
+	}
+	&-right {
+		@include breakpoints.tablet {
+			// background-color: $Primary-medium;
+			width: 11.5625rem;
+			height: 2.5rem;
+			position: relative;
+		}
+	}
+
+	&_search {
+		border: 1px solid $Secondary-light;
+		width: 100%;
+		border-radius: 1.25rem;
+		height: 2.25rem;
+		padding: 0 1rem;
+
+		&:hover {
+			border-color: $Primary-medium;
+		}
+
+		@include breakpoints.tablet {
+			// width: 9.875rem;
+		}
+	}
+
+	&_icon {
+		position: absolute;
+		right: 0;
+		right: 3.5rem;
+	}
+
+	&_button {
+		background-color: $Primary-medium;
+		color: $Primary-light;
+		text-align: center;
+		height: 2.25rem;
+		border-radius: 1.25rem;
+		margin-top: 1.5rem;
+		cursor: pointer;
+		width: 100%;
+
+		@include breakpoints.tablet {
+			margin-top: 0;
+			width: 9.5rem;
+		}
+
+		&-text {
+			vertical-align: middle;
+			@include mobileLabelsLinksButtons;
+		}
+	}
+}
+
+.inventory-list {
+	display: flex;
+	flex-direction: column;
+
+	&_label-box {
+		display: none;
+
+		@include breakpoints.tablet {
+			display: initial;
+			display: flex;
+			padding: 1rem 1.5rem;
+			justify-content: space-between;
+			background-color: $Background-light;
+			@include bodySmall;
+			color: $Secondary-dark;
+			text-transform: uppercase;
+		}
+
+		&_icon {
+			padding-left: 1rem;
+		}
+	}
+}
+
+.inventory-list_item {
+	@include breakpoints.tablet {
+		display: flex;
+		border-top: 1px solid $Secondary-light;
+	}
+
+	@include breakpoints.desktop {
+		justify-content: space-between;
+	}
+	&-top {
+		display: flex;
+		padding: 1rem 1.5rem;
+		border-top: 1px solid $Secondary-light;
+
+		@include breakpoints.tablet {
+			width: 80%;
+			border: none;
+		}
+
+		&-left,
+		&-right {
+			display: flex;
+			flex-direction: column;
+			width: 50%;
+
+			@include breakpoints.tablet {
+				flex-direction: row;
+				width: initial;
+				align-items: center;
+			}
+		}
+	}
+
+	&-label {
+		text-transform: uppercase;
+		@include mobileTableHeader;
+		color: $Secondary-dark;
+		padding-bottom: 0.25rem;
+
+		@include breakpoints.tablet {
+			display: none;
+		}
+
+		&-qty {
+			padding-top: 1.25rem;
+		}
+	}
+
+	&-name-box {
+		display: flex;
+		padding-bottom: 1.25rem;
+
+		@include breakpoints.tablet {
+			padding-bottom: 0;
+			padding-right: 0;
+		}
+		@include breakpoints.desktop {
+			padding-right: 15rem;
+			padding-bottom: 0;
+		}
+	}
+
+	&-name {
+		@include mobileBodyMedium;
+		font-weight: 600;
+		color: $Primary-medium;
+
+		@include breakpoints.tablet {
+			@include bodyMedium;
+		}
+	}
+
+	&-category {
+		@include mobileBodyMedium;
+
+		@include breakpoints.tablet {
+			@include bodyMedium;
+			width: 40%;
+		}
+		@include breakpoints.desktop {
+			padding-right: 13.5rem;
+		}
+	}
+
+	&-status {
+		@include mobileBodySmall;
+		text-transform: uppercase;
+		color: $Support-dark;
+		background: rgba(21, 132, 99, 0.07);
+		padding: 0.25rem 0.5rem;
+		width: fit-content;
+		border-radius: 1.25rem;
+		font-weight: 600;
+
+		@include breakpoints.tablet {
+			// padding-right: 6rem;
+			@include bodySmall;
+		}
+		@include breakpoints.desktop {
+			padding-right: 13.5rem;
+		}
+	}
+
+	&-info {
+		@include mobileBodyMedium;
+
+		&-box {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	&-bottom {
+		padding: 0 1.5rem 1.5rem;
+		display: flex;
+		justify-content: space-between;
+
+		@include breakpoints.tablet {
+			padding: 1.25rem;
+			@include bodyMedium;
+		}
+
+		&-icon {
+			padding: 0 0.5rem;
+			cursor: pointer;
+		}
+	}
+}
+
+.redBG {
+	color: $Support-light;
+	background: rgba(201, 69, 21, 0.07);
+}
