@@ -2,15 +2,16 @@
 
 html,
 body {
-  margin: 0;
-  font-family: "Titillium-Web", "Titillium-Web-Bold";
-  line-height: 1.8rem;
-  height: 100vh;
-  box-sizing: border-box;
+	margin: 0;
+	font-family: "Titillium-Web", "Titillium-Web-Bold";
+	line-height: 1.8rem;
+	height: 100vh;
+	box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+	box-sizing: inherit;
+	text-decoration: none;
 }
