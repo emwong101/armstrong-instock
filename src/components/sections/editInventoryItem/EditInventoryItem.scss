@@ -24,7 +24,7 @@
   &__title {
     font-size: 1.75rem;
     margin: 0;
-    line-height: 36px;
+    line-height: 2.25rem;
     flex-grow: 1;
   }
 
@@ -33,6 +33,7 @@
     flex-direction: column;
   }
 
+  .label__show,
   &__label,
   &__label-radio,
   &__status {
@@ -68,14 +69,16 @@
     padding-bottom: 1rem;
   }
 
-  &__label-quantity {
-    display: none;
+  .hide {
+    visibility: hidden;
   }
 
-  &__input-quantity {
-    display: none;
+  .input__show,
+  .label__show {
+    visibility: visible;
   }
 
+  .input__show,
   &__input,
   &__input-select {
     height: 2.25rem;
@@ -86,25 +89,23 @@
     background: url(../../../assets/Icons/arrow_drop_down-24px.svg);
     background-repeat: no-repeat;
     background-position-y: center;
-    background-position-x: 10.5rem;
+    background-position-x: 12.5rem;
     &:active {
       color: $Primary-medium;
     }
   }
 
+  .input__show,
   &__input,
   &__input-select,
   &__input-description {
-    border-radius: 20px;
+    padding-top: 0.5rem;
+    color: $Primary-dark;
+    border-radius: 1.25rem;
     border: 1px solid $Secondary-light;
     padding: 0 1rem;
     margin-bottom: 1rem;
     resize: none;
-  }
-
-  ::placeholder {
-    color: $Secondary-dark;
-    font-family: "Titillium-Web";
   }
 
   .itemDetail,
@@ -120,16 +121,17 @@
   }
 
   &__button {
-    padding: 1rem 1.5rem;
     display: flex;
     justify-content: space-evenly;
+    background-color: $Background-light;
+    padding: 1rem 1.5rem;
     margin-top: 1rem;
 
     &-cancel,
     &-save {
       height: 2.25rem;
       padding: 0 1rem;
-      border-radius: 20px;
+      border-radius: 1.25rem;
       width: 100%;
       font-family: "Titillium-Web";
       font-weight: 600;
@@ -158,6 +160,112 @@
       &:hover {
         background-color: $Background-dark;
       }
+    }
+  }
+}
+
+// Edit Inventory Item for Tablet
+@include tablet {
+  .editInventoryItem {
+    &__caption {
+      padding-top: 2rem;
+      padding-bottom: 1.25rem;
+      justify-content: flex-start;
+    }
+
+    &__arrow {
+      flex-grow: 0;
+      padding-left: 2.25rem;
+    }
+
+    &__title {
+      flex-grow: 0;
+      padding: 0 0.8rem;
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
+
+    &__form {
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding-top: 1.5rem;
+    }
+
+    &__subtitle {
+      margin-top: 0;
+      padding-bottom: 1rem;
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+
+    .label__show,
+    &__label,
+    &__label-radio,
+    &__status {
+      font-size: 0.875rem;
+    }
+
+    .outOfStock {
+      padding-right: 6rem;
+    }
+
+    .input__show,
+    &__input,
+    &__input-select {
+      height: 2.375rem;
+      font-size: 0.875rem;
+    }
+
+    &__input-description {
+      height: 7.5rem;
+    }
+
+    &__input-select {
+      background-position-x: 16.5rem;
+    }
+
+    .itemDetail,
+    .itemAvailability {
+      flex-grow: 1;
+      border-bottom: none;
+    }
+
+    .itemDetail {
+      border-right: 1px solid $Secondary-light;
+      border-bottom: none;
+    }
+
+    &__button {
+      justify-content: flex-end;
+      width: 100%;
+      margin-top: 2rem;
+      &-cancel,
+      &-save {
+        width: fit-content;
+      }
+    }
+  }
+}
+
+@include desktop {
+  .editInventoryItem {
+    &__arrow {
+      padding: 0;
+    }
+
+    &__input-select {
+      background-position-x: 26.5rem;
+    }
+
+    // &__status {
+    //   &-position {
+    //     justify-content: flex-start;
+    //     gap: 2rem;
+    //   }
+    // }
+
+    .outOfStock {
+      padding-right: 7rem;
     }
   }
 }

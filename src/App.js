@@ -9,48 +9,63 @@ import Warehouse from "./pages/Warehouse";
 import { ToastContainer } from "react-toastify";
 
 function App() {
-  const [inventoryItem, setInventoryItem] = useState({});
-  const [displayAdd, setDisplayAdd] = useState(false);
-  const [displayEdit, setDisplayEdit] = useState(false);
-  const [showDetails, setShowDetails] = useState(false);
-  const [showList, setShowList] = useState(true);
+	const [inventoryItem, setInventoryItem] = useState({});
+	const [displayAdd, setDisplayAdd] = useState(false);
+	const [displayEdit, setDisplayEdit] = useState(false);
+	const [showDetails, setShowDetails] = useState(false);
+	const [showList, setShowList] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await axios.get(
-          `http://localhost:8080/inventory/9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3/`
-        );
-        setInventoryItem(data);
-      } catch (error) {
-        console.log("error");
-      }
-    };
-    fetchData();
-  }, []);
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const { data } = await axios.get(
+					`http://localhost:8080/inventory/9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3/`
+				);
+				setInventoryItem(data);
+			} catch (error) {
+				console.log("error");
+			}
+		};
+		fetchData();
+	}, []);
 
-  return (
-    <div className="main">
-      <Routes>
-        <Route path="/" element={<Warehouse />} />
-        <Route path="/inventory" element={<Inventory />} />
-        <Route path="/inventory/:inventoryID" element={<Inventory />} />
-        <Route path="/warehouse" element={<Warehouse />} />
-        <Route path="warehouse/:warehouseID" element={<Warehouse />} />
-        <Route
-          path="*"
-          element={
-            <>
-              <h1>Page not found</h1>
-            </>
-          }
-        />
-      </Routes>
-      <ToastContainer />
-      <div className="footer">
-        <Footer />
-      </div>
-    </div>
-  );
+	return (
+		<div className="main">
+			<Routes>
+				<Route
+					path="/"
+					element={<Warehouse />}
+				/>
+				<Route
+					path="/inventory"
+					element={<Inventory />}
+				/>
+				<Route
+					path="/inventory/:inventoryID"
+					element={<Inventory />}
+				/>
+				<Route
+					path="/warehouse"
+					element={<Warehouse />}
+				/>
+				<Route
+					path="warehouse/:warehouseID"
+					element={<Warehouse />}
+				/>
+				<Route
+					path="*"
+					element={
+						<>
+							<h1>Page not found</h1>
+						</>
+					}
+				/>
+			</Routes>
+			<ToastContainer />
+			<div className="footer">
+				<Footer />
+			</div>
+		</div>
+	);
 }
 export default App;

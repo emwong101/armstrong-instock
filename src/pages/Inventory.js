@@ -5,6 +5,7 @@ import Header from "../components/sections/header/Header";
 import AddNewInventoryItem from "../components/sections/addNewInventoryItem/AddNewInventoryItem";
 import EditInventoryItem from "../components/sections/editInventoryItem/EditInventoryItem";
 import { InventoryList } from "../components/sections/inventoryList/InventoryList";
+import InventoryItemDetails from "../components/sections/inventoryItemDetails/InventoryItemDetails";
 
 const Inventories = () => {
   const [displayAdd, setDisplayAdd] = useState(false);
@@ -34,6 +35,13 @@ const Inventories = () => {
             <AddNewInventoryItem
               setShowList={setShowList}
               setDisplayAdd={setDisplayAdd}
+            />
+          )}
+          {showDetails && (
+            <InventoryItemDetails
+              setDisplayEdit={setDisplayEdit}
+              setShowList={setShowList}
+              setShowDetails={setShowDetails}
             />
           )}
           {displayEdit && (

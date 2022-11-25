@@ -18,20 +18,11 @@ export const InventoryList = ({
   setShowDetails,
 }) => {
   const [inventories, setInventories] = useState([]);
-  //change here?
+
   const fetchInventories = useCallback(async () => {
     const { data } = await axios.get(`${BASE_URL}/inventory`);
     setInventories(data);
-    // setVideos(data.filter((video) => video.id !== videoId));
   }, []);
-
-  // useEffect(() => {
-  //   const fetchInventories = async () => {
-  //     const { data } = await axios.get(`${BASE_URL}/inventory`);
-  //     setInventories(data);
-  //   };
-  //   fetchInventories();
-  // }, []);
 
   const deleteInventory = async (id) => {
     return axios({
@@ -49,7 +40,7 @@ export const InventoryList = ({
 
   return (
     <>
-      <div className="wd-container">
+      <div className="el-container">
         <section className="title-inventory">
           <div className="title-inventory-left">
             <h1 className="title-inventory_title">Inventory</h1>
@@ -84,7 +75,7 @@ export const InventoryList = ({
         <main className="inventory-list">
           <section className="inventory-list_label-box">
             <span className="inventory-list_label">
-              warehouse
+              inventory item
               <img
                 className="inventory-list_icon"
                 src={TagTopBottom}
@@ -92,7 +83,7 @@ export const InventoryList = ({
               />
             </span>
             <span className="inventory-list_label">
-              address
+              category
               <img
                 className="inventory-list_icon"
                 src={TagTopBottom}
@@ -100,7 +91,7 @@ export const InventoryList = ({
               />
             </span>
             <span className="inventory-list_label">
-              contact name
+              status
               <img
                 className="inventory-list_icon"
                 src={TagTopBottom}
@@ -108,7 +99,7 @@ export const InventoryList = ({
               />
             </span>
             <span className="label-box_label">
-              contact information
+              qty
               <img
                 className="inventory-list_icon"
                 src={TagTopBottom}
@@ -132,7 +123,13 @@ export const InventoryList = ({
                       <span className="inventory-list_item-label inventory-list_item-label-item">
                         invenotory item
                       </span>
-                      <Link>
+                      <Link
+                        to={`/inventory/${item.id}`}
+                        onClick={() => {
+                          setShowDetails(true);
+                          setShowList(false);
+                        }}
+                      >
                         <div className="inventory-list_item-name-box">
                           <span className="inventory-list_item-name">
                             {item.item_name}
