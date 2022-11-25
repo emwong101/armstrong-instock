@@ -18,11 +18,11 @@ export const WarehouseDetailsComponent = ({
   const params = useParams();
   const [details, setDetails] = useState();
   const [warehouse, setWarehouse] = useState([]);
-
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   useEffect(() => {
     const fetchWarehouse = async () => {
       const { data } = await axios.get(
-        `http://localhost:8080/warehouse/${params.warehouseID}`
+        `${BASE_URL}/warehouse/${params.warehouseID}`
       );
       setWarehouse(data);
       console.log("warehouse", data);
@@ -33,7 +33,7 @@ export const WarehouseDetailsComponent = ({
   useEffect(() => {
     const fetchinventries = async () => {
       const { data } = await axios.get(
-        `http://localhost:8080/warehouse/${params.warehouseID}/inventories`
+        `${BASE_URL}/warehouse/${params.warehouseID}/inventories`
       );
 
       console.log("inventory", data);
@@ -60,7 +60,7 @@ export const WarehouseDetailsComponent = ({
             <h1 className="header-box_header">{warehouse.city}</h1>
           </div>
           <Link
-            to="/warehouse"
+            to={`/warehouse/${warehouse.id}`}
             onClick={() => {
               setDisplayEdit(true);
               setShowDetails(false);

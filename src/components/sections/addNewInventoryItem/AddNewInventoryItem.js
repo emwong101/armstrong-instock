@@ -3,13 +3,24 @@ import React from "react";
 import ArrowBack from "../../../assets/Icons/arrow_back-24px.svg";
 import { Link } from "react-router-dom";
 
-const AddNewInventoryItem = () => {
+const AddNewInventoryItem = ({ setShowList, setDisplayAdd }) => {
   return (
     <div className="addInventoryItem">
       <div className="addInventoryItem__caption">
-        <button className="addInventoryItem__arrow">
-          <img src={ArrowBack} alt="Blue back arrow to the left of the title" />
-        </button>
+        <Link
+          to="/inventory"
+          onClick={() => {
+            setDisplayAdd(false);
+            setShowList(true);
+          }}
+        >
+          <button className="addInventoryItem__arrow">
+            <img
+              src={ArrowBack}
+              alt="Blue back arrow to the left of the title"
+            />
+          </button>
+        </Link>
         <h1 className="addInventoryItem__title">Add New Inventory Item</h1>
       </div>
 
@@ -121,7 +132,13 @@ const AddNewInventoryItem = () => {
         </div>
 
         <div className="addInventoryItem__button">
-          <Link to="/inventory">
+          <Link
+            to="/inventory"
+            onClick={() => {
+              setDisplayAdd(false);
+              setShowList(true);
+            }}
+          >
             <button className="editInventoryItem__button-cancel" type="submit">
               Cancel
             </button>

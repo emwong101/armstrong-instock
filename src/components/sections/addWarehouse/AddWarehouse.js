@@ -5,13 +5,14 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function AddWarehouse({ setShowList, setDisplayAdd }) {
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   const [warehouseDetails, setWarehouseDetails] = useState(null);
 
   useEffect(() => {
     if (warehouseDetails !== null) {
       const post = async () => {
         try {
-          await axios.post("http://localhost:8080/warehouse", {
+          await axios.post(`${BASE_URL}/warehouse`, {
             warehouse_name: warehouseDetails.warehouse_name,
             address: warehouseDetails.address,
             city: warehouseDetails.city,

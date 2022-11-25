@@ -8,11 +8,12 @@ function EditWarehouse({ setDisplayEdit, setShowList, setShowDetails }) {
   const [warehouseDetails, setWarehouseDetails] = useState({});
   const params = useParams();
   const { warehouseID } = params;
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   useEffect(() => {
     const getWarehouses = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:8080/warehouse/${warehouseID}`
+          `${BASE_URL}/warehouse/${warehouseID}`
         );
         setFetchWarehouseDetails(data);
       } catch {
