@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Chevron from "../../../assets/Icons/chevron_right-24px.svg";
 import Edit from "../../../assets/Icons/edit-24px.svg";
 import Search from "../../../assets/Icons/search-24px.svg";
@@ -9,14 +10,18 @@ import "./WarehouseList.scss";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:8080";
 
-export const WarehouseList = () => {
+export const WarehouseList = ({
+  setShowList,
+  setDisplayAdd,
+  setDisplayEdit,
+  setShowDetails,
+}) => {
   const [warehouses, setWarehouses] = useState([]);
 
   const fetchWarehouses = useCallback(async () => {
     const { data } = await axios.get(`${BASE_URL}/warehouse`);
     setWarehouses(data);
     // setVideos(data.filter((video) => video.id !== videoId));
-    console.log(data);
   }, []);
 
   const deleteWarehouse = async (id) => {
@@ -47,9 +52,17 @@ export const WarehouseList = () => {
             />
             <img src={Search} alt="search icon" className="title-box_icon" />
           </div>
-          <div className="title-box_button">
-            <span className="title-box_button-text">+ Add New Warehouse</span>
-          </div>
+          <Link
+            to="/warehouse"
+            onClick={() => {
+              setDisplayAdd(true);
+              setShowList(false);
+            }}
+          >
+            <div className="title-box_button">
+              <span className="title-box_button-text">+ Add New Warehouse</span>
+            </div>
+          </Link>
         </section>
 
         <main className="inventory-box">
@@ -95,12 +108,20 @@ export const WarehouseList = () => {
                   <span className="item-box_label item-box_label-item">
                     warehouse
                   </span>
-                  <div className="item-box_name-box">
-                    <span className="item-box_name">
-                      {warehouse.warehouse_name}
-                    </span>
-                    <img src={Chevron} alt="closing tag" />
-                  </div>
+                  <Link
+                    to={`/warehouse/${warehouse.id}`}
+                    onClick={() => {
+                      setShowDetails(true);
+                      setShowList(false);
+                    }}
+                  >
+                    <div className="item-box_name-box">
+                      <span className="item-box_name">
+                        {warehouse.warehouse_name}
+                      </span>
+                      <img src={Chevron} alt="closing tag" />
+                    </div>
+                  </Link>
                   <span className="item-box_label item-box_label-category">
                     adress
                   </span>
@@ -134,7 +155,15 @@ export const WarehouseList = () => {
                   warehouse={warehouse}
                   onDeleteWarehouse={() => deleteWarehouse(warehouse.id)}
                 />
-                <img className="item-box_bottom-icon" src={Edit} alt="trash" />
+                <Link
+                  to={`/warehouse/${warehouse.id}`}
+                  onClick={() => {
+                    setDisplayEdit(true);
+                    setShowList(false);
+                  }}
+                >
+                  <img className="item-box_bottom-icon" src={Edit} alt="edit" />
+                </Link>
               </div>
             </section>
           ))}

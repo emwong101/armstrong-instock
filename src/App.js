@@ -1,4 +1,5 @@
 import "./App.scss";
+import { Routes, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./components/sections/header/Header";
@@ -9,6 +10,8 @@ import { WarehouseList } from "./components/sections/warehouseList/WarehouseList
 import EditInventoryItem from "./components/sections/editInventoryItem/EditInventoryItem";
 import InventoryItemDetails from "./components/sections/inventoryItemDetails/InventoryItemDetails";
 import EditWarehouse from "./components/sections/editWarehouse/EditWarehouse";
+import Inventory from "./pages/Inventory";
+import Warehouse from "./pages/Warehouse";
 
 function App() {
   const [inventoryItem, setInventoryItem] = useState({});
@@ -31,15 +34,23 @@ function App() {
     <div className="main">
       <Header />
       <div className="components">
-        <WarehouseDetailsComponent />
-        <EditInventoryItem
-          inventoryItem={inventoryItem}
-          setInventoryItem={setInventoryItem}
-        />
-        <AddWarehouse />
-        <InventoryItemDetails />
-        <WarehouseList />
+        <Routes>
+          <Route path="/" element={<Warehouse />} />
+          <Route path="/inventory" element={<Inventory />} />
+          <Route path="/inventory/:inventoryID" element={<Inventory />} />
+          <Route path="/warehouse" element={<Warehouse />} />
+          <Route path="warehouse/:warehouseID" element={<Warehouse />} />
+          <Route
+            path="*"
+            element={
+              <>
+                <h1>Page not found</h1>
+              </>
+            }
+          />
+        </Routes>
       </div>
+
       <div className="footer">
         <Footer />
       </div>
