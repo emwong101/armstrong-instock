@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function EditWarehouse({ setDisplayEdit, setShowList, setShowDetails }) {
   const [fetchWarehouseDetails, setFetchWarehouseDetails] = useState({});
-  const [warehouseDetails, setWarehouseDetails] = useState(null);
+  const [warehouseDetails, setWarehouseDetails] = useState({ default: "" });
   const params = useParams();
   const { warehouseID } = params;
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ function EditWarehouse({ setDisplayEdit, setShowList, setShowDetails }) {
   }, []);
 
   useEffect(() => {
-    if (warehouseDetails !== null) {
+    if (Object.values(warehouseDetails).every((value) => value !== "")) {
       const edit = async () => {
         try {
           await axios.put(`${BASE_URL}/warehouse/${warehouseID}`, {
@@ -41,7 +41,7 @@ function EditWarehouse({ setDisplayEdit, setShowList, setShowDetails }) {
             contact_phone: warehouseDetails.contact_phone,
             contact_email: warehouseDetails.contact_email,
           });
-          toast.success("Warehouse added succesfully!", {
+          toast.success("Warehouse updated succesfully!", {
             position: toast.POSITION.BOTTOM_RIGHT,
             theme: "colored",
             hideProgressBar: true,
@@ -72,6 +72,7 @@ function EditWarehouse({ setDisplayEdit, setShowList, setShowDetails }) {
           setDisplayEdit(false);
           setShowList(true);
         }}
+        submit="Save"
       />
     </>
   );
