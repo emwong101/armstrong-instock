@@ -23,7 +23,7 @@ export const InventoryList = () => {
 
 	return (
 		<>
-			<div className="wd-container">
+			<div className="el-container">
 				<section className="title-inventory">
 					<div className="title-inventory-left">
 						<h1 className="title-inventory_title">Inventory</h1>
