@@ -37,7 +37,7 @@ function App() {
 					setInventoryItem={setInventoryItem}
 				/>
 				<AddWarehouse />
-				<WarehouseList />
+				{/* <WarehouseList /> */}
 				<InventoryList />
 			</div>
 			<div className="footer">

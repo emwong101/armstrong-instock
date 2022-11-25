@@ -48,7 +48,7 @@ export const InventoryList = () => {
 				<main className="inventory-list">
 					<section className="inventory-list_label-box">
 						<span className="inventory-list_label">
-							warehouse
+							inventory item
 							<img
 								className="inventory-list_icon"
 								src={TagTopBottom}
@@ -56,7 +56,7 @@ export const InventoryList = () => {
 							/>
 						</span>
 						<span className="inventory-list_label">
-							address
+							category
 							<img
 								className="inventory-list_icon"
 								src={TagTopBottom}
@@ -64,7 +64,7 @@ export const InventoryList = () => {
 							/>
 						</span>
 						<span className="inventory-list_label">
-							contact name
+							status
 							<img
 								className="inventory-list_icon"
 								src={TagTopBottom}
@@ -72,7 +72,15 @@ export const InventoryList = () => {
 							/>
 						</span>
 						<span className="label-box_label">
-							contact information
+							qty
+							<img
+								className="inventory-list_icon"
+								src={TagTopBottom}
+								alt="tags top and bottom"
+							/>
+						</span>
+						<span className="label-box_label">
+							warehouse
 							<img
 								className="inventory-list_icon"
 								src={TagTopBottom}
