@@ -56,13 +56,7 @@ export const WarehouseList = ({
 							className="title-container_icon"
 						/>
 					</div>
-					<Link
-						to="/warehouse"
-						onClick={() => {
-							setDisplayAdd(true);
-							setShowList(false);
-						}}
-					>
+					<Link to="/warehouse/add">
 						<div className="title-container_button">
 							<span className="title-container_button-text">
 								+ Add New Warehouse
@@ -73,7 +67,7 @@ export const WarehouseList = ({
 
 				<main className="warehouse-list_box">
 					<section className="warehouse-list_label-box">
-						<span className="warehouse-list_label-1">
+						<span className="warehouse-list_label">
 							warehouse
 							<img
 								className="warehouse-list_icon"
@@ -81,7 +75,7 @@ export const WarehouseList = ({
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="warehouse-list_label-2">
+						<span className="warehouse-list_label">
 							address
 							<img
 								className="warehouse-list_icon"
@@ -89,7 +83,7 @@ export const WarehouseList = ({
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="warehouse-list_label-3">
+						<span className="warehouse-list_label">
 							contact name
 							<img
 								className="warehouse-list_icon"
@@ -97,7 +91,7 @@ export const WarehouseList = ({
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="warehouse-list_label-4">
+						<span className="warehouse-list_label">
 							contact information
 							<img
 								className="warehouse-list_icon"
@@ -105,7 +99,7 @@ export const WarehouseList = ({
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="warehouse-list_label-5">actions</span>
+						<span className="warehouse-list_label">actions</span>
 					</section>
 					{warehouses.map((warehouse) => (
 						<>
@@ -118,13 +112,7 @@ export const WarehouseList = ({
 										<span className="warehouse-item_label warehouse-item_label-item">
 											warehouse
 										</span>
-										<Link
-											to={`/warehouse/${warehouse.id}`}
-											onClick={() => {
-												setShowDetails(true);
-												setShowList(false);
-											}}
-										>
+										<Link to={`/warehouse/${warehouse.id}`}>
 											<div className="warehouse-item_name-box">
 												<span className="warehouse-item_name">
 													{warehouse.warehouse_name}
@@ -168,13 +156,7 @@ export const WarehouseList = ({
 										warehouse={warehouse}
 										onDeleteWarehouse={() => deleteWarehouse(warehouse.id)}
 									/>
-									<Link
-										to={`/warehouse/${warehouse.id}`}
-										onClick={() => {
-											setDisplayEdit(true);
-											setShowList(false);
-										}}
-									>
+									<Link to={`/warehouse/${warehouse.id}/edit`}>
 										<img
 											className="warehouse-item_bottom-icon"
 											src={Edit}
@@ -183,18 +165,11 @@ export const WarehouseList = ({
 									</Link>
 								</div>
 							</section>
-
 							<section
 								className="warehouse-item_tablet"
 								key={warehouse.id}
 							>
-								<Link
-									to={`/warehouse/${warehouse.id}`}
-									onClick={() => {
-										setShowDetails(true);
-										setShowList(false);
-									}}
-								>
+								<Link to={`/warehouse/${warehouse.id}`}>
 									<div className="warehouse-item_tablet-name-box">
 										<span className="warehouse-item_tablet-name">
 											{warehouse.warehouse_name}
@@ -230,13 +205,7 @@ export const WarehouseList = ({
 										warehouse={warehouse}
 										onDeleteWarehouse={() => deleteWarehouse(warehouse.id)}
 									/>
-									<Link
-										to={`/warehouse/${warehouse.id}`}
-										onClick={() => {
-											setDisplayEdit(true);
-											setShowList(false);
-										}}
-									>
+									<Link to={`/warehouse/${warehouse.id}/edit`}>
 										<img
 											className="warehouse-item_tablet-bottom-icon"
 											src={Edit}
