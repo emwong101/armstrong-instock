@@ -30,7 +30,6 @@ const Inventories = () => {
               setShowDetails={setShowDetails}
             />
           )}
-
           {displayAdd && (
             <AddNewInventoryItem
               setShowList={setShowList}
@@ -57,3 +56,4 @@ const Inventories = () => {
 };
 
 export default Inventories;
+
