@@ -5,16 +5,13 @@ import ArrowBack from "../../../assets/Icons/arrow_back-24px.svg";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 
-const setWarehouse = () => {};
-const warehouse = {};
-// delete before merge for it to work!!!
 const EditInventoryItem = ({
   // inventoryItem,
   // setInventoryItem,
   setShowList,
   setDisplayEdit,
 }) => {
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
+
   const {inventoryItemId} = useParams();
   const [inventoryItem, setInventoryItem] = useState({});
   const [warehouse, setWarehouse] = useState({});
@@ -77,7 +74,14 @@ useEffect(() => {
   return (
     <div className="editInventoryItem">
       <div className="editInventoryItem__caption">
-        <Link to={`/inventory/${inventoryItem?.id}`}>
+        <Link
+          to="/inventory"
+          onClick={() => {
+            navigate(-1);
+            setDisplayEdit(false);
+            setShowList(true);
+          }}
+        >
           <button className="editInventoryItem__arrow">
             <img
               src={ArrowBack}
@@ -118,13 +122,15 @@ useEffect(() => {
           <label htmlFor="category" className="editInventoryItem__label">
             Category
           </label>
-          {inventoryItemId?.map((inventoryItem) => {
-            return (
+
+          {/* {inventoryItemId?.map((inventoryItem.catetegory) => { */}
+            {/* return ( */}
               <select className="editInventoryItem__input-select">
                 <option value="">{inventoryItem?.category}</option>
               </select>
-            );
-          })}
+            {/* ); */}
+          {/* // })}; */}
+
           ;
         </div>
 
@@ -200,7 +206,13 @@ useEffect(() => {
         {/* ))}; */}
 
         <div className="editInventoryItem__button">
-          <Link to={`/inventory/${inventoryItem?.id}`}>
+          <Link
+            to="/inventory"
+            onClick={() => {
+              setShowList(true);
+              setDisplayEdit(false);
+            }}
+          >
             <button className="editInventoryItem__button-cancel" type="submit">
               Cancel
             </button>

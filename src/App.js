@@ -15,6 +15,7 @@ import InventoryItemDetails from "./components/sections/inventoryItemDetails/Inv
 import { ToastContainer } from "react-toastify";
 
 function App() {
+
   return (
     <div className="main">
       <Header />
