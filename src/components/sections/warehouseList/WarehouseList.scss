@@ -121,6 +121,25 @@
 			text-transform: uppercase;
 		}
 	}
+
+	&_label {
+		&-1 {
+			width: 7.5rem;
+		}
+		&-2 {
+			width: 7.5rem;
+		}
+		&-3 {
+			width: 8rem;
+		}
+		&-4 {
+			width: 11rem;
+		}
+		&-5 {
+			width: 5rem;
+			padding-left: 2rem;
+		}
+	}
 	&_icon {
 		padding-left: 1rem;
 	}
@@ -128,8 +147,7 @@
 
 .warehouse-item {
 	@include breakpoints.tablet {
-		display: flex;
-		border-top: 1px solid $Secondary-light;
+		display: none;
 	}
 
 	@include breakpoints.tablet {
@@ -216,7 +234,6 @@
 		text-transform: capitalize;
 
 		@include breakpoints.tablet {
-			// padding-right: 6rem;
 			@include bodyMedium;
 		}
 		@include breakpoints.desktop {
@@ -246,6 +263,60 @@
 		&-icon {
 			padding: 0 0.5rem;
 			cursor: pointer;
+		}
+	}
+}
+
+.warehouse-item_tablet {
+	display: none;
+
+	@include breakpoints.tablet {
+		display: flex;
+		padding: 1.25rem;
+		justify-content: space-between;
+		align-items: center;
+		border-top: 1px solid $Secondary-light;
+
+		&-label {
+			@include breakpoints.tablet;
+			display: none;
+			@include bodyMedium;
+		}
+
+		&-name-box {
+			width: 7.5rem;
+			display: flex;
+		}
+		&-name {
+			font-weight: 600;
+			color: $Primary-medium;
+		}
+
+		&-adress-box {
+			width: 7.5rem;
+			display: flex;
+			flex-direction: column;
+		}
+
+		&-contact {
+			width: 8rem;
+		}
+
+		&-info {
+			&-box {
+				display: flex;
+				flex-direction: column;
+				width: 11rem;
+			}
+		}
+
+		&-bottom {
+			width: 5rem;
+
+			&-icon {
+				padding: 0 0.5rem;
+				cursor: pointer;
+			}
 		}
 	}
 }
