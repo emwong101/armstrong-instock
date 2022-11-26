@@ -56,13 +56,7 @@ export const WarehouseList = ({
 							className="title-container_icon"
 						/>
 					</div>
-					<Link
-						to="/warehouse"
-						onClick={() => {
-							setDisplayAdd(true);
-							setShowList(false);
-						}}
-					>
+					<Link to="/warehouse/add">
 						<div className="title-container_button">
 							<span className="title-container_button-text">
 								+ Add New Warehouse
@@ -108,80 +102,119 @@ export const WarehouseList = ({
 						<span className="warehouse-list_label">actions</span>
 					</section>
 					{warehouses.map((warehouse) => (
-						<section
-							className="warehouse-item"
-							key={warehouse.id}
-						>
-							<div className="warehouse-item_top">
-								<div className="warehouse-item_top-left">
-									<span className="warehouse-item_label warehouse-item_label-item">
-										warehouse
-									</span>
-									<Link
-										to={`/warehouse/${warehouse.id}`}
-										onClick={() => {
-											setShowDetails(true);
-											setShowList(false);
-										}}
-									>
-										<div className="warehouse-item_name-box">
-											<span className="warehouse-item_name">
-												{warehouse.warehouse_name}
+						<>
+							<section
+								className="warehouse-item"
+								key={warehouse.id}
+							>
+								<div className="warehouse-item_top">
+									<div className="warehouse-item_top-left">
+										<span className="warehouse-item_label warehouse-item_label-item">
+											warehouse
+										</span>
+										<Link to={`/warehouse/${warehouse.id}`}>
+											<div className="warehouse-item_name-box">
+												<span className="warehouse-item_name">
+													{warehouse.warehouse_name}
+												</span>
+												<img
+													src={Chevron}
+													alt="closing tag"
+												/>
+											</div>
+										</Link>
+										<span className="warehouse-item_label warehouse-item_label-category">
+											adress
+										</span>
+										<span className="warehouse-item_adress">
+											{warehouse.address}, {warehouse.city}, {warehouse.country}
+										</span>
+									</div>
+									<div className="warehouse-item_top-right">
+										<span className="warehouse-item_label warehouse-item_label-contact">
+											contact name
+										</span>
+										<span className="warehouse-item_contact">
+											{warehouse.contact_name}
+										</span>
+
+										<span className="warehouse-item_label warehouse-item_label-qty">
+											contact information
+										</span>
+										<div className="warehouse-item_info-box">
+											<span className="warehouse-item_info">
+												{warehouse.contact_phone}
 											</span>
-											<img
-												src={Chevron}
-												alt="closing tag"
-											/>
+											<span className="warehouse-item_info">
+												{warehouse.contact_email}
+											</span>
 										</div>
+									</div>
+								</div>
+								<div className="warehouse-item_bottom">
+									<DeleteWarehouseButton
+										warehouse={warehouse}
+										onDeleteWarehouse={() => deleteWarehouse(warehouse.id)}
+									/>
+									<Link to={`/warehouse/${warehouse.id}/edit`}>
+										<img
+											className="warehouse-item_bottom-icon"
+											src={Edit}
+											alt="edit"
+										/>
 									</Link>
-									<span className="warehouse-item_label warehouse-item_label-category">
-										adress
-									</span>
-									<span className="warehouse-item_adress">
+								</div>
+							</section>
+							<section
+								className="warehouse-item_tablet"
+								key={warehouse.id}
+							>
+								<Link to={`/warehouse/${warehouse.id}`}>
+									<div className="warehouse-item_tablet-name-box">
+										<span className="warehouse-item_tablet-name">
+											{warehouse.warehouse_name}
+										</span>
+										<img
+											src={Chevron}
+											alt="closing tag"
+										/>
+									</div>
+								</Link>
+
+								<div className="warehouse-item_tablet-adress-box">
+									<span className="warehouse-item_tablet-adress">
 										{warehouse.address}, {warehouse.city}, {warehouse.country}
 									</span>
 								</div>
-								<div className="warehouse-item_top-right">
-									<span className="warehouse-item_label warehouse-item_label-contact">
-										contact name
-									</span>
-									<span className="warehouse-item_contact">
-										{warehouse.contact_name}
-									</span>
 
-									<span className="warehouse-item_label warehouse-item_label-qty">
-										contact information
+								<span className="warehouse-item_tablet-contact">
+									{warehouse.contact_name}
+								</span>
+
+								<div className="warehouse-item_tablet-info-box">
+									<span className="warehouse-item_tablet-info">
+										{warehouse.contact_phone}
 									</span>
-									<div className="warehouse-item_info-box">
-										<span className="warehouse-item_info">
-											{warehouse.contact_phone}
-										</span>
-										<span className="warehouse-item_info">
-											{warehouse.contact_email}
-										</span>
-									</div>
+									<span className="warehouse-item_tablet-info">
+										{warehouse.contact_email}
+									</span>
 								</div>
-							</div>
-							<div className="warehouse-item_bottom">
-								<DeleteWarehouseButton
-									warehouse={warehouse}
-									onDeleteWarehouse={() => deleteWarehouse(warehouse.id)}
-								/>
-								<Link
-									to={`/warehouse/${warehouse.id}`}
-									onClick={() => {
-										setDisplayEdit(true);
-										setShowList(false);
-									}}
-								>
-									<img
-										className="warehouse-item_bottom-icon"
-										src={Edit}
-										alt="edit"
+
+								<div className="warehouse-item_tablet-bottom">
+									<DeleteWarehouseButton
+										warehouse={warehouse}
+										onDeleteWarehouse={() => deleteWarehouse(warehouse.id)}
 									/>
-								</Link>
-							</div>
-						</section>
+									<Link to={`/warehouse/${warehouse.id}/edit`}>
+										<img
+											className="warehouse-item_tablet-bottom-icon"
+											src={Edit}
+											alt="edit"
+										/>
+									</Link>
+								</div>
+							</section>
+						</>
 					))}
 				</main>
 			</div>

@@ -68,10 +68,6 @@ function EditWarehouse({ setDisplayEdit, setShowList, setShowDetails }) {
         setWarehouseDetails={setWarehouseDetails}
         title="Edit Warehouse"
         back="/warehouse"
-        nav={() => {
-          setDisplayEdit(false);
-          setShowList(true);
-        }}
         submit="Save"
       />
     </>

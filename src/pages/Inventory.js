@@ -1,6 +1,6 @@
 // import "./app.scss";
 import React, { useState } from "react";
-import "./Pages.scss";
+import "../pages/Pages.scss";
 import Header from "../components/sections/header/Header";
 import AddNewInventoryItem from "../components/sections/addNewInventoryItem/AddNewInventoryItem";
 import EditInventoryItem from "../components/sections/editInventoryItem/EditInventoryItem";
