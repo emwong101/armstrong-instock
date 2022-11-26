@@ -143,12 +143,32 @@
 	@include breakpoints.tablet {
 		display: initial;
 		display: flex;
-		padding: 1rem 1.5rem;
+		padding: 1rem 1.25rem;
 		justify-content: space-between;
 		background-color: $Background-light;
 		@include bodySmall;
 		color: $Secondary-dark;
 		text-transform: uppercase;
+
+		&_label {
+			&-1 {
+				width: 8rem;
+			}
+			&-2 {
+				width: 6rem;
+			}
+			&-3 {
+				width: 6rem;
+			}
+			&-4 {
+				width: 5rem;
+			}
+
+			&-5 {
+				width: 5rem;
+				padding-left: 2rem;
+			}
+		}
 	}
 
 	&_icon {
@@ -324,11 +344,7 @@
 		}
 
 		&-qty {
-			width: 4rem;
-		}
-
-		&-warehouse {
-			width: 6rem;
+			width: 5rem;
 		}
 
 		&-bottom {

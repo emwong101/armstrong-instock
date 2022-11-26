@@ -105,7 +105,7 @@ export const WarehouseDetailsComponent = ({
 
 				<main className="inventory-box">
 					<section className="label-box">
-						<span className="label-box_label">
+						<span className="label-box_label-1">
 							inventory item
 							<img
 								className="label-box_icon"
@@ -113,7 +113,7 @@ export const WarehouseDetailsComponent = ({
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="label-box_label">
+						<span className="label-box_label-2">
 							category
 							<img
 								className="label-box_icon"
@@ -121,7 +121,7 @@ export const WarehouseDetailsComponent = ({
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="label-box_label">
+						<span className="label-box_label-3">
 							status
 							<img
 								className="label-box_icon"
@@ -129,7 +129,7 @@ export const WarehouseDetailsComponent = ({
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="label-box_label">
+						<span className="label-box_label-4">
 							quantity
 							<img
 								className="label-box_icon"
@@ -137,7 +137,7 @@ export const WarehouseDetailsComponent = ({
 								alt="tags top and bottom"
 							/>
 						</span>
-						<span className="label-box_label">actions</span>
+						<span className="label-box_label-5">actions</span>
 					</section>
 
 					{details &&
