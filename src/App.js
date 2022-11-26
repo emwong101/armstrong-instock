@@ -15,24 +15,7 @@ import InventoryItemDetails from "./components/sections/inventoryItemDetails/Inv
 import { ToastContainer } from "react-toastify";
 
 function App() {
-  const [inventoryItem, setInventoryItem] = useState({});
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await axios.get(
-          `http://localhost:8080/inventory/9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3/`
-        );
-        setInventoryItem(data);
-      } catch (error) {
-        console.log("error");
-      }
-    };
-    fetchData();
-  }, []);
-
-  return (
+return (
     <div className="main">
       <Header />
 
