@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import "./InventoryList.scss";
 import DeleteInventoryButton from "../../atoms/deleteInventoryComponent/DeleteInventoryButton";
 
-
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:8080";
 
 export const InventoryList = ({
@@ -153,7 +152,6 @@ export const InventoryList = ({
                         {item.status}
                       </span>
 
-
                       <span className="inventory-list_item-label inventory-list_item-label-qty">
                         qty
                       </span>
@@ -172,19 +170,17 @@ export const InventoryList = ({
                     </div>
                   </div>
                   <div className="inventory-list_item-bottom">
-
                     <DeleteInventoryButton
                       item={item}
                       onDeleteInventory={() => deleteInventory(item.id)}
                     />
                     <Link
-                      to={`/inventory/${item.id}`}
+                      to={`/inventory/${item.id}/edit`}
                       onClick={() => {
                         setDisplayEdit(true);
                         setShowList(false);
                       }}
                     >
-
                       <img
                         className="inventory-list_item-bottom-icon"
                         src={Edit}
