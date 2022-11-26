@@ -54,7 +54,6 @@
 		height: 30px;
 
 		@include breakpoints.tablet {
-			padding-left: 0;
 			@include labelsLinksButtons;
 		}
 
@@ -88,9 +87,6 @@
 		@include breakpoints.tablet {
 			width: 25%;
 		}
-		@include breakpoints.tablet {
-			width: 15%;
-		}
 	}
 
 	&_label {
@@ -110,6 +106,7 @@
 
 		@include breakpoints.tablet {
 			@include bodyMedium;
+			width: 7rem;
 		}
 	}
 
@@ -161,8 +158,7 @@
 
 .item-box {
 	@include breakpoints.tablet {
-		display: flex;
-		border-top: 1px solid $Secondary-light;
+		display: none;
 	}
 
 	@include breakpoints.desktop {
@@ -278,6 +274,71 @@
 
 		&-icon {
 			padding: 0 0.5rem;
+		}
+	}
+}
+
+.item-box_tablet {
+	display: none;
+
+	@include breakpoints.tablet {
+		display: flex;
+		padding: 1.25rem;
+		justify-content: space-between;
+		align-items: center;
+		border-top: 1px solid $Secondary-light;
+
+		&-label {
+			@include breakpoints.tablet;
+			display: none;
+		}
+
+		&-name-box {
+			width: 8rem;
+			display: flex;
+		}
+		&-name {
+			font-weight: 600;
+			color: $Primary-medium;
+
+			@include bodyMedium;
+		}
+
+		&-category {
+			width: 6rem;
+			@include bodyMedium;
+		}
+
+		&-status-box {
+			width: 6rem;
+		}
+		&-status {
+			@include bodySmall;
+			text-transform: uppercase;
+			color: $Support-dark;
+			background: rgba(21, 132, 99, 0.07);
+			padding: 0.5rem 0.5rem;
+			border-radius: 1.25rem;
+			font-weight: 600;
+			text-align: center;
+		}
+
+		&-qty {
+			width: 4rem;
+		}
+
+		&-warehouse {
+			width: 6rem;
+		}
+
+		&-bottom {
+			width: 5rem;
+			@include bodyMedium;
+
+			&-icon {
+				padding: 0 0.5rem;
+				cursor: pointer;
+			}
 		}
 	}
 }
