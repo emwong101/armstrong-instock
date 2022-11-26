@@ -5,6 +5,9 @@ import ArrowBack from "../../../assets/Icons/arrow_back-24px.svg";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 
+// const setWarehouse = () => {};
+// const warehouse = {};
+//delete before merge for it to work!!!
 const EditInventoryItem = ({
   // inventoryItem,
   // setInventoryItem,
@@ -73,14 +76,7 @@ useEffect(() => {
   return (
     <div className="editInventoryItem">
       <div className="editInventoryItem__caption">
-        <Link
-          to="/inventory"
-          onClick={() => {
-            navigate(-1);
-            setDisplayEdit(false);
-            setShowList(true);
-          }}
-        >
+        <Link to={`/inventory/${inventoryItem?.id}`}>
           <button className="editInventoryItem__arrow">
             <img
               src={ArrowBack}
@@ -203,13 +199,7 @@ useEffect(() => {
         {/* ))}; */}
 
         <div className="editInventoryItem__button">
-          <Link
-            to="/inventory"
-            onClick={() => {
-              setShowList(true);
-              setDisplayEdit(false);
-            }}
-          >
+          <Link to={`/inventory/${inventoryItem?.id}`}>
             <button className="editInventoryItem__button-cancel" type="submit">
               Cancel
             </button>

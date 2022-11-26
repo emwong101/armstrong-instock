@@ -50,10 +50,6 @@ function AddWarehouse({ setShowList, setDisplayAdd }) {
         setWarehouseDetails={setWarehouseDetails}
         warehouseDetails={warehouseDetails}
         back="/warehouse"
-        nav={() => {
-          setDisplayAdd(false);
-          setShowList(true);
-        }}
         submit="+ Add Warehouse"
       />
       <ToastContainer />
