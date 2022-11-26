@@ -54,8 +54,8 @@ const InventoryItemDetails = () => {
             </div>
           </div>
         </section>
-        <section className="item-box">
-          <div className="item-box-top">
+        <section className="item__status-container">
+          <div className="item__status-container">
             <div className="item__status-title">
               <span className="item__status">STATUS:</span>
               <span className="item__status-field">{`${status}`}</span>

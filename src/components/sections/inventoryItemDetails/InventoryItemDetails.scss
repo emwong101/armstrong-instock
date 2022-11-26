@@ -126,6 +126,17 @@
     }
   }
 
+  &__status-container {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__status-container {
+    display: flex;
+    padding: 1rem 1.5rem;
+  }
+
   &__status-title {
     @include mobileTableHeader;
     color: $Secondary-dark;
