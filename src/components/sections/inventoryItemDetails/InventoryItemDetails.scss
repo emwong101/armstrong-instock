@@ -73,7 +73,7 @@
     }
   }
 
-  &__description {
+  &__description-title {
     text-transform: uppercase;
     @include mobileTableHeader;
     color: $Secondary-dark;
@@ -81,6 +81,47 @@
 
     @include breakpoints.tablet {
       @include tableHeader;
+    }
+  }
+
+  &__description {
+    @include mobileLabelsLinksButtons;
+    color: $Primary-dark;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
+
+  &__category {
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoints.tablet {
+      width: 65%;
+      justify-content: space-around;
+      border-left: 1px solid $Secondary-light;
+    }
+  }
+
+  &__category-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__category-title {
+    text-transform: uppercase;
+    @include mobileTableHeader;
+    color: $Secondary-dark;
+    padding-bottom: 0.25rem;
+  }
+
+  &__category-description {
+    @include mobileLabelsLinksButtons;
+    color: $Primary-dark;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
     }
   }
 
