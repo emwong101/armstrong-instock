@@ -3,128 +3,192 @@
 @use "../../../styles/partials/fonts" as *;
 @use "../../../styles/partials/mixins" as *;
 
+//howto make the icon there edit bigger
+//how to remove line in middle
+
 .IID {
   display: flex;
   flex-direction: column;
   font-family: "Titillium-Web";
+  background-color: $Background-light;
 
   &__title-box {
     display: flex;
     padding: 2rem 1.5rem 1.5rem;
-    justify-content: space-bßetween;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+  &__arrow {
+    outline: none;
+    border: none;
+    background: none;
+    padding: 0;
+    padding-top: 0.5rem;
+    flex-grow: 1;
+  }
+  &__link-box {
+    display: flex;
+    justify-content: center;
+    justify-content: center;
     align-items: center;
   }
 
-  &-left {
-    display: flex;
-  }
-
-  &_title {
-    padding-left: 0.7rem;
-    font-size: 1rem;
-    font-family: "Titillium-Web-bold";
+  &__item-name {
+    font-size: 1.75rem;
+    margin: 0;
+    line-height: 36px;
+    flex-grow: 1;
+    font-family: $font-bold;
     @include mobilePageHeader;
-  }
-
-  &_editing {
-    color: $Primary-light;
-    background-color: $Primary-medium;
-    border-radius: 50%;
-    padding: 0.4rem;
-    width: 2rem;
-    height: 2rem;
-  }
-}
-
-.info-box {
-  padding: 1rem 1.5rem;
-  border-top: 1px solid $Secondary-light;
-
-  &-top {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 2.25rem;
-  }
-
-  &_label {
-    text-transform: uppercase;
-    @include mobileTableHeader;
-    color: $Secondary-dark;
-    padding-bottom: 0.25rem;
-  }
-
-  &_detail {
-    @include mobileLabelsLinksButtons;
     color: $Primary-dark;
   }
 
-  &-bottom {
-    display: flex;
-
-    &_left,
-    &_right {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-    }
+  &__edit-icon {
+    color: $Primary-light;
+    background-color: $Primary-medium;
+    border-radius: 50%;
+    padding: 0px 8px;
+    width: 31px;
+    height: 30px;
   }
 }
 
-.item-box {
-  &-top {
-    display: flex;
-    border-top: 1px solid $Secondary-light;
-    padding: 1rem 1.5rem;
+.item {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid $Secondary-light;
 
-    &_left,
-    &_right {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
+  @include breakpoints.tablet {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+
+    @include breakpoints.tablet {
+      width: 65%;
+    }
+    @include breakpoints.desktop {
+      width: 75%;
     }
   }
 
-  &_label {
-    text-transform: uppercase;
+  &__description-title {
     @include mobileTableHeader;
     color: $Secondary-dark;
     padding-bottom: 0.25rem;
 
-    &-qty {
-      padding-top: 1.25rem;
+    @include breakpoints.tablet {
+      @include tableHeader;
     }
   }
 
-  &_name-box {
+  &__description {
+    @include mobileLabelsLinksButtons;
+    color: $Primary-dark;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
+
+  &__category {
     display: flex;
-    padding-bottom: 1.25rem;
+    justify-content: space-between;
+
+    @include breakpoints.tablet {
+      width: 65%;
+      justify-content: space-around;
+      border-left: 1px solid $Secondary-light;
+    }
   }
 
-  &_name {
-    @include mobileBodyMedium;
-    color: $Primary-medium;
+  &__category-box {
+    display: flex;
+    flex-direction: column;
   }
 
-  &_status {
-    @include mobileBodySmall;
-    text-transform: uppercase;
+  &__category-title {
+    @include mobileTableHeader;
+    color: $Secondary-dark;
+    padding-bottom: 0.25rem;
+  }
+
+  &__category-description {
+    @include mobileLabelsLinksButtons;
+    color: $Primary-dark;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
+
+  &__status-container {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__status-container {
+    display: flex;
+    padding: 1rem 1.5rem;
+  }
+
+  &__status-title {
+    @include mobileTableHeader;
+    color: $Secondary-dark;
+    padding-bottom: 0.25rem;
+  }
+
+  &__status-field {
+    display: flex;
+
     color: $Support-dark;
     background: rgba(21, 132, 99, 0.07);
     padding: 0.25rem 0.5rem;
     width: fit-content;
     border-radius: 1.25rem;
+    font-weight: 600;
   }
 
-  &_category {
-    @include mobileBodyMedium;
-  }
-  &_qty {
-    @include mobileBodyMedium;
-  }
-
-  &_bottom {
-    padding: 1.5rem;
+  &__warehouse-title {
     display: flex;
-    justify-content: space-between;
+    @include mobileTableHeader;
+    color: $Secondary-dark;
+    padding-bottom: 0.25rem;
+  }
+
+  &__warehouse-name {
+    display: flex;
+    @include mobileLabelsLinksButtons;
+    color: $Primary-dark;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
+
+  &__quantity-title {
+    @include mobileTableHeader;
+    color: $Secondary-dark;
+    padding-bottom: 0.25rem;
+    padding-top: 1.25rem;
+    @include breakpoints.tablet {
+      display: none;
+      //nopadding-top?
+    }
+  }
+
+  &__quantity-number {
+    display: flex;
+    @include mobileLabelsLinksButtons;
+    color: $Primary-dark;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
   }
 }

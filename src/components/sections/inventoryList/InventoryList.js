@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import "./InventoryList.scss";
 import DeleteInventoryButton from "../../atoms/deleteInventoryComponent/DeleteInventoryButton";
 
+
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:8080";
 
 export const InventoryList = ({

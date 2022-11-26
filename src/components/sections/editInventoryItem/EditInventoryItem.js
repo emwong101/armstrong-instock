@@ -11,6 +11,7 @@ const EditInventoryItem = ({
   setShowList,
   setDisplayEdit,
 }) => {
+
   const {inventoryItemId} = useParams();
   const [inventoryItem, setInventoryItem] = useState({});
   const [warehouse, setWarehouse] = useState({});
@@ -121,6 +122,7 @@ useEffect(() => {
           <label htmlFor="category" className="editInventoryItem__label">
             Category
           </label>
+
           {/* {inventoryItemId?.map((inventoryItem.catetegory) => { */}
             {/* return ( */}
               <select className="editInventoryItem__input-select">
@@ -128,6 +130,7 @@ useEffect(() => {
               </select>
             {/* ); */}
           {/* // })}; */}
+
           ;
         </div>
 
