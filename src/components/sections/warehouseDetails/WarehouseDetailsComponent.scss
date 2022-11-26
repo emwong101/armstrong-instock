@@ -4,12 +4,13 @@
 @use "../../../styles/partials/mixins" as *;
 
 .wd-container {
-	display: flex;
-	flex-direction: column;
-	font-family: "Titillium-Web";
+  display: flex;
+  flex-direction: column;
+  font-family: "Titillium-Web";
 }
 
 .header-box {
+
 	display: flex;
 	padding: 2rem 1.5rem 1.5rem;
 	justify-content: space-between;
@@ -54,7 +55,6 @@
 		height: 30px;
 
 		@include breakpoints.tablet {
-			padding-left: 0;
 			@include labelsLinksButtons;
 		}
 
@@ -88,9 +88,6 @@
 		@include breakpoints.tablet {
 			width: 25%;
 		}
-		@include breakpoints.tablet {
-			width: 15%;
-		}
 	}
 
 	&_label {
@@ -110,6 +107,7 @@
 
 		@include breakpoints.tablet {
 			@include bodyMedium;
+			width: 7rem;
 		}
 	}
 
@@ -133,25 +131,47 @@
 			}
 		}
 	}
+
 }
 
 .inventory-box {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .label-box {
+
 	display: none;
 
 	@include breakpoints.tablet {
 		display: initial;
 		display: flex;
-		padding: 1rem 1.5rem;
+		padding: 1rem 1.25rem;
 		justify-content: space-between;
 		background-color: $Background-light;
 		@include bodySmall;
 		color: $Secondary-dark;
 		text-transform: uppercase;
+
+		&_label {
+			&-1 {
+				width: 8rem;
+			}
+			&-2 {
+				width: 6rem;
+			}
+			&-3 {
+				width: 6rem;
+			}
+			&-4 {
+				width: 5rem;
+			}
+
+			&-5 {
+				width: 5rem;
+				padding-left: 2rem;
+			}
+		}
 	}
 
 	&_icon {
@@ -161,8 +181,7 @@
 
 .item-box {
 	@include breakpoints.tablet {
-		display: flex;
-		border-top: 1px solid $Secondary-light;
+		display: none;
 	}
 
 	@include breakpoints.desktop {
@@ -282,7 +301,68 @@
 	}
 }
 
+.item-box_tablet {
+	display: none;
+
+	@include breakpoints.tablet {
+		display: flex;
+		padding: 1.25rem;
+		justify-content: space-between;
+		align-items: center;
+		border-top: 1px solid $Secondary-light;
+
+		&-label {
+			@include breakpoints.tablet;
+			display: none;
+		}
+
+		&-name-box {
+			width: 8rem;
+			display: flex;
+		}
+		&-name {
+			font-weight: 600;
+			color: $Primary-medium;
+
+			@include bodyMedium;
+		}
+
+		&-category {
+			width: 6rem;
+			@include bodyMedium;
+		}
+
+		&-status-box {
+			width: 6rem;
+		}
+		&-status {
+			@include bodySmall;
+			text-transform: uppercase;
+			color: $Support-dark;
+			background: rgba(21, 132, 99, 0.07);
+			padding: 0.5rem 0.5rem;
+			border-radius: 1.25rem;
+			font-weight: 600;
+			text-align: center;
+		}
+
+		&-qty {
+			width: 5rem;
+		}
+
+		&-bottom {
+			width: 5rem;
+			@include bodyMedium;
+
+			&-icon {
+				padding: 0 0.5rem;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
 .redBG {
-	color: $Support-light;
-	background: rgba(201, 69, 21, 0.07);
+  color: $Support-light;
+  background: rgba(201, 69, 21, 0.07);
 }

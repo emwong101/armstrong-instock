@@ -49,8 +49,7 @@ const DeleteInventoryButton = ({ item, onDeleteInventory = () => {} }) => {
             {`Delete ${item_name} inventory item?`}{" "}
           </h1>
           <p className="delete__details">
-            Please confirm that you'd like to delete Television//add item_name
-            from the inventory list. You won't be able to undo this action.
+            {`Please confirm that you'd like to delete ${item_name} from the inventory list. You won't be able to undo this action.`}
           </p>
           <div className="delete__button-container">
             <button className="delete-w__cancel-btn" onClick={closeModal}>
