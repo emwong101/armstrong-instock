@@ -58,7 +58,7 @@ export const InventoryList = ({
             />
           </div>
           <Link
-            to="/inventory"
+            to="/inventory/add"
             onClick={() => {
               setDisplayAdd(true);
               setShowList(false);
