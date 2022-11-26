@@ -3,6 +3,9 @@
 @use "../../../styles/partials/fonts" as *;
 @use "../../../styles/partials/mixins" as *;
 
+//howto make the icon there edit bigger
+//how to remove line in middle
+
 .IID {
   display: flex;
   flex-direction: column;
@@ -74,7 +77,6 @@
   }
 
   &__description-title {
-    text-transform: uppercase;
     @include mobileTableHeader;
     color: $Secondary-dark;
     padding-bottom: 0.25rem;
@@ -110,7 +112,6 @@
   }
 
   &__category-title {
-    text-transform: uppercase;
     @include mobileTableHeader;
     color: $Secondary-dark;
     padding-bottom: 0.25rem;
@@ -125,5 +126,58 @@
     }
   }
 
-  //end of break
+  &__status-title {
+    @include mobileTableHeader;
+    color: $Secondary-dark;
+    padding-bottom: 0.25rem;
+  }
+
+  &__status-field {
+    display: flex;
+
+    color: $Support-dark;
+    background: rgba(21, 132, 99, 0.07);
+    padding: 0.25rem 0.5rem;
+    width: fit-content;
+    border-radius: 1.25rem;
+    font-weight: 600;
+  }
+
+  &__warehouse-title {
+    display: flex;
+    @include mobileTableHeader;
+    color: $Secondary-dark;
+    padding-bottom: 0.25rem;
+  }
+
+  &__warehouse-name {
+    display: flex;
+    @include mobileLabelsLinksButtons;
+    color: $Primary-dark;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
+
+  &__quantity-title {
+    @include mobileTableHeader;
+    color: $Secondary-dark;
+    padding-bottom: 0.25rem;
+    padding-top: 1.25rem;
+    @include breakpoints.tablet {
+      display: none;
+      //nopadding-top?
+    }
+  }
+
+  &__quantity-number {
+    display: flex;
+    @include mobileLabelsLinksButtons;
+    color: $Primary-dark;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
 }

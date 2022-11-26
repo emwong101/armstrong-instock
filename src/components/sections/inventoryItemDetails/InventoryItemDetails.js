@@ -49,7 +49,6 @@ const InventoryItemDetails = () => {
             <div className="item__category-box">
               <span className="item__category-title ">Category: </span>
               <span className="item__category-description">
-                {/* //info-box_detail info-box_name */}
                 {`${category}`}
               </span>
             </div>
@@ -57,21 +56,15 @@ const InventoryItemDetails = () => {
         </section>
         <section className="item-box">
           <div className="item-box-top">
-            <div className="item-box-top_left">
-              <span className="item-box_label item-box_label-item">
-                STATUS:
-              </span>
-              <span className="item-box_status">{`${status}`}</span>
-              <span className="item-box_label item-box_label-category">
-                Warehouse
-              </span>
-              <span className="item-box_category">{`${warehouse_name}`}</span>
+            <div className="item__status-title">
+              <span className="item__status">STATUS:</span>
+              <span className="item__status-field">{`${status}`}</span>
+              <span className="item__warehouse-title">WAREHOUSE</span>
+              <span className="item__warehouse-name">{`${warehouse_name}`}</span>
             </div>
-            <div className="item-box-top_right">
-              <span className="item-box_label item-box_label-status">
-                QUANTITY:
-              </span>
-              <span className="item-box_qty">{`${quantity}`}</span>
+            <div className="item__quantity-container">
+              <span className="item__quantity-title">QUANTITY:</span>
+              <span className="item__quantity-number">{`${quantity}`}</span>
             </div>
           </div>
         </section>
