@@ -4,12 +4,13 @@
 @use "../../../styles/partials/mixins" as *;
 
 .wd-container {
-	display: flex;
-	flex-direction: column;
-	font-family: "Titillium-Web";
+  display: flex;
+  flex-direction: column;
+  font-family: "Titillium-Web";
 }
 
 .header-box {
+
 	display: flex;
 	padding: 2rem 1.5rem 1.5rem;
 	justify-content: space-between;
@@ -130,14 +131,16 @@
 			}
 		}
 	}
+
 }
 
 .inventory-box {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .label-box {
+
 	display: none;
 
 	@include breakpoints.tablet {
@@ -360,6 +363,6 @@
 }
 
 .redBG {
-	color: $Support-light;
-	background: rgba(201, 69, 21, 0.07);
+  color: $Support-light;
+  background: rgba(201, 69, 21, 0.07);
 }
