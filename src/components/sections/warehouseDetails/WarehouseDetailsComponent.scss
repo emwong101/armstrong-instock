@@ -4,285 +4,285 @@
 @use "../../../styles/partials/mixins" as *;
 
 .wd-container {
-	display: flex;
-	flex-direction: column;
-	font-family: "Titillium-Web";
+  display: flex;
+  flex-direction: column;
+  font-family: "Titillium-Web";
 }
 
 .header-box {
-	display: flex;
-	padding: 2rem 1.5rem 1.5rem;
-	justify-content: space-between;
-	align-items: center;
-	flex-direction: row;
+  display: flex;
+  padding: 2rem 1.5rem 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
 
-	&-top,
-	&-bottom {
-		display: flex;
-		justify-content: center;
-		justify-content: center;
-		align-items: center;
-	}
+  &-top,
+  &-bottom {
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+  }
 
-	&-bottom {
-		@include breakpoints.tablet {
-			background-color: $Primary-medium;
-			width: 5rem;
-			height: 2.5rem;
-			border-radius: 1.25rem;
-		}
-	}
+  &-bottom {
+    @include breakpoints.tablet {
+      background-color: $Primary-medium;
+      width: 5rem;
+      height: 2.5rem;
+      border-radius: 1.25rem;
+    }
+  }
 
-	&_header {
-		padding-left: 0.7rem;
-		font-size: 1rem;
-		font-family: "Titillium-Web-bold";
-		margin: 0;
-		@include mobilePageHeader;
+  &_header {
+    padding-left: 0.7rem;
+    font-size: 1rem;
+    font-family: "Titillium-Web-bold";
+    margin: 0;
+    @include mobilePageHeader;
 
-		@include breakpoints.tablet {
-			@include pageHeader;
-		}
-	}
+    @include breakpoints.tablet {
+      @include pageHeader;
+    }
+  }
 
-	&_editing {
-		color: $Primary-light;
-		background-color: $Primary-medium;
-		border-radius: 50%;
-		padding: 0px 8px;
-		width: 31px;
-		height: 30px;
+  &_editing {
+    color: $Primary-light;
+    background-color: $Primary-medium;
+    border-radius: 50%;
+    padding: 0px 8px;
+    width: 31px;
+    height: 30px;
 
-		@include breakpoints.tablet {
-			padding-left: 0;
-			@include labelsLinksButtons;
-		}
+    @include breakpoints.tablet {
+      padding-left: 0;
+      @include labelsLinksButtons;
+    }
 
-		&-text {
-			display: none;
+    &-text {
+      display: none;
 
-			@include breakpoints.tablet {
-				display: initial;
-				color: $Primary-light;
-			}
-		}
-	}
+      @include breakpoints.tablet {
+        display: initial;
+        color: $Primary-light;
+      }
+    }
+  }
 }
 
 .info-box {
-	padding: 1rem 1.5rem;
-	border-top: 1px solid $Secondary-light;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid $Secondary-light;
 
-	@include breakpoints.tablet {
-		display: flex;
-		justify-content: space-between;
-		border-top: none;
-		border-top: 1px solid $Secondary-light;
-	}
+  @include breakpoints.tablet {
+    display: flex;
+    justify-content: space-between;
+    border-top: none;
+    border-top: 1px solid $Secondary-light;
+  }
 
-	&-top {
-		display: flex;
-		flex-direction: column;
-		padding-bottom: 2.25rem;
+  &-top {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2.25rem;
 
-		@include breakpoints.tablet {
-			width: 25%;
-		}
-		@include breakpoints.tablet {
-			width: 15%;
-		}
-	}
+    @include breakpoints.tablet {
+      width: 25%;
+    }
+    @include breakpoints.tablet {
+      width: 15%;
+    }
+  }
 
-	&_label {
-		text-transform: uppercase;
-		@include mobileTableHeader;
-		color: $Secondary-dark;
-		padding-bottom: 0.25rem;
+  &_label {
+    text-transform: uppercase;
+    @include mobileTableHeader;
+    color: $Secondary-dark;
+    padding-bottom: 0.25rem;
 
-		@include breakpoints.tablet {
-			@include tableHeader;
-		}
-	}
+    @include breakpoints.tablet {
+      @include tableHeader;
+    }
+  }
 
-	&_detail {
-		@include mobileLabelsLinksButtons;
-		color: $Primary-dark;
+  &_detail {
+    @include mobileLabelsLinksButtons;
+    color: $Primary-dark;
 
-		@include breakpoints.tablet {
-			@include bodyMedium;
-		}
-	}
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
 
-	&-bottom {
-		display: flex;
-		justify-content: space-between;
+  &-bottom {
+    display: flex;
+    justify-content: space-between;
 
-		@include breakpoints.tablet {
-			width: 65%;
-			justify-content: space-around;
-			border-left: 1px solid $Secondary-light;
-		}
+    @include breakpoints.tablet {
+      width: 65%;
+      justify-content: space-around;
+      border-left: 1px solid $Secondary-light;
+    }
 
-		&_left,
-		&_right {
-			display: flex;
-			flex-direction: column;
+    &_left,
+    &_right {
+      display: flex;
+      flex-direction: column;
 
-			@include breakpoints.tablet {
-				width: 30%;
-			}
-		}
-	}
+      @include breakpoints.tablet {
+        width: 30%;
+      }
+    }
+  }
 }
 
 .inventory-box {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .label-box {
-	display: none;
+  display: none;
 
-	@include breakpoints.tablet {
-		display: initial;
-		display: flex;
-		padding: 1rem 1.5rem;
-		justify-content: space-between;
-		background-color: $Background-light;
-		@include bodySmall;
-		color: $Secondary-dark;
-		text-transform: uppercase;
-	}
+  @include breakpoints.tablet {
+    display: initial;
+    display: flex;
+    padding: 1rem 1.5rem;
+    justify-content: space-between;
+    background-color: $Background-light;
+    @include bodySmall;
+    color: $Secondary-dark;
+    text-transform: uppercase;
+  }
 
-	&_icon {
-		padding-left: 1rem;
-	}
+  &_icon {
+    padding-left: 1rem;
+  }
 }
 
 .item-box {
-	@include breakpoints.tablet {
-		display: flex;
-		border-top: 1px solid $Secondary-light;
-	}
+  @include breakpoints.tablet {
+    display: flex;
+    border-top: 1px solid $Secondary-light;
+  }
 
-	@include breakpoints.desktop {
-		justify-content: space-between;
-	}
-	&-top {
-		display: flex;
-		padding: 1rem 1.5rem;
-		border-top: 1px solid $Secondary-light;
+  @include breakpoints.desktop {
+    justify-content: space-between;
+  }
+  &-top {
+    display: flex;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid $Secondary-light;
 
-		@include breakpoints.tablet {
-			width: 80%;
-			border: none;
-		}
+    @include breakpoints.tablet {
+      width: 80%;
+      border: none;
+    }
 
-		&_left,
-		&_right {
-			display: flex;
-			flex-direction: column;
-			width: 50%;
+    &_left,
+    &_right {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
 
-			@include breakpoints.tablet {
-				flex-direction: row;
-				width: initial;
-				align-items: center;
-			}
-		}
-	}
+      @include breakpoints.tablet {
+        flex-direction: row;
+        width: initial;
+        align-items: center;
+      }
+    }
+  }
 
-	&_label {
-		text-transform: uppercase;
-		@include mobileTableHeader;
-		color: $Secondary-dark;
-		padding-bottom: 0.25rem;
+  &_label {
+    text-transform: uppercase;
+    @include mobileTableHeader;
+    color: $Secondary-dark;
+    padding-bottom: 0.25rem;
 
-		@include breakpoints.tablet {
-			display: none;
-		}
+    @include breakpoints.tablet {
+      display: none;
+    }
 
-		&-qty {
-			padding-top: 1.25rem;
-		}
-	}
+    &-qty {
+      padding-top: 1.25rem;
+    }
+  }
 
-	&_name-box {
-		display: flex;
-		padding-bottom: 1.25rem;
+  &_name-box {
+    display: flex;
+    padding-bottom: 1.25rem;
 
-		@include breakpoints.tablet {
-			padding-right: 7.5rem;
-			padding-bottom: 0;
-		}
-		@include breakpoints.desktop {
-			padding-right: 15rem;
-			padding-bottom: 0;
-		}
-	}
+    @include breakpoints.tablet {
+      padding-right: 7.5rem;
+      padding-bottom: 0;
+    }
+    @include breakpoints.desktop {
+      padding-right: 15rem;
+      padding-bottom: 0;
+    }
+  }
 
-	&_name {
-		@include mobileBodyMedium;
-		font-weight: 600;
-		color: $Primary-medium;
+  &_name {
+    @include mobileBodyMedium;
+    font-weight: 600;
+    color: $Primary-medium;
 
-		@include breakpoints.tablet {
-			@include bodyMedium;
-		}
-	}
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
 
-	&_category {
-		@include mobileBodyMedium;
+  &_category {
+    @include mobileBodyMedium;
 
-		@include breakpoints.tablet {
-			padding-right: 6rem;
-			@include bodyMedium;
-		}
-		@include breakpoints.desktop {
-			padding-right: 13.5rem;
-		}
-	}
+    @include breakpoints.tablet {
+      padding-right: 6rem;
+      @include bodyMedium;
+    }
+    @include breakpoints.desktop {
+      padding-right: 13.5rem;
+    }
+  }
 
-	&_status {
-		@include mobileBodySmall;
-		text-transform: uppercase;
-		color: $Support-dark;
-		background: rgba(21, 132, 99, 0.07);
-		padding: 0.25rem 0.5rem;
-		width: fit-content;
-		border-radius: 1.25rem;
-		font-weight: 600;
+  &_status {
+    @include mobileBodySmall;
+    text-transform: uppercase;
+    color: $Support-dark;
+    background: rgba(21, 132, 99, 0.07);
+    padding: 0.25rem 0.5rem;
+    width: fit-content;
+    border-radius: 1.25rem;
+    font-weight: 600;
 
-		@include breakpoints.tablet {
-			margin-right: 5.5rem;
-			@include bodySmall;
-		}
-		@include breakpoints.desktop {
-			margin-right: 14rem;
-		}
-	}
+    @include breakpoints.tablet {
+      margin-right: 5.5rem;
+      @include bodySmall;
+    }
+    @include breakpoints.desktop {
+      margin-right: 14rem;
+    }
+  }
 
-	&_qty {
-		@include mobileBodyMedium;
-	}
+  &_qty {
+    @include mobileBodyMedium;
+  }
 
-	&_bottom {
-		padding: 0 1.5rem 1.5rem;
-		display: flex;
-		justify-content: space-between;
+  &_bottom {
+    padding: 0 1.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
 
-		@include breakpoints.tablet {
-			padding: 1.25rem;
-			@include bodyMedium;
-		}
+    @include breakpoints.tablet {
+      padding: 1.25rem;
+      @include bodyMedium;
+    }
 
-		&-icon {
-			padding: 0 0.5rem;
-		}
-	}
+    &-icon {
+      padding: 0 0.5rem;
+    }
+  }
 }
 
 .redBG {
-	color: $Support-light;
-	background: rgba(201, 69, 21, 0.07);
+  color: $Support-light;
+  background: rgba(201, 69, 21, 0.07);
 }
