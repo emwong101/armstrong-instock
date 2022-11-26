@@ -40,7 +40,7 @@ const InventoryItemDetails = () => {
             className="IID__edit-icon"
           />
         </section>
-        <section className="info-box">
+        <section className="item">
           <div className="info-box-top">
             <span className="info-box_label info-box_label-adress">
               ITEM DESCRIPTION:

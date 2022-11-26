@@ -49,119 +49,135 @@
     width: 31px;
     height: 30px;
   }
+}
 
-  &-left {
+.item {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid $Secondary-light;
+  background-color: red;
+
+  @include breakpoints.tablet {
     display: flex;
-  }
-
-  &_title {
-    padding-left: 0.7rem;
-    font-size: 1rem;
-    font-family: "Titillium-Web-bold";
-    @include mobilePageHeader;
-  }
-
-  &_editing {
-    color: $Primary-light;
-    background-color: $Primary-medium;
-    border-radius: 50%;
-    padding: 0.4rem;
-    width: 2rem;
-    height: 2rem;
-  }
-
-  //   &__location {
-  //     color: $Primary-dark;
-  //     border-radius: 1.25rem;
-  //   }
-
-  // }
-
-  &-top {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 2.25rem;
-  }
-
-  &_label {
-    text-transform: uppercase;
-    @include mobileTableHeader;
-    color: $Secondary-dark;
-    padding-bottom: 0.25rem;
-  }
-
-  &_detail {
-    @include mobileLabelsLinksButtons;
-    color: $Primary-dark;
-  }
-
-  &-bottom {
-    display: flex;
-
-    &_left,
-    &_right {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-    }
+    justify-content: space-evenly;
   }
 }
 
-.item-box {
-  &-top {
-    display: flex;
-    border-top: 1px solid $Secondary-light;
-    padding: 1rem 1.5rem;
+//NEED TO CHANGE ALL NAMES
+//   &-left {
+//     display: flex;
+//   }
 
-    &_left,
-    &_right {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-    }
-  }
+//   &_title {
+//     padding-left: 0.7rem;
+//     font-size: 1rem;
+//     font-family: "Titillium-Web-bold";
+//     @include mobilePageHeader;
+//   }
 
-  &_label {
-    text-transform: uppercase;
-    @include mobileTableHeader;
-    color: $Secondary-dark;
-    padding-bottom: 0.25rem;
+//   &_editing {
+//     color: $Primary-light;
+//     background-color: $Primary-medium;
+//     border-radius: 50%;
+//     padding: 0.4rem;
+//     width: 2rem;
+//     height: 2rem;
+//   }
 
-    &-qty {
-      padding-top: 1.25rem;
-    }
-  }
+//   //   &__location {
+//   //     color: $Primary-dark;
+//   //     border-radius: 1.25rem;
+//   //   }
 
-  &_name-box {
-    display: flex;
-    padding-bottom: 1.25rem;
-  }
+//   //
 
-  &_name {
-    @include mobileBodyMedium;
-    color: $Primary-medium;
-  }
+//   &-top {
+//     display: flex;
+//     flex-direction: column;
+//     padding-bottom: 2.25rem;
+//   }
 
-  &_status {
-    @include mobileBodySmall;
-    text-transform: uppercase;
-    color: $Support-dark;
-    background: rgba(21, 132, 99, 0.07);
-    padding: 0.25rem 0.5rem;
-    width: fit-content;
-    border-radius: 1.25rem;
-  }
+//   &_label {
+//     text-transform: uppercase;
+//     @include mobileTableHeader;
+//     color: $Secondary-dark;
+//     padding-bottom: 0.25rem;
+//   }
 
-  &_category {
-    @include mobileBodyMedium;
-  }
-  &_qty {
-    @include mobileBodyMedium;
-  }
+//   &_detail {
+//     @include mobileLabelsLinksButtons;
+//     color: $Primary-dark;
+//   }
 
-  &_bottom {
-    padding: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-  }
-}
+//   &-bottom {
+//     display: flex;
+
+//     &_left,
+//     &_right {
+//       display: flex;
+//       flex-direction: column;
+//       width: 50%;
+//     }
+//   }
+// }
+
+// .item-box {
+//   &-top {
+//     display: flex;
+//     border-top: 1px solid $Secondary-light;
+//     padding: 1rem 1.5rem;
+
+//     &_left,
+//     &_right {
+//       display: flex;
+//       flex-direction: column;
+//       width: 50%;
+//     }
+//   }
+
+//   &_label {
+//     text-transform: uppercase;
+//     @include mobileTableHeader;
+//     color: $Secondary-dark;
+//     padding-bottom: 0.25rem;
+
+//     &-qty {
+//       padding-top: 1.25rem;
+//     }
+//   }
+
+//   &_name-box {
+//     display: flex;
+//     padding-bottom: 1.25rem;
+//   }
+
+//   &_name {
+//     @include mobileBodyMedium;
+//     color: $Primary-medium;
+//   }
+
+//   &_status {
+//     @include mobileBodySmall;
+//     text-transform: uppercase;
+//     color: $Support-dark;
+//     background: rgba(21, 132, 99, 0.07);
+//     padding: 0.25rem 0.5rem;
+//     width: fit-content;
+//     border-radius: 1.25rem;
+//   }
+
+//   &_category {
+//     @include mobileBodyMedium;
+//   }
+//   &_qty {
+//     @include mobileBodyMedium;
+//   }
+
+//   &_bottom {
+//     padding: 1.5rem;
+//     display: flex;
+//     justify-content: space-between;
+//   }
+// }
+// .info {
+//   background-color: peachpuff;
+// }
