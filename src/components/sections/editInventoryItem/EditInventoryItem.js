@@ -4,7 +4,6 @@ import axios from "axios";
 import ArrowBack from "../../../assets/Icons/arrow_back-24px.svg";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-
 const EditInventoryItem = ({
   // inventoryItem,
   // setInventoryItem,
