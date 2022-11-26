@@ -48,25 +48,30 @@
 	}
 	&-right {
 		@include breakpoints.tablet {
-			width: 11.5625rem;
+			width: 10rem;
 			height: 2.5rem;
 			position: relative;
+		}
+		@include breakpoints.desktop {
+			width: 25rem;
+		}
+	}
+
+	&-left {
+		@include breakpoints.desktop {
+			width: 40%;
 		}
 	}
 
 	&_search {
 		border: 1px solid $Secondary-light;
-		width: 100%;
 		border-radius: 1.25rem;
 		height: 2.25rem;
 		padding: 0 1rem;
+		width: 100%;
 
 		&:hover {
 			border-color: $Primary-medium;
-		}
-
-		@include breakpoints.tablet {
-			// width: 9.875rem;
 		}
 	}
 
@@ -109,17 +114,6 @@
 
 	&_label-box {
 		display: none;
-
-		@include breakpoints.tablet {
-			display: initial;
-			display: flex;
-			padding: 1rem 1.5rem;
-			justify-content: space-between;
-			background-color: $Background-light;
-			@include bodySmall;
-			color: $Secondary-dark;
-			text-transform: uppercase;
-		}
 	}
 
 	&_label {
@@ -150,31 +144,16 @@
 		display: none;
 	}
 
-	@include breakpoints.tablet {
-		padding: 0 1.25rem;
-		justify-content: space-between;
-	}
 	&_top {
 		display: flex;
 		padding: 1rem 1.5rem;
 		border-top: 1px solid $Secondary-light;
-
-		@include breakpoints.tablet {
-			width: 80%;
-			border: none;
-			padding: 0;
-		}
 
 		&-left,
 		&-right {
 			display: flex;
 			flex-direction: column;
 			width: 50%;
-
-			@include breakpoints.tablet {
-				flex-direction: row;
-				align-items: center;
-			}
 		}
 	}
 
@@ -184,10 +163,6 @@
 		color: $Secondary-dark;
 		padding-bottom: 0.25rem;
 
-		@include breakpoints.tablet {
-			display: none;
-		}
-
 		&-qty {
 			padding-top: 1.25rem;
 		}
@@ -196,49 +171,21 @@
 	&_name-box {
 		display: flex;
 		padding-bottom: 1.25rem;
-
-		@include breakpoints.tablet {
-			padding-bottom: 0;
-			padding-right: 0;
-		}
-		@include breakpoints.desktop {
-			padding-right: 15rem;
-			padding-bottom: 0;
-		}
 	}
 
 	&_name {
 		@include mobileBodyMedium;
 		font-weight: 600;
 		color: $Primary-medium;
-
-		@include breakpoints.tablet {
-			@include bodyMedium;
-		}
 	}
 
 	&_adress {
 		@include mobileBodyMedium;
-
-		@include breakpoints.tablet {
-			@include bodyMedium;
-			width: 40%;
-		}
-		@include breakpoints.desktop {
-			padding-right: 13.5rem;
-		}
 	}
 
 	&_contact {
 		@include mobileBodyMedium;
 		text-transform: capitalize;
-
-		@include breakpoints.tablet {
-			@include bodyMedium;
-		}
-		@include breakpoints.desktop {
-			padding-right: 13.5rem;
-		}
 	}
 
 	&_info {
@@ -254,11 +201,6 @@
 		padding: 0 1.5rem 1.5rem;
 		display: flex;
 		justify-content: space-between;
-
-		@include breakpoints.tablet {
-			padding: 1.25rem 0;
-			@include bodyMedium;
-		}
 
 		&-icon {
 			padding: 0 0.5rem;
