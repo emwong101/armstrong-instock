@@ -41,10 +41,8 @@ const InventoryItemDetails = () => {
           />
         </section>
         <section className="item">
-          <div className="info-box-top">
-            <span className="info-box_label info-box_label-adress">
-              ITEM DESCRIPTION:
-            </span>
+          <div className="item__top">
+            <span className="item__description">ITEM DESCRIPTION:</span>
             <span className="info-box_detail info-box_address">
               {`${description}`}
             </span>
