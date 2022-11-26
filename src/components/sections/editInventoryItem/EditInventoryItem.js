@@ -14,6 +14,7 @@ const EditInventoryItem = ({
   setShowList,
   setDisplayEdit,
 }) => {
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   const {inventoryItemId} = useParams();
   const [inventoryItem, setInventoryItem] = useState({});
   const [warehouse, setWarehouse] = useState({});
