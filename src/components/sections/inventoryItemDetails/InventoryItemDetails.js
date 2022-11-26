@@ -9,8 +9,8 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:8080";
 
 const InventoryItemDetails = () => {
   const { inventoryID } = useParams();
-  const [inventoryItem, setInventoryItem] = useState({});
   const navigate = useNavigate();
+  const [inventoryItem, setInventoryItem] = useState({});
 
   useEffect(() => {
     axios
@@ -20,6 +20,7 @@ const InventoryItemDetails = () => {
 
   const { item_name, description, category, status, quantity, warehouse_name } =
     inventoryItem;
+
   return (
     <>
       <div className="IID">
