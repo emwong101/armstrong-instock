@@ -7,12 +7,47 @@
   display: flex;
   flex-direction: column;
   font-family: "Titillium-Web";
+  background-color: $Background-light;
 
   &__title-box {
     display: flex;
     padding: 2rem 1.5rem 1.5rem;
-    justify-content: space-bßetween;
+    justify-content: space-between;
     align-items: center;
+    flex-direction: row;
+  }
+  &__arrow {
+    outline: none;
+    border: none;
+    background: none;
+    padding: 0;
+    padding-top: 0.5rem;
+    flex-grow: 1;
+  }
+  &__link-box {
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__item-name {
+    font-size: 1.75rem;
+    margin: 0;
+    line-height: 36px;
+    flex-grow: 1;
+    font-family: $font-bold;
+    @include mobilePageHeader;
+    color: $Primary-dark;
+  }
+
+  &__edit-icon {
+    color: $Primary-light;
+    background-color: $Primary-medium;
+    border-radius: 50%;
+    padding: 0px 8px;
+    width: 31px;
+    height: 30px;
   }
 
   &-left {
@@ -34,11 +69,13 @@
     width: 2rem;
     height: 2rem;
   }
-}
 
-.info-box {
-  padding: 1rem 1.5rem;
-  border-top: 1px solid $Secondary-light;
+  //   &__location {
+  //     color: $Primary-dark;
+  //     border-radius: 1.25rem;
+  //   }
+
+  // }
 
   &-top {
     display: flex;

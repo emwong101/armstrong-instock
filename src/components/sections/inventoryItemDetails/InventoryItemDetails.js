@@ -3,6 +3,7 @@ import axios from "axios";
 import Arrow from "../../../assets/Icons/arrow_back-24px.svg";
 import EditWhite from "../../../assets/Icons/edit_white.svg";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import "./InventoryItemDetails.scss";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:8080";
 
@@ -21,19 +22,23 @@ const InventoryItemDetails = () => {
     inventoryItem;
   return (
     <>
-      <div className="wd-container">
-        <section className="title-box">
-          <div className="title-box-left">
+      <div className="IID">
+        <section className="IID__title-box">
+          <div className="IID__link-box">
             <Link
               onClick={() => {
                 navigate(-1);
               }}
             >
-              <img className="title-box_arrow" src={Arrow} alt="arrow" />
+              <img className="IID__arrow" src={Arrow} alt="arrow" />
             </Link>
-            <h1 className="title-box_title">{`${item_name}`}</h1>
+            <h1 className="IID__item-name">{`${item_name}`}</h1>
           </div>
-          <img src={EditWhite} alt="edit" className="title-box_editing" />
+          <img
+            src={EditWhite}
+            alt="white pencil icon in blue background"
+            className="IID__edit-icon"
+          />
         </section>
         <section className="info-box">
           <div className="info-box-top">
