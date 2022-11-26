@@ -103,12 +103,14 @@ const AddNewInventoryItem = ({ setShowList, setDisplayAdd }) => {
           </label>
 
           <textarea
-            className="addInventoryItem__input-quantity"
+            className={`hide ${
+              inventoryItem?.status !== "In Stock" ? "In Stock" : "input__show"
+            }`}
             id="quantity"
             type="text"
             rows="1"
             cols="30"
-            placeholder="0"
+            // placeholder="0"
           ></textarea>
 
           <label htmlFor="warehouse" className="addInventoryItem__label">
