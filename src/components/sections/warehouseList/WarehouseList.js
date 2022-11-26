@@ -11,65 +11,59 @@ import "./WarehouseList.scss";
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:8080";
 
 export const WarehouseList = ({
-	setShowList,
-	setDisplayAdd,
-	setDisplayEdit,
-	setShowDetails,
+  setShowList,
+  setDisplayAdd,
+  setDisplayEdit,
+  setShowDetails,
 }) => {
-	const [warehouses, setWarehouses] = useState([]);
+  const [warehouses, setWarehouses] = useState([]);
 
-	const fetchWarehouses = useCallback(async () => {
-		const { data } = await axios.get(`${BASE_URL}/warehouse`);
-		setWarehouses(data);
-		// setVideos(data.filter((video) => video.id !== videoId));
-	}, []);
+  const fetchWarehouses = useCallback(async () => {
+    const { data } = await axios.get(`${BASE_URL}/warehouse`);
+    setWarehouses(data);
+    // setVideos(data.filter((video) => video.id !== videoId));
+  }, []);
 
-	const deleteWarehouse = async (id) => {
-		return axios({
-			method: "delete",
-			url: `/warehouse/${id}`,
-			baseURL: BASE_URL,
-		}).then(() => {
-			fetchWarehouses();
-		});
-	};
+  const deleteWarehouse = async (id) => {
+    return axios({
+      method: "delete",
+      url: `/warehouse/${id}`,
+      baseURL: BASE_URL,
+    }).then(() => {
+      fetchWarehouses();
+    });
+  };
 
-	useEffect(() => {
-		fetchWarehouses();
-	}, [fetchWarehouses]);
-	return (
-		<>
-			<div className="wh-container">
-				<section className="title-container">
-					<div className="title-container-left">
-						<h1 className="title-container_title">Warehouses</h1>
-					</div>
-					<div className="title-container-right">
-						<input
-							type="text"
-							className="title-container_search"
-							placeholder="Search..."
-						/>
-						<img
-							src={Search}
-							alt="search icon"
-							className="title-container_icon"
-						/>
-					</div>
-					<Link
-						to="/warehouse"
-						onClick={() => {
-							setDisplayAdd(true);
-							setShowList(false);
-						}}
-					>
-						<div className="title-container_button">
-							<span className="title-container_button-text">
-								+ Add New Warehouse
-							</span>
-						</div>
-					</Link>
-				</section>
+  useEffect(() => {
+    fetchWarehouses();
+  }, [fetchWarehouses]);
+  return (
+    <>
+      <div className="wh-container">
+        <section className="title-container">
+          <div className="title-container-left">
+            <h1 className="title-container_title">Warehouses</h1>
+          </div>
+          <div className="title-container-right">
+            <input
+              type="text"
+              className="title-container_search"
+              placeholder="Search..."
+            />
+            <img
+              src={Search}
+              alt="search icon"
+              className="title-container_icon"
+            />
+          </div>
+          <Link to="/warehouse/add">
+            <div className="title-container_button">
+              <span className="title-container_button-text">
+                + Add New Warehouse
+              </span>
+            </div>
+          </Link>
+        </section>
 
 				<main className="warehouse-list_box">
 					<section className="warehouse-list_label-box">

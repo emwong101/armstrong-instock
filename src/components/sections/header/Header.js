@@ -11,16 +11,7 @@ const Header = ({
 }) => {
   return (
     <header className="header">
-      <Link
-        to="/warehouse"
-        onClick={() => {
-          setShowList(true);
-          setDisplayAdd(false);
-          setDisplayEdit(false);
-          setShowDetails(false);
-        }}
-        className="header__company-logo"
-      >
+      <Link to="/warehouse" className="header__company-logo">
         <img
           className="header__logo"
           src={Logo}
@@ -29,28 +20,12 @@ const Header = ({
       </Link>
 
       <div className="header__buttons-container">
-        <Link
-          to="/warehouse"
-          onClick={() => {
-            setShowList(true);
-            setDisplayAdd(false);
-            setDisplayEdit(false);
-            setShowDetails(false);
-          }}
-        >
+        <Link to="/warehouse">
           <button className="header__button" type="text">
             <p className="header__button-txt">Warehouses</p>
           </button>
         </Link>
-        <Link
-          to="/inventory"
-          onClick={() => {
-            setShowList(true);
-            setDisplayAdd(false);
-            setDisplayEdit(false);
-            setShowDetails(false);
-          }}
-        >
+        <Link to="/inventory">
           <button className="header__button" type="text">
             <p className="header__button-txt">Inventory</p>
           </button>
