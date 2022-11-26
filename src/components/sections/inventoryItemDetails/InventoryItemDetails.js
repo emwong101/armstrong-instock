@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Arrow from "../../../assets/Icons/arrow_back-24px.svg";
 import EditWhite from "../../../assets/Icons/edit_white.svg";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import "./InventoryItemDetails.scss";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:8080";
 
-const InventoryItemDetails = ({ setShowDetails, setShowList }) => {
+const InventoryItemDetails = () => {
   const { inventoryID } = useParams();
   const [inventoryItem, setInventoryItem] = useState({});
   const navigate = useNavigate();
@@ -19,64 +20,51 @@ const InventoryItemDetails = ({ setShowDetails, setShowList }) => {
 
   const { item_name, description, category, status, quantity, warehouse_name } =
     inventoryItem;
-
   return (
     <>
-      <div className="wd-container">
-        <section className="title-box">
-          <div className="title-box-left">
+      <div className="IID">
+        <section className="IID__title-box">
+          <div className="IID__link-box">
             <Link
-              to="/inventory"
               onClick={() => {
                 navigate(-1);
-                setShowDetails(false);
-                setShowList(true);
               }}
             >
-              <img className="title-box_arrow" src={Arrow} alt="arrow" />
+              <img className="IID__arrow" src={Arrow} alt="arrow" />
             </Link>
-
-            <h1 className="title-box_title">{`${item_name}`}</h1>
+            <h1 className="IID__item-name">{`${item_name}`}</h1>
           </div>
-          <img src={EditWhite} alt="edit" className="title-box_editing" />
+          <img
+            src={EditWhite}
+            alt="white pencil icon in blue background"
+            className="IID__edit-icon"
+          />
         </section>
-        <section className="info-box">
-          <div className="info-box-top">
-            <span className="info-box_label info-box_label-adress">
-              ITEM DESCRIPTION:
-            </span>
-            <span className="info-box_detail info-box_address">
-              {`${description}`}
-            </span>
+        <section className="item">
+          <div className="item__top">
+            <span className="item__description-title">ITEM DESCRIPTION:</span>
+            <span className="item__description">{`${description}`}</span>
           </div>
-          <div className="info-box-bottom">
-            <div className="info-box-bottom_left">
-              <span className="info-box_label info-box_label-name">
-                Category:{" "}
-              </span>
-              <span className="info-box_detail info-box_name">
+          <div className="item__category">
+            <div className="item__category-box">
+              <span className="item__category-title ">Category: </span>
+              <span className="item__category-description">
                 {`${category}`}
               </span>
             </div>
           </div>
         </section>
-        <section className="item-box">
-          <div className="item-box-top">
-            <div className="item-box-top_left">
-              <span className="item-box_label item-box_label-item">
-                STATUS:
-              </span>
-              <span className="item-box_status">{`${status}`}</span>
-              <span className="item-box_label item-box_label-category">
-                Warehouse
-              </span>
-              <span className="item-box_category">{`${warehouse_name}`}</span>
+        <section className="item__status-container">
+          <div className="item__status-container">
+            <div className="item__status-title">
+              <span className="item__status">STATUS:</span>
+              <span className="item__status-field">{`${status}`}</span>
+              <span className="item__warehouse-title">WAREHOUSE</span>
+              <span className="item__warehouse-name">{`${warehouse_name}`}</span>
             </div>
-            <div className="item-box-top_right">
-              <span className="item-box_label item-box_label-status">
-                QUANTITY:
-              </span>
-              <span className="item-box_qty">{`${quantity}`}</span>
+            <div className="item__quantity-container">
+              <span className="item__quantity-title">QUANTITY:</span>
+              <span className="item__quantity-number">{`${quantity}`}</span>
             </div>
           </div>
         </section>

@@ -47,24 +47,12 @@ export const WarehouseDetailsComponent = ({
       <div className="wd-container">
         <section className="header-box">
           <div className="header-box-top">
-            <Link
-              to="/warehouse"
-              onClick={() => {
-                setShowList(true);
-                setShowDetails(false);
-              }}
-            >
+            <Link to="/warehouse">
               <img className="header-box_arrow" src={Arrow} alt="arrow" />
             </Link>
             <h1 className="header-box_header">{warehouse.city}</h1>
           </div>
-          <Link
-            to={`/warehouse/${warehouse.id}`}
-            onClick={() => {
-              setDisplayEdit(true);
-              setShowDetails(false);
-            }}
-          >
+          <Link to={`/warehouse/${warehouse.id}/edit`}>
             <div className="header-box-bottom">
               <img src={EditWhite} alt="edit" className="header-box_editing" />
               <span className="header-box_editing-text">Edit</span>
@@ -109,7 +97,7 @@ export const WarehouseDetailsComponent = ({
 
         <main className="inventory-box">
           <section className="label-box">
-            <span className="label-box_label">
+            <span className="label-box_label-1">
               inventory item
               <img
                 className="label-box_icon"
@@ -117,7 +105,7 @@ export const WarehouseDetailsComponent = ({
                 alt="tags top and bottom"
               />
             </span>
-            <span className="label-box_label">
+            <span className="label-box_label-2">
               category
               <img
                 className="label-box_icon"
@@ -125,7 +113,7 @@ export const WarehouseDetailsComponent = ({
                 alt="tags top and bottom"
               />
             </span>
-            <span className="label-box_label">
+            <span className="label-box_label-3">
               status
               <img
                 className="label-box_icon"
@@ -133,7 +121,7 @@ export const WarehouseDetailsComponent = ({
                 alt="tags top and bottom"
               />
             </span>
-            <span className="label-box_label">
+            <span className="label-box_label-4">
               quantity
               <img
                 className="label-box_icon"
@@ -141,7 +129,7 @@ export const WarehouseDetailsComponent = ({
                 alt="tags top and bottom"
               />
             </span>
-            <span className="label-box_label">actions</span>
+            <span className="label-box_label-5">actions</span>
           </section>
 
           {details &&
@@ -152,56 +140,98 @@ export const WarehouseDetailsComponent = ({
               }
 
               return (
-                <section className="item-box" key={detail.id}>
-                  <div className="item-box-top">
-                    <div className="item-box-top_left">
-                      <span className="item-box_label item-box_label-item">
-                        inventory item
-                      </span>
-                      <Link to={`/inventory/${detail.id}`}>
-                        <div className="item-box_name-box">
-                          <span className="item-box_name">
-                            {detail.item_name}
-                          </span>
-                          <img src={Chevron} alt="closing tag" />
-                        </div>
-                      </Link>
-                      <span className="item-box_label item-box_label-category">
-                        category
-                      </span>
-                      <span className="item-box_category">
-                        {detail.category}
-                      </span>
-                    </div>
-                    <div className="item-box-top_right">
-                      <span className="item-box_label item-box_label-status">
-                        status
-                      </span>
-                      <span className={`item-box_status ${statusBgClass}`}>
-                        {detail.status}
-                      </span>
+                <>
+                  <section className="item-box" key={detail.id}>
+                    <div className="item-box-top">
+                      <div className="item-box-top_left">
+                        <span className="item-box_label item-box_label-item">
+                          inventory item
+                        </span>
+                        <Link to={`/inventory/${detail.id}`}>
+                          <div className="item-box_name-box">
+                            <span className="item-box_name">
+                              {detail.item_name}
+                            </span>
+                            <img src={Chevron} alt="closing tag" />
+                          </div>
+                        </Link>
+                        <span className="item-box_label item-box_label-category">
+                          category
+                        </span>
+                        <span className="item-box_category">
+                          {detail.category}
+                        </span>
+                      </div>
+                      <div className="item-box-top_right">
+                        <span className="item-box_label item-box_label-status">
+                          status
+                        </span>
+                        <span className={`item-box_status ${statusBgClass}`}>
+                          {detail.status}
+                        </span>
 
-                      <span className="item-box_label item-box_label-qty">
-                        QTY
-                      </span>
-                      <span className="item-box_qty">{detail.quantity}</span>
+                        <span className="item-box_label item-box_label-qty">
+                          QTY
+                        </span>
+                        <span className="item-box_qty">{detail.quantity}</span>
+                      </div>
                     </div>
-                  </div>
-                  <div className="item-box_bottom">
-                    <img
-                      className="item-box_bottom-icon"
-                      src={Trash}
-                      alt="trash"
-                    />
-                    <Link to="/inventory/:inventoryID">
+                    <div className="item-box_bottom">
                       <img
                         className="item-box_bottom-icon"
-                        src={Edit}
-                        alt="edit"
+                        src={Trash}
+                        alt="trash"
                       />
+                      <Link to={`/inventory/${detail.id}/edit`}>
+                        <img
+                          className="item-box_bottom-icon"
+                          src={Edit}
+                          alt="edit"
+                        />
+                      </Link>
+                    </div>
+                  </section>
+
+                  <section className="item-box_tablet" key={detail.id}>
+                    <Link to={`/inventory/${detail.id}`}>
+                      <div className="item-box_tablet-name-box">
+                        <span className="item-box_tablet-name">
+                          {detail.item_name}
+                        </span>
+                        <img src={Chevron} alt="closing tag" />
+                      </div>
                     </Link>
-                  </div>
-                </section>
+
+                    <span className="item-box_tablet-category">
+                      {detail.category}
+                    </span>
+                    <div className="item-box_tablet-status-box">
+                      <span
+                        className={`item-box_tablet-status ${statusBgClass}`}
+                      >
+                        {detail.status}
+                      </span>
+                    </div>
+                    <span className="item-box_tablet-qty">
+                      {detail.quantity}
+                    </span>
+
+                    <div className="item-box_tablet-bottom">
+                      <img
+                        className="item-box_tablet-bottom-icon"
+                        src={Trash}
+                        alt="trash"
+                      />
+                      <Link to={`/inventory/${detail.id}/edit`}>
+                        <img
+                          className="item-box_tablet-bottom-icon"
+                          src={Edit}
+                          alt="edit"
+                        />
+                      </Link>
+                    </div>
+                  </section>
+                </>
               );
             })}
         </main>
