@@ -10,10 +10,10 @@ const EditInventoryItem = ({
   setShowList,
   setDisplayEdit,
 }) => {
-  const { inventoryID } = useParams();
+  // const { inventoryID } = useParams();
   const params = useParams();
-  const [inventoryItem, setInventoryItem] = useState({});
-  const [warehouse, setWarehouse] = useState({});
+  const [inventoryItem, setInventoryItem] = useState([]);
+  const [warehouse, setWarehouse] = useState([]);
   const BASE_URL = process.env.REACT_APP_BASE_URL;
 
   const navigate = useNavigate();
@@ -29,43 +29,42 @@ const EditInventoryItem = ({
       quantity: event.target.value,
       warehouse_id: event.target.value,
     });
-
-    setWarehouse({
-      id: event.target.value,
-      warehouse_name: event.target.value,
-      address: event.target.value,
-      city: event.target.value,
-      country: event.target.value,
-      contact_name: event.target.value,
-      contact_position: event.target.value,
-      contact_phone: event.target.value,
-      contact_email: event.target.value,
-    });
   };
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchInventoryId = async () => {
       try {
         const { data } = await axios.get(
-          // `${BASE_URL}/inventory/${inventoryID}`
-
-          "http://localhost:8080/inventory/9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3/"
+          `${BASE_URL}/inventory/${params.inventoryID}`
         );
         setInventoryItem(data);
+        console.log("inventoryID", data);
       } catch (error) {
         console.log("error");
       }
     };
-    fetchData();
+    fetchInventoryId();
+  }, []);
+
+  useEffect(() => {
+    const fetchInventory = async () => {
+      try {
+        const { data } = await axios.get(`${BASE_URL}/inventory/`);
+        setInventoryItem(data);
+        // console.log("inventory", data);
+      } catch (error) {
+        console.log("error");
+      }
+    };
+    fetchInventory();
   }, []);
 
   useEffect(() => {
     const fetchWarehouse = async () => {
       try {
-        const { data } = await axios.get(
-          "http://localhost:8080/warehouse/"
-        );
+        const { data } = await axios.get(`${BASE_URL}/warehouse/`);
         setWarehouse(data);
+        console.log("warehouseData", data);
       } catch {
         console.log("error");
       }
@@ -73,8 +72,20 @@ const EditInventoryItem = ({
     fetchWarehouse();
   }, []);
 
-  console.log(warehouse);
-
+  // useEffect(() => {
+  //   const updateItem = async () => {
+  //     try {
+  //       const { data } = await axios.put(
+  //         `${BASE_URL}/inventory/${params.inventoryID}`
+  //       );
+  //       setWarehouse(data);
+  //     } catch {
+  //       console.log("error");
+  //     }
+  //   };
+  //   updateItem();
+  // }, []);
+  console.log("warehouse", warehouse);
   return (
     <div className="editInventoryItem">
       <div className="editInventoryItem__caption">
@@ -109,7 +120,7 @@ const EditInventoryItem = ({
             type="text"
             rows="1"
             cols="30"
-            placeholder="Item Name"
+            // placeholder="Item Name"
           ></textarea>
           <label htmlFor="descripition" className="editInventoryItem__label">
             {/* Description */}
@@ -126,13 +137,16 @@ const EditInventoryItem = ({
           <label htmlFor="category" className="editInventoryItem__label">
             Category
           </label>
-          {/* {inventoryItemId?.map((inventoryItem.catetegory) => { */}
-          {/* return ( */}
+
           <select className="editInventoryItem__input-select">
-            <option value="">{inventoryItem?.category}</option>
+            {inventoryItem.map((inventoryItemInfo) => {
+              return (
+                <option value="" key={inventoryItemInfo.id}>
+                  {inventoryItemInfo.category}
+                </option>
+              );
+            })}
           </select>
-          {/* ); */}
-          {/* // })}; */};
         </div>
 
         <div className="itemAvailability">
@@ -178,7 +192,7 @@ const EditInventoryItem = ({
           <label
             htmlFor="quantity"
             className={`hide ${
-              inventoryItem?.status !== "In Stock" ? "In Stock" : "label__show"
+              inventoryItem?.status === "In Stock" ? "In Stock" : "label__show"
             }`}
           >
             Quantity
@@ -186,9 +200,8 @@ const EditInventoryItem = ({
 
           <textarea
             className={`hide ${
-              inventoryItem?.status !== "In Stock" ? "In Stock" : "input__show"
+              inventoryItem?.status === "In Stock" ? "In Stock" : "input__show"
             }`}
-            // defaultValue={inventoryItem?.quantity}
             id="quantity"
             type="text"
             rows="1"
@@ -198,13 +211,18 @@ const EditInventoryItem = ({
           <label htmlFor="warehouse" className="editInventoryItem__label">
             Warehouse
           </label>
-{warehouse.map((warehouse.warehouse_name))}
+
           <select className="editInventoryItem__input-select">
-            <option>{warehouse?.warehouse_name}</option>
-            {/* defaultValue= id="warehouse" type="text" rows="1" cols="30" */}
+            {warehouse.map((warehouseinfo) => {
+              // console.log("warehouseeinfo",warehouseinfo);
+              return (
+                <option key={warehouseinfo.id}>
+                  {warehouseinfo.warehouse_name}
+                </option>
+              );
+            })}
           </select>
         </div>
-        {/* ))}; */}
 
         <div className="editInventoryItem__button">
           <Link
