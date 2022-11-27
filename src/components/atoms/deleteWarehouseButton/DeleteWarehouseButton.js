@@ -43,24 +43,29 @@ const DeleteWarehouseButton = ({ warehouse, onDeleteWarehouse = () => {} }) => {
         contentLabel="Delete Warehouse"
       >
         <div className="delete-w">
-          <img
-            src={closeButton}
-            className="delete-w__x-button"
-            alt="close button"
-            onClick={closeModal}
-          />
-          <h1 className="delete-w__title">{`Delete ${warehouse_name} warehouse?`}</h1>
-          <p className="delete-w__details">
-            {`Please confirm that you'd like to delete the ${warehouse_name} from the
+          <div className="delete__container">
+            <img
+              src={closeButton}
+              className="delete-w__x-button"
+              alt="close button"
+              onClick={closeModal}
+            />
+            <h1 className="delete-w__title">{`Delete ${warehouse_name} warehouse?`}</h1>
+            <p className="delete-w__details">
+              {`Please confirm that you'd like to delete the ${warehouse_name} from the
             list of warehouses. You won't be able to undo this action.`}
-          </p>
-          <div className="delete-w__button-container">
-            <button className="delete-w__cancel-btn" onClick={closeModal}>
-              cancel
-            </button>
-            <button className="delete-l__delete-btn" onClick={deleteWarehouse}>
-              delete
-            </button>
+            </p>
+            <div className="delete-w__button-container">
+              <button className="delete-w__cancel-btn" onClick={closeModal}>
+                cancel
+              </button>
+              <button
+                className="delete-l__delete-btn"
+                onClick={deleteWarehouse}
+              >
+                delete
+              </button>
+            </div>
           </div>
            
         </div>
