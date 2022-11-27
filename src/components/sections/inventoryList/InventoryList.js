@@ -267,7 +267,13 @@ export const InventoryList = ({
 													setDisplayEdit(true);
 													setShowList(false);
 												}}
-											></Link>
+											>
+												<img
+													className="inventory-list_item-bottom-icon"
+													src={Edit}
+													alt="trash"
+												/>
+											</Link>
 										</div>
 									</section>
 								</>
