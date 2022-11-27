@@ -127,7 +127,7 @@ export const InventoryList = ({
 										<div className="inventory-list_item-top">
 											<div className="inventory-list_item-top-left">
 												<span className="inventory-list_item-label inventory-list_item-label-item">
-													invenotory item
+													inventory item
 												</span>
 												<Link
 													to={`/inventory/${item.id}`}
@@ -202,9 +202,6 @@ export const InventoryList = ({
 									</section>
 
 									<section className="inventory-list_item-tablet">
-										<span className="inventory-list_item-tablet-label inventory-list_item-tablet-label-item">
-											invenotory item
-										</span>
 										<Link
 											to={`/inventory/${item.id}`}
 											onClick={() => {
@@ -222,16 +219,11 @@ export const InventoryList = ({
 												/>
 											</div>
 										</Link>
-										<span className="inventory-list_item-tablet-label inventory-list_item-tablet-label-category">
-											category
-										</span>
+
 										<span className="inventory-list_item-tablet-category">
 											{item.category}
 										</span>
 
-										<span className="inventory-list_item-tablet-label ">
-											status
-										</span>
 										<div className="inventory-list_item-tablet-status-box">
 											<span
 												className={`inventory-list_item-tablet-status ${statusBgRed}`}
@@ -246,9 +238,7 @@ export const InventoryList = ({
 										<span className="inventory-list_item-tablet-qty">
 											{item.quantity}
 										</span>
-										<span className="inventory-list_item-tablet-label inventory-list_item-tablet-label-warehouse">
-											warehouse
-										</span>
+
 										<span className="inventory-list_item-tablet-warehouse">
 											{item.warehouse_name}
 										</span>
