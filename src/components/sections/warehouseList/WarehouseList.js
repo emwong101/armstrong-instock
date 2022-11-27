@@ -21,7 +21,6 @@ export const WarehouseList = ({
 	const fetchWarehouses = useCallback(async () => {
 		const { data } = await axios.get(`${BASE_URL}/warehouse`);
 		setWarehouses(data);
-		// setVideos(data.filter((video) => video.id !== videoId));
 	}, []);
 
 	const deleteWarehouse = async (id) => {
@@ -102,11 +101,8 @@ export const WarehouseList = ({
 						<span className="warehouse-list_label">actions</span>
 					</section>
 					{warehouses.map((warehouse) => (
-						<>
-							<section
-								className="warehouse-item"
-								key={warehouse.id}
-							>
+						<React.Fragment key={warehouse.id}>
+							<section className="warehouse-item">
 								<div className="warehouse-item_top">
 									<div className="warehouse-item_top-left">
 										<span className="warehouse-item_label warehouse-item_label-item">
@@ -214,7 +210,7 @@ export const WarehouseList = ({
 									</Link>
 								</div>
 							</section>
-						</>
+						</React.Fragment>
 					))}
 				</main>
 			</div>
