@@ -18,8 +18,9 @@ function App() {
   return (
     <div className="main">
       <Header />
-
-      <div className="components">
+      <EditInventoryItem />
+      <AddNewInventoryItem />
+      {/* <div className="components">
         <Routes>
           <Route path="/" element={<Navigate to="/warehouse" />} />
           <Route path="/inventory" element={<InventoryList />} />{" "}
@@ -52,8 +53,7 @@ function App() {
           />
         </Routes>{" "}
         <ToastContainer />
-      </div>
-
+      </div> */}
       <div className="footer">
         <Footer />
       </div>

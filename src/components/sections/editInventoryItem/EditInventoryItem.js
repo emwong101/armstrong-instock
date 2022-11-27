@@ -10,9 +10,11 @@ const EditInventoryItem = ({
   setShowList,
   setDisplayEdit,
 }) => {
-  const { inventoryItemId } = useParams();
+  const { inventoryID } = useParams();
+  const params = useParams();
   const [inventoryItem, setInventoryItem] = useState({});
   const [warehouse, setWarehouse] = useState({});
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
 
   const navigate = useNavigate();
 
@@ -45,6 +47,8 @@ const EditInventoryItem = ({
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
+          // `${BASE_URL}/inventory/${inventoryID}`
+
           "http://localhost:8080/inventory/9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3/"
         );
         setInventoryItem(data);
@@ -59,7 +63,7 @@ const EditInventoryItem = ({
     const fetchWarehouse = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:8080/warehouse/2922c286-16cd-4d43-ab98-c79f698aeab0"
+          "http://localhost:8080/warehouse/"
         );
         setWarehouse(data);
       } catch {
@@ -68,6 +72,8 @@ const EditInventoryItem = ({
     };
     fetchWarehouse();
   }, []);
+
+  console.log(warehouse);
 
   return (
     <div className="editInventoryItem">
@@ -192,7 +198,7 @@ const EditInventoryItem = ({
           <label htmlFor="warehouse" className="editInventoryItem__label">
             Warehouse
           </label>
-
+{warehouse.map((warehouse.warehouse_name))}
           <select className="editInventoryItem__input-select">
             <option>{warehouse?.warehouse_name}</option>
             {/* defaultValue= id="warehouse" type="text" rows="1" cols="30" */}
