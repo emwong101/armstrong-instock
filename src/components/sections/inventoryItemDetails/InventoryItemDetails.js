@@ -45,34 +45,37 @@ const InventoryItemDetails = () => {
             <span className="IID__edit-text">Edit</span>
           </div>
         </section>
-        <section className="item">
-          <div className="item__top">
-            <span className="item__description-title">ITEM DESCRIPTION:</span>
-            <span className="item__description">{`${description}`}</span>
-          </div>
-          <div className="item__category">
-            <div className="item__category-box">
-              <span className="item__category-title ">Category: </span>
-              <span className="item__category-description">
-                {`${category}`}
-              </span>
+
+        <div className="IID__page-container">
+          <section className="item">
+            <div className="item__top">
+              <span className="item__description-title">ITEM DESCRIPTION:</span>
+              <span className="item__description">{`${description}`}</span>
             </div>
-          </div>
-        </section>
-        <section className="item__status-container">
-          <div className="item__status-container">
-            <div className="item__status-title">
-              <span className="item__status">STATUS:</span>
-              <span className="item__status-field">{`${status}`}</span>
-              <span className="item__warehouse-title">WAREHOUSE</span>
-              <span className="item__warehouse-name">{`${warehouse_name}`}</span>
+            <div className="item__category">
+              <div className="item__category-box">
+                <span className="item__category-title ">CATEGORY: </span>
+                <span className="item__category-description">
+                  {`${category}`}
+                </span>
+              </div>
             </div>
-            <div className="item__quantity-container">
-              <span className="item__quantity-title">QUANTITY:</span>
-              <span className="item__quantity-number">{`${quantity}`}</span>
+          </section>
+          <section className="item__status-container">
+            <div className="item__status-container">
+              <div className="item__status-title">
+                <span className="item__status">STATUS:</span>
+                <span className="item__status-field">{`${status}`}</span>
+                <span className="item__warehouse-title">WAREHOUSE</span>
+                <span className="item__warehouse-name">{`${warehouse_name}`}</span>
+              </div>
+              <div className="item__quantity-container">
+                <span className="item__quantity-title">QUANTITY:</span>
+                <span className="item__quantity-number">{`${quantity}`}</span>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     </>
   );
