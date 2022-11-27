@@ -10,8 +10,7 @@ const EditInventoryItem = ({
   setShowList,
   setDisplayEdit,
 }) => {
-
-  const {inventoryItemId} = useParams();
+  const { inventoryItemId } = useParams();
   const [inventoryItem, setInventoryItem] = useState({});
   const [warehouse, setWarehouse] = useState({});
 
@@ -42,19 +41,19 @@ const EditInventoryItem = ({
     });
   };
 
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const { data } = await axios.get(
-        "http://localhost:8080/inventory/9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3/"
-      );
-      setInventoryItem(data);
-    } catch (error) {
-      console.log("error");
-    }
-  };
-  fetchData();
-}, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await axios.get(
+          "http://localhost:8080/inventory/9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3/"
+        );
+        setInventoryItem(data);
+      } catch (error) {
+        console.log("error");
+      }
+    };
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const fetchWarehouse = async () => {
@@ -121,16 +120,13 @@ useEffect(() => {
           <label htmlFor="category" className="editInventoryItem__label">
             Category
           </label>
-
           {/* {inventoryItemId?.map((inventoryItem.catetegory) => { */}
-            {/* return ( */}
-              <select className="editInventoryItem__input-select">
-                <option value="">{inventoryItem?.category}</option>
-              </select>
-            {/* ); */}
-          {/* // })}; */}
-
-          ;
+          {/* return ( */}
+          <select className="editInventoryItem__input-select">
+            <option value="">{inventoryItem?.category}</option>
+          </select>
+          {/* ); */}
+          {/* // })}; */};
         </div>
 
         <div className="itemAvailability">
