@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
 import Chevron from "../../../assets/Icons/chevron_right-24px.svg";
-import Trash from "../../../assets/Icons/delete_outline-24px.svg";
 import Edit from "../../../assets/Icons/edit-24px.svg";
 import Search from "../../../assets/Icons/search-24px.svg";
 import TagTopBottom from "../../../assets/Icons/tags_top_bottom.svg";
@@ -9,36 +8,66 @@ import { Link } from "react-router-dom";
 import "./InventoryList.scss";
 import DeleteInventoryButton from "../../atoms/deleteInventoryComponent/DeleteInventoryButton";
 
-
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:8080";
 
 export const InventoryList = ({
-  setDisplayAdd,
-  setDisplayEdit,
-  setShowList,
-  setShowDetails,
+	setDisplayAdd,
+	setDisplayEdit,
+	setShowList,
+	setShowDetails,
 }) => {
-  const [inventories, setInventories] = useState([]);
+	const [inventories, setInventories] = useState([]);
 
-  const fetchInventories = useCallback(async () => {
-    const { data } = await axios.get(`${BASE_URL}/inventory`);
-    setInventories(data);
-  }, []);
+	const fetchInventories = useCallback(async () => {
+		const { data } = await axios.get(`${BASE_URL}/inventory`);
+		setInventories(data);
+	}, []);
+	const deleteInventory = async (id) => {
+		return axios({
+			method: "delete",
+			url: `/inventory/${id}`,
+			baseURL: BASE_URL,
+		}).then(() => {
+			fetchInventories();
+		});
+	};
+	useEffect(() => {
+		fetchInventories();
+	}, [fetchInventories]);
 
-  const deleteInventory = async (id) => {
-    return axios({
-      method: "delete",
-      url: `/inventory/${id}`,
-      baseURL: BASE_URL,
-    }).then(() => {
-      fetchInventories();
-    });
-  };
-
-  useEffect(() => {
-    fetchInventories();
-  }, [fetchInventories]);
-
+	return (
+		<>
+			<div className="el-container">
+				<section className="title-inventory">
+					<div className="title-inventory-left">
+						<h1 className="title-inventory_title">Inventory</h1>
+					</div>
+					<div className="title-inventory-right">
+						<input
+							type="text"
+							className="title-inventory_search"
+							placeholder="Search..."
+						/>
+						<img
+							src={Search}
+							alt="search icon"
+							className="title-inventory_icon"
+						/>
+					</div>
+					<Link
+						to="/inventory"
+						onClick={() => {
+							setDisplayAdd(true);
+							setShowList(false);
+						}}
+					>
+						<div className="title-inventory_button">
+							<span className="title-inventory_button-text">
+								+ Add New Item
+							</span>
+						</div>
+					</Link>
+				</section>
 
 				<main className="inventory-list">
 					<section className="inventory-list_label-box">
@@ -85,13 +114,13 @@ export const InventoryList = ({
 						<span className="inventory-list_label-6">actions</span>
 					</section>
 
-  {inventories &&
-            inventories.map((item) => {
-              let statusBgRed = "";
-              if (item.status === "Out of Stock") {
-                statusBgRed = "redBG";
-              }
-    
+					{inventories &&
+						inventories.map((item) => {
+							let statusBgRed = "";
+							if (item.status === "Out of Stock") {
+								statusBgRed = "redBG";
+							}
+
 							return (
 								<>
 									<section
@@ -155,11 +184,10 @@ export const InventoryList = ({
 											</div>
 										</div>
 										<div className="inventory-list_item-bottom">
-                    
-										 <DeleteInventoryButton
-                      item={item}
-                      onDeleteInventory={() => deleteInventory(item.id)}
-                    />
+											<DeleteInventoryButton
+												item={item}
+												onDeleteInventory={() => deleteInventory(item.id)}
+											/>
 											<Link
 												to={`/inventory/${item.id}`}
 												onClick={() => {
@@ -229,29 +257,17 @@ export const InventoryList = ({
 										</span>
 
 										<div className="inventory-list_item-tablet-bottom">
-											<img
-												className="inventory-list_item-tablet-bottom-icon"
-												src={Trash}
-												alt="trash"
+											<DeleteInventoryButton
+												item={item}
+												onDeleteInventory={() => deleteInventory(item.id)}
 											/>
-                         <DeleteInventoryButton
-                      item={item}
-                      onDeleteInventory={() => deleteInventory(item.id)}
-                    />
-                    <Link
-                      to={`/inventory/${item.id}`}
-                      onClick={() => {
-                        setDisplayEdit(true);
-                        setShowList(false);
-                      }}
-                    >
-
-                      <img
-                        className="inventory-list_item-bottom-icon"
-                        src={Edit}
-                        alt="trash"
-                      />
-                    </Link>
+											<Link
+												to={`/inventory/${item.id}`}
+												onClick={() => {
+													setDisplayEdit(true);
+													setShowList(false);
+												}}
+											></Link>
 										</div>
 									</section>
 								</>
