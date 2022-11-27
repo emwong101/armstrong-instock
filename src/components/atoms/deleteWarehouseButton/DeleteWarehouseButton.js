@@ -60,16 +60,16 @@ const DeleteWarehouseButton = ({ warehouse, onDeleteWarehouse = () => {} }) => {
 
             <div className="testingdelete">
               <div className="delete-w__button-container">
+                <button className="delete-w__cancel-btn" onClick={closeModal}>
+                  cancel
+                </button>
+              </div>
+              <div className="delete-l__container">
                 <button
                   className="delete-l__delete-btn"
                   onClick={deleteWarehouse}
                 >
                   delete
-                </button>
-              </div>
-              <div className="delete-l__container">
-                <button className="delete-w__cancel-btn" onClick={closeModal}>
-                  cancel
                 </button>
               </div>
             </div>
