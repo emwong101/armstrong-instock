@@ -42,6 +42,21 @@
     font-family: $font-bold;
     @include mobilePageHeader;
     color: $Primary-dark;
+    padding-left: 0.5rem;
+    @include breakpoints.tablet {
+      @include pageHeader;
+    }
+  }
+  &__icon-container {
+    @include breakpoints.tablet {
+      background-color: #2e66e5;
+      width: 5rem;
+      height: 2.5rem;
+      border-radius: 1.25rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   &__edit-icon {
@@ -52,15 +67,36 @@
     width: 31px;
     height: 30px;
   }
+
+  &__edit-text {
+    display: none;
+
+    @include breakpoints.tablet {
+      display: initial;
+      color: $Primary-light;
+    }
+  }
+
+  &__page-container {
+    @include breakpoints.tablet {
+      display: flex;
+      border-top: 1px solid $Secondary-light;
+    }
+  }
 }
 
 .item {
   padding: 1rem 1.5rem;
-  border-top: 1px solid $Secondary-light;
+
+  @include breakpoints.mobile {
+    border-top: 1px solid $Secondary-light;
+  }
 
   @include breakpoints.tablet {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
+    border-right: 1px solid $Secondary-light;
   }
 
   &__top {
@@ -82,7 +118,7 @@
     padding-bottom: 0.25rem;
 
     @include breakpoints.tablet {
-      @include tableHeader;
+      @include bodyMedium;
     }
   }
 
@@ -98,12 +134,6 @@
   &__category {
     display: flex;
     justify-content: space-between;
-
-    @include breakpoints.tablet {
-      width: 65%;
-      justify-content: space-around;
-      border-left: 1px solid $Secondary-light;
-    }
   }
 
   &__category-box {
@@ -115,6 +145,9 @@
     @include mobileTableHeader;
     color: $Secondary-dark;
     padding-bottom: 0.25rem;
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
   }
 
   &__category-description {
@@ -130,17 +163,23 @@
     padding: 1rem 1.5rem;
     display: flex;
     flex-direction: row;
-  }
+    @include breakpoints.mobile {
+      padding: 1rem;
+    }
 
-  &__status-container {
-    display: flex;
-    padding: 1rem 1.5rem;
+    @include breakpoints.tablet {
+      margin-left: 2rem;
+    }
   }
 
   &__status-title {
     @include mobileTableHeader;
     color: $Secondary-dark;
     padding-bottom: 0.25rem;
+    padding-right: 1rem;
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
   }
 
   &__status-field {
@@ -152,6 +191,10 @@
     width: fit-content;
     border-radius: 1.25rem;
     font-weight: 600;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
   }
 
   &__warehouse-title {
@@ -159,6 +202,11 @@
     @include mobileTableHeader;
     color: $Secondary-dark;
     padding-bottom: 0.25rem;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+      padding-top: 2rem;
+    }
   }
 
   &__warehouse-name {
@@ -171,14 +219,24 @@
     }
   }
 
+  &__quantity-container {
+    @include breakpoints.mobile {
+      padding-left: 5rem;
+    }
+
+    @include breakpoints.tablet {
+      padding-left: 6rem;
+    }
+  }
+
   &__quantity-title {
     @include mobileTableHeader;
     color: $Secondary-dark;
     padding-bottom: 0.25rem;
     padding-top: 1.25rem;
+
     @include breakpoints.tablet {
-      display: none;
-      //nopadding-top?
+      @include bodyMedium;
     }
   }
 
