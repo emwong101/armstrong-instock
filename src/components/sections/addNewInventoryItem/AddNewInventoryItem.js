@@ -1,9 +1,12 @@
 import "./AddNewInventoryItem.scss";
+// import React, { useState, useEffect } from "react";
 import React from "react";
 import ArrowBack from "../../../assets/Icons/arrow_back-24px.svg";
 import { Link } from "react-router-dom";
 
 const AddNewInventoryItem = ({ setShowList, setDisplayAdd }) => {
+  // const [addInventoryItem, setAddInventoryItem];
+
   return (
     <div className="addInventoryItem">
       <div className="addInventoryItem__caption">
@@ -103,12 +106,14 @@ const AddNewInventoryItem = ({ setShowList, setDisplayAdd }) => {
           </label>
 
           <textarea
-            className="addInventoryItem__input-quantity"
+            // className={`hide ${
+            //   inventoryItem?.status !== "In Stock" ? "In Stock" : "input__show"
+            // }`}
             id="quantity"
             type="text"
             rows="1"
             cols="30"
-            placeholder="0"
+            // placeholder="0"
           ></textarea>
 
           <label htmlFor="warehouse" className="addInventoryItem__label">
