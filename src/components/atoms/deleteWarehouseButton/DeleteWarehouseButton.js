@@ -35,7 +35,7 @@ const DeleteWarehouseButton = ({ warehouse, onDeleteWarehouse = () => {} }) => {
       {/* const modal=( */}
       <Modal
         isOpen={modalIsOpen}
-        className="inventory-list"
+        className="delete__modal"
         overlayClassName="overlay"
         //onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}

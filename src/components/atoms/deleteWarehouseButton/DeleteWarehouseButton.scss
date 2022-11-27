@@ -3,10 +3,13 @@
 @use "../../../styles/partials/fonts" as *;
 @use "../../../styles/partials/mixins" as *;
 
-.inventory-list {
-  color: #13182c;
-
-  background-color: white;
+.delete {
+  &__modal {
+    color: #13182c;
+    background-color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 .overlay {
   position: fixed;
