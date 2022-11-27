@@ -44,12 +44,14 @@ const DeleteWarehouseButton = ({ warehouse, onDeleteWarehouse = () => {} }) => {
       >
         <div className="delete-w">
           <div className="delete__container">
-            <img
-              src={closeButton}
-              className="delete-w__x-button"
-              alt="close button"
-              onClick={closeModal}
-            />
+            <div className="delete__x-container">
+              <img
+                src={closeButton}
+                className="delete-w__x-button"
+                alt="close button"
+                onClick={closeModal}
+              />
+            </div>
             <h1 className="delete-w__title">{`Delete ${warehouse_name} warehouse?`}</h1>
             <p className="delete-w__details">
               {`Please confirm that you'd like to delete the ${warehouse_name} from the
@@ -58,16 +60,16 @@ const DeleteWarehouseButton = ({ warehouse, onDeleteWarehouse = () => {} }) => {
 
             <div className="testingdelete">
               <div className="delete-w__button-container">
-                <button className="delete-w__cancel-btn" onClick={closeModal}>
-                  cancel
-                </button>
-              </div>
-              <div className="delete-l__container">
                 <button
                   className="delete-l__delete-btn"
                   onClick={deleteWarehouse}
                 >
                   delete
+                </button>
+              </div>
+              <div className="delete-l__container">
+                <button className="delete-w__cancel-btn" onClick={closeModal}>
+                  cancel
                 </button>
               </div>
             </div>

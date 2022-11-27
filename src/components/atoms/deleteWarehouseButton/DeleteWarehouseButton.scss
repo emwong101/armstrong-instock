@@ -31,13 +31,16 @@
   }
 }
 
-.delete-w__title {
-  @include mobileSubHeader;
+.delete__x-container {
+  padding-left: 17rem;
 }
-
-.delete-w {
+.testingdelete {
   display: flex;
   flex-direction: row;
+
+  .delete-w__title {
+    @include mobileSubHeader;
+  }
 
   &__x-button {
     display: flex;
@@ -65,11 +68,12 @@
 }
 
 .delete-l__container {
-  width: 5rem;
+  width: 10rem;
 }
 
 .testingdelete {
-  width: 5rem;
+  width: 10rem;
+  padding-top: 28rem;
 }
 .delete-w__cancel-btn {
   height: 2.25rem;
