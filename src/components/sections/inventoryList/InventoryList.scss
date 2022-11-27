@@ -13,7 +13,6 @@
 	display: flex;
 	padding: 2rem 1.5rem 1.5rem;
 	justify-content: space-between;
-	// align-items: center;
 	flex-direction: column;
 
 	@include breakpoints.tablet {
@@ -48,7 +47,6 @@
 	}
 	&-right {
 		@include breakpoints.tablet {
-			// background-color: $Primary-medium;
 			width: 11.5625rem;
 			height: 2.5rem;
 			position: relative;
@@ -68,10 +66,6 @@
 
 		&:hover {
 			border-color: $Primary-medium;
-		}
-
-		@include breakpoints.tablet {
-			// width: 9.875rem;
 		}
 	}
 
