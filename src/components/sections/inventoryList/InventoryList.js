@@ -122,11 +122,8 @@ export const InventoryList = ({
 							}
 
 							return (
-								<>
-									<section
-										className="inventory-list_item"
-										key={item.id}
-									>
+								<React.Fragment key={item.id}>
+									<section className="inventory-list_item">
 										<div className="inventory-list_item-top">
 											<div className="inventory-list_item-top-left">
 												<span className="inventory-list_item-label inventory-list_item-label-item">
@@ -276,7 +273,7 @@ export const InventoryList = ({
 											</Link>
 										</div>
 									</section>
-								</>
+								</React.Fragment>
 							);
 						})}
 				</main>
