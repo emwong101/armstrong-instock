@@ -1,0 +1,19 @@
+.inventory-list {
+  color: red;
+  background-color: white;
+}
+.overlay {
+  padding-top: 20rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  position: fixed;
+  inset: 0px;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.delete-w {
+  height: 100%;
+  width: 100%;
+}
+.delete-l__delete-btn {
+  background-color: pink;
+}
