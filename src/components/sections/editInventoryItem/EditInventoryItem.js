@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ArrowBack from "../../../assets/Icons/arrow_back-24px.svg";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
   const params = useParams();
@@ -49,6 +50,17 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
           const { data } = await axios.put(
             `${BASE_URL}/inventory/${params.inventoryID}`, newItem
           );
+                 toast.success("Inventory updated succesfully!", {
+                   position: toast.POSITION.BOTTOM_RIGHT,
+                   theme: "colored",
+                   hideProgressBar: true,
+                   autoClose: 1000,
+                   onClose: setTimeout(() => {
+                     setDisplayEdit(false);
+                     setShowList(true);
+                     navigate("/inventory");
+                   }, 1500),
+                 });
           setInventoryItem(data);
         } catch {
           console.log("error");
@@ -111,11 +123,6 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
       <div className="editInventoryItem__caption">
         <Link
           to="/inventory"
-          onClick={() => {
-            navigate(-1);
-            setDisplayEdit(false);
-            setShowList(true);
-          }}
         >
           <button className="editInventoryItem__arrow">
             <img
@@ -259,10 +266,6 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
         <div className="editInventoryItem__button">
           <Link
             to="/inventory"
-            onClick={() => {
-              setShowList(true);
-              setDisplayEdit(false);
-            }}
           >
             <button className="editInventoryItem__button-cancel" type="submit">
               Cancel
