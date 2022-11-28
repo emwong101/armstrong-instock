@@ -106,34 +106,44 @@
 	}
 }
 
-.warehouse-list {
-	&_box {
+.warehouse-list_box {
+	display: flex;
+	flex-direction: column;
+}
+
+.list-label-box {
+	display: none;
+
+	@include breakpoints.tablet {
+		display: initial;
 		display: flex;
-		flex-direction: column;
+		padding: 1rem 1.25rem;
+		justify-content: space-between;
+		background-color: $Background-light;
+		@include bodySmall;
+		color: $Secondary-dark;
+		text-transform: uppercase;
+
+		&_label {
+			&-1 {
+				width: 7.5rem;
+			}
+			&-2 {
+				width: 7.5rem;
+			}
+			&-3 {
+				width: 8rem;
+			}
+			&-4 {
+				width: 11rem;
+			}
+			&-5 {
+				width: 5rem;
+				padding-left: 2rem;
+			}
+		}
 	}
 
-	&_label-box {
-		display: none;
-	}
-
-	&_label {
-		&-1 {
-			width: 7.5rem;
-		}
-		&-2 {
-			width: 7.5rem;
-		}
-		&-3 {
-			width: 8rem;
-		}
-		&-4 {
-			width: 11rem;
-		}
-		&-5 {
-			width: 5rem;
-			padding-left: 2rem;
-		}
-	}
 	&_icon {
 		padding-left: 1rem;
 	}
