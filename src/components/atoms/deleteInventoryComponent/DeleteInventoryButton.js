@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Modal from "react-modal";
 import closeButton from "../../../assets/Icons/close-24px.svg";
 import Trash from "../../../assets/Icons/delete_outline-24px.svg";
+import "./DeleteInventoryButton.scss";
 
 Modal.setAppElement("#root"); //whatisroot
 
@@ -33,9 +34,10 @@ const DeleteInventoryButton = ({ item, onDeleteInventory = () => {} }) => {
       />
       <Modal
         isOpen={modalIsOpen}
-        //onAfterOpen={afterOpenModal}
+        className="modal-d"
+        overlayClassName="overlay-d
+        //onAfterOpen={afterOpenModal}"
         onRequestClose={closeModal}
-        //style={customStyles}
         contentLabel="Delete Inventory"
       >
         <div className="delete-i">
