@@ -32,36 +32,52 @@ const DeleteWarehouseButton = ({ warehouse, onDeleteWarehouse = () => {} }) => {
         alt="trash"
         onClick={openModal}
       />
+      {/* const modal=( */}
       <Modal
         isOpen={modalIsOpen}
+        className="modal"
+        overlayClassName="overlay"
         //onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         //style={customStyles}
         contentLabel="Delete Warehouse"
       >
         <div className="delete-w">
-          <img
-            src={closeButton}
-            className="delete-w__x-button"
-            alt="close button"
-            onClick={closeModal}
-          />
-          <h1 className="delete-w__title">{`Delete ${warehouse_name} warehouse?`}</h1>
-          <p className="delete-w__details">
-            {`Please confirm that you'd like to delete the ${warehouse_name} from the
-            list of warehouses. you won't be able to undo this action.`}
-          </p>
-          <div className="delete-w__button-container">
-            <button className="delete-w__cancel-btn" onClick={closeModal}>
-              cancel
-            </button>
-            <button className="delete-w__delete-btn" onClick={deleteWarehouse}>
-              delete
-            </button>
+          <div className="delete__container">
+            <div className="delete__x-container">
+              <img
+                src={closeButton}
+                className="delete-w__x-button"
+                alt="close button"
+                onClick={closeModal}
+              />
+            </div>
+            <h1 className="delete-w__title">{`Delete ${warehouse_name} warehouse?`}</h1>
+            <p className="delete-w__details">
+              {`Please confirm that you'd like to delete the ${warehouse_name} from the
+            list of warehouses. You won't be able to undo this action.`}
+            </p>
+
+            <div className="delete__buttons-container">
+              <div className="delete-w__button-container">
+                <button className="delete-w__cancel-btn" onClick={closeModal}>
+                  cancel
+                </button>
+              </div>
+              <div className="delete-l__container">
+                <button
+                  className="delete-l__delete-btn"
+                  onClick={deleteWarehouse}
+                >
+                  delete
+                </button>
+              </div>
+            </div>
           </div>
            
         </div>
       </Modal>
+      {/* ) */}
     </>
   );
 };
