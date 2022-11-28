@@ -58,7 +58,7 @@ const DeleteWarehouseButton = ({ warehouse, onDeleteWarehouse = () => {} }) => {
             list of warehouses. You won't be able to undo this action.`}
             </p>
 
-            <div className="testingdelete">
+            <div className="delete__buttons-container">
               <div className="delete-w__button-container">
                 <button className="delete-w__cancel-btn" onClick={closeModal}>
                   cancel
