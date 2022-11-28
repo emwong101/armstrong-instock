@@ -1,0 +1,167 @@
+@use "../../../styles/partials/breakpoints" as breakpoints;
+@use "../../../styles/partials/colors" as *;
+@use "../../../styles/partials/fonts" as *;
+@use "../../../styles/partials/mixins" as *;
+
+//for other file change line 46 from delete container to delete-w container
+
+.overlay-d {
+  position: fixed;
+  inset: 0px;
+  background-color: rgba(0, 0, 0, 0.75);
+
+  @include breakpoints.tablet {
+    padding: 13rem 3rem;
+  }
+
+  .modal-d {
+    color: #13182c;
+    height: 100%;
+    width: 100%;
+    height: 100vh;
+    background-color: $Background-light;
+    // height: 40rem;
+
+    @include breakpoints.mobile {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    @include breakpoints.tablet {
+      // height: 100%;
+      width: 100%;
+      height: 20rem;
+
+      background-color: $Background-light;
+      padding-left: 4rem;
+      padding-right: 20rem;
+    }
+  }
+}
+
+.delete-i {
+  &__title {
+    @include mobileSubHeader;
+    color: $Primary-dark;
+    @include breakpoints.tablet {
+      @include pageHeader;
+    }
+
+    &__x-button {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding-left: 1rem;
+      padding-top: 2rem;
+    }
+  }
+
+  &__cancel-btn {
+    height: 2.25rem;
+    padding: 0 1rem;
+    border-radius: 1.25rem;
+    width: 100%;
+    font-family: "Titillium-Web";
+    font-weight: 600;
+    line-height: 20px;
+    font-style: normal;
+    font-size: 0.8rem;
+    margin-right: 1rem;
+    border: 1px solid background-color $Primary-light;
+    color: $Secondary-dark;
+    width: 8rem;
+
+    @include mobileLabelsLinksButtons;
+    @include breakpoints.tablet {
+      @include labelsLinksButtons;
+    }
+
+    @include breakpoints.tablet {
+      width: 5rem;
+    }
+  }
+
+  &__details {
+    color: $Primary-dark;
+    @include mobileBodyLarge;
+    @include breakpoints.tablet {
+      @include bodyLarge;
+    }
+  }
+  &__container {
+    display: flex;
+    // flex-direction: row;
+    width: 9rem;
+  }
+}
+
+.delete {
+  &__x-container {
+    padding-left: 17rem;
+    width: 10rem;
+    //maybedelete here!
+
+    @include breakpoints.tablet {
+      padding-right: 30rem;
+    }
+  }
+
+  &__buttons-container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 30rem;
+
+    @include breakpoints.tablet {
+      padding: 4rem;
+      padding-left: 35rem;
+    }
+  }
+}
+
+.delete-i {
+  &__delete-btn {
+    height: 2.25rem;
+    padding: 0 1rem;
+    border-radius: 1.25rem;
+    width: 100%;
+    font-family: "Titillium-Web";
+    font-weight: 600;
+    line-height: 20px;
+    font-style: normal;
+    font-size: 0.8rem;
+    margin-right: 1rem;
+    border: 1px solid $Secondary-light;
+    background-color: $Support-light;
+    color: $Primary-light;
+    @include mobileLabelsLinksButtons;
+    @include breakpoints.tablet {
+      @include labelsLinksButtons;
+    }
+
+    @include breakpoints.tablet {
+      width: 5rem;
+    }
+  }
+}
+
+.extradiv {
+  @include breakpoints.mobile {
+    padding-top: 20rem;
+    // padding-left: 18rem;
+    display: flex;
+    flex-direction: row;
+  }
+  @include breakpoints.tablet {
+  }
+}
+.outsidediv {
+  @include breakpoints.mobile {
+    display: flex;
+    flex-direction: row;
+    padding-left: 4rem;
+  }
+
+  @include breakpoints.tablet {
+    padding-left: 20rem;
+  }
+}
