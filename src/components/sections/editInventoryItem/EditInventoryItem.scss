@@ -89,7 +89,7 @@
     background: url(../../../assets/Icons/arrow_drop_down-24px.svg);
     background-repeat: no-repeat;
     background-position-y: center;
-    background-position-x: 12.5rem;
+    background-position-x: right;
     &:active {
       color: $Primary-medium;
     }
@@ -126,6 +126,7 @@
     background-color: $Background-light;
     padding: 1rem 1.5rem;
     margin-top: 1rem;
+    gap: 1rem;
 
     &-cancel,
     &-save {
@@ -221,7 +222,14 @@
     }
 
     &__input-select {
-      background-position-x: 16.5rem;
+      background-position-x: right;
+    }
+
+     &__status {
+      &-position {
+        justify-content: flex-start;
+        gap: 2rem;
+      }
     }
 
     .itemDetail,
@@ -254,15 +262,10 @@
     }
 
     &__input-select {
-      background-position-x: 26.5rem;
+      background-position-x: right;
     }
 
-    // &__status {
-    //   &-position {
-    //     justify-content: flex-start;
-    //     gap: 2rem;
-    //   }
-    // }
+   
 
     .outOfStock {
       padding-right: 7rem;
