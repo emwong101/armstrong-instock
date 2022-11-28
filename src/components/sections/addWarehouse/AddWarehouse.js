@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function AddWarehouse({ setShowList, setDisplayAdd }) {
+function AddWarehouse() {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
   const [warehouseDetails, setWarehouseDetails] = useState({ default: "" });
   const navigate = useNavigate();
@@ -29,8 +29,6 @@ function AddWarehouse({ setShowList, setDisplayAdd }) {
             hideProgressBar: true,
             autoClose: 1000,
             onClose: setTimeout(() => {
-              setDisplayAdd(false);
-              setShowList(true);
               navigate("/warehouse");
             }, 1500),
           });

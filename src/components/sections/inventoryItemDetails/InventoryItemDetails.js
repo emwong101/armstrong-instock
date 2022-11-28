@@ -35,7 +35,7 @@ const InventoryItemDetails = () => {
             </Link>
             <h1 className="IID__item-name">{`${item_name}`}</h1>
           </div>
-          <Link to={`/inventory/${inventoryID}`}>
+          <Link to={`/inventory/${inventoryID}/edit`}>
             <div className="IID__icon-container">
               <img
                 src={EditWhite}
