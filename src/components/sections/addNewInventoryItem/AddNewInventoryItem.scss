@@ -44,14 +44,13 @@
   }
 
   &__label-radio {
-    align-self: center;
     color: $Secondary-dark;
     &:active {
       color: $Primary-dark;
     }
   }
   .outOfStock {
-    padding-right: 3rem;
+    padding-right: 4rem;
   }
 
   input[type="radio"] {
@@ -89,7 +88,7 @@
     background: url(../../../assets/Icons/arrow_drop_down-24px.svg);
     background-repeat: no-repeat;
     background-position-y: center;
-    background-position-x: 12.5rem;
+    background-position-x: right;
     &:active {
       color: $Primary-medium;
     }
@@ -99,11 +98,10 @@
   &__input,
   &__input-select,
   &__input-description {
-    padding-top: 0.5rem;
-    color: $Primary-dark;
     border-radius: 1.25rem;
     border: 1px solid $Secondary-light;
     padding: 0 1rem;
+    outline-color: $Primary-medium;
     margin-bottom: 1rem;
     resize: none;
   }
@@ -131,6 +129,7 @@
     display: flex;
     justify-content: space-evenly;
     margin-top: 1rem;
+    gap:1rem;
 
     &-cancel,
     &-save {
@@ -226,7 +225,7 @@
     }
 
     &__input-select {
-      background-position-x: 16.5rem;
+      background-position-x: right;
     }
 
     .itemDetail,
@@ -260,7 +259,7 @@
     }
 
     &__input-select {
-      background-position-x: 26.5rem;
+      background-position-x: right;
     }
 
     .outOfStock {

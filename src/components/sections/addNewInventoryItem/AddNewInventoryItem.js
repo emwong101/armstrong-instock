@@ -158,8 +158,8 @@ const AddNewInventoryItem = ({ setShowList, setDisplayAdd }) => {
             placeholder="Please select"
           >
             {inventoryCategoriesList &&
-              inventoryCategoriesList.map((inventoryCategory, i) => {
-                return <option key={i}>{inventoryCategory}</option>;
+              inventoryCategoriesList.map((inventoryCategory, index) => {
+                return <option key={index}>{inventoryCategory}</option>;
               })}
           </select>
         </div>
