@@ -5,7 +5,7 @@ import ArrowBack from "../../../assets/Icons/arrow_back-24px.svg";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
-const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
+const EditInventoryItem = () => {
   const params = useParams();
   const [inventoryItem, setInventoryItem] = useState([]);
   const [inventoryCategoriesList, setCategoriesList] = useState([]);
@@ -63,8 +63,6 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
             hideProgressBar: true,
             autoClose: 1000,
             onClose: setTimeout(() => {
-              setDisplayEdit(false);
-              setShowList(true);
               navigate("/inventory");
             }, 1500),
           });
