@@ -38,7 +38,6 @@
   &__title {
     @include mobileSubHeader;
     color: $Primary-dark;
-
     @include breakpoints.tablet {
       @include pageHeader;
     }
@@ -84,12 +83,12 @@
       @include bodyLarge;
     }
   }
-  &__container {
-    width: 1rem;
-  }
+  // &__container {
+  //   width: 1rem;
+  // }
 }
 
-.delete {
+.delete-i {
   &__x-container {
     padding-left: 17rem;
 

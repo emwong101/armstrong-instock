@@ -5,7 +5,7 @@ import closeButton from "../../../assets/Icons/close-24px.svg";
 import Trash from "../../../assets/Icons/delete_outline-24px.svg";
 import "./DeleteInventoryButton.scss";
 
-Modal.setAppElement("#root"); //whatisroot
+Modal.setAppElement("#root");
 
 const DeleteInventoryButton = ({ item, onDeleteInventory = () => {} }) => {
   const { item_name = "blah" } = item;
@@ -41,6 +41,8 @@ const DeleteInventoryButton = ({ item, onDeleteInventory = () => {} }) => {
         contentLabel="Delete Inventory"
       >
         <div className="delete-i">
+          <div></div>
+          <div></div>
           <img
             src={closeButton}
             className="delete-i__x-button"
