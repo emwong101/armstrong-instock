@@ -14,13 +14,19 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
   const [selectedWarehouseId, setSelectedWarehouseId] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
   const [quantity, setQuantity] = useState("");
-
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
-
   const navigate = useNavigate();
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
 
   const handleSelectedCategory = (event) => {
     setSelectedCategory(event.target.value);
+  };
+
+  const handleRadioChange = (event) => {
+    setSelectedStatus(event.target.value);
+  };
+
+  const handleQuantityChange = (event) => {
+    setQuantity(event.target.value);
   };
 
   const handleSelectedWarehouse = (event) => {
@@ -28,46 +34,48 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
       event.target[event.target.selectedIndex].getAttribute("data-warehouseid")
     );
   };
-  const handleQuantityChange = (event) => {
-    setQuantity(event.target.value);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-     const newItem = {
-       item_name: event.target.itemName.value,
-       description: event.target.description.value,
-       category: selectedCategory,
-       status: selectedStatus,
-       quantity: quantity,
-       warehouse_id: selectedWarehouseId,
-     };
-    console.log(newItem)
+    const newItem = {
+      item_name: event.target.itemName.value,
+      description: event.target.description.value,
+      category: selectedCategory,
+      status: selectedStatus,
+      quantity: quantity,
+      warehouse_id: selectedWarehouseId,
+    };
+    
+    console.log(newItem);
 
+  
       const updateItem = async () => {
         try {
           const { data } = await axios.put(
-            `${BASE_URL}/inventory/${params.inventoryID}`, newItem
+            `${BASE_URL}/inventory/${params.inventoryID}`
+            ,
+            newItem
           );
-                 toast.success("Inventory updated succesfully!", {
-                   position: toast.POSITION.BOTTOM_RIGHT,
-                   theme: "colored",
-                   hideProgressBar: true,
-                   autoClose: 1000,
-                   onClose: setTimeout(() => {
-                     setDisplayEdit(false);
-                     setShowList(true);
-                     navigate("/inventory");
-                   }, 1500),
-                 });
+          toast.success("Inventory updated succesfully!", {
+            position: toast.POSITION.BOTTOM_RIGHT,
+            theme: "colored",
+            hideProgressBar: true,
+            autoClose: 1000,
+            onClose: setTimeout(() => {
+              setDisplayEdit(false);
+              setShowList(true);
+              navigate("/inventory");
+            }, 1500),
+          });
           setInventoryItem(data);
         } catch {
           console.log("error");
         }
       };
-
       updateItem();
+    
+    
   };
 
   useEffect(() => {
@@ -92,8 +100,10 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
     const fetchInventory = async () => {
       try {
         const { data } = await axios.get(`${BASE_URL}/inventory/`);
-        const list = data.map(item => item.category);
-        setCategoriesList(list.filter((item, index) => list.indexOf(item)=== index));
+        const list = data.map((item) => item.category);
+        setCategoriesList(
+          list.filter((item, index) => list.indexOf(item) === index)
+        );
       } catch (error) {
         console.log("error");
       }
@@ -113,17 +123,10 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
     fetchWarehouse();
   }, []);
 
-
-  const handleRadioChange = (event) => {
-    setSelectedStatus(event.target.value);
-  };
-
   return (
     <div className="editInventoryItem">
       <div className="editInventoryItem__caption">
-        <Link
-          to="/inventory"
-        >
+        <Link to="/inventory">
           <button className="editInventoryItem__arrow">
             <img
               src={ArrowBack}
@@ -244,6 +247,7 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
           <select
             onChange={handleSelectedWarehouse}
             className="editInventoryItem__input-select"
+            // value={selectedWarehouseId}
           >
             {warehouse &&
               warehouse.map((warehouseinfo) => {
@@ -264,13 +268,12 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
         </div>
 
         <div className="editInventoryItem__button">
-          <Link
-            to="/inventory"
-          >
+          <Link to="/inventory">
             <button className="editInventoryItem__button-cancel" type="submit">
               Cancel
             </button>
           </Link>
+
           <button className="editInventoryItem__button-save" type="submit">
             Save
           </button>
