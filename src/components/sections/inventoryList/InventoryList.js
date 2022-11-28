@@ -245,7 +245,7 @@ export const InventoryList = ({
 												onDeleteInventory={() => deleteInventory(item.id)}
 											/>
 											<Link
-												to={`/inventory/${item.id}`}
+												to={`/inventory/${item.id}/edit`}
 												onClick={() => {
 													setDisplayEdit(true);
 													setShowList(false);

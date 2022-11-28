@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="main">
       <Header />
-
+  
       <div className="components">
         <Routes>
           <Route path="/" element={<Navigate to="/warehouse" />} />
@@ -53,7 +53,6 @@ function App() {
         </Routes>{" "}
         <ToastContainer />
       </div>
-
       <div className="footer">
         <Footer />
       </div>
