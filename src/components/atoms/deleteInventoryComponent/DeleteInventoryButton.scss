@@ -22,6 +22,11 @@
     background-color: $Background-light;
     // height: 40rem;
 
+    @include breakpoints.mobile {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
     @include breakpoints.tablet {
       // height: 100%;
       width: 100%;
@@ -83,14 +88,18 @@
       @include bodyLarge;
     }
   }
-  // &__container {
-  //   width: 1rem;
-  // }
+  &__container {
+    display: flex;
+    // flex-direction: row;
+    width: 9rem;
+  }
 }
 
-.delete-i {
+.delete {
   &__x-container {
     padding-left: 17rem;
+    width: 10rem;
+    //maybedelete here!
 
     @include breakpoints.tablet {
       padding-right: 30rem;
@@ -109,7 +118,7 @@
   }
 }
 
-.delete-l {
+.delete-i {
   &__delete-btn {
     height: 2.25rem;
     padding: 0 1rem;
@@ -133,13 +142,26 @@
       width: 5rem;
     }
   }
-
-  &__container {
-    width: 10rem;
-  }
 }
 
-.testingdelete {
-  width: 10rem;
-  padding-top: 28rem;
+.extradiv {
+  @include breakpoints.mobile {
+    padding-top: 20rem;
+    // padding-left: 18rem;
+    display: flex;
+    flex-direction: row;
+  }
+  @include breakpoints.tablet {
+  }
+}
+.outsidediv {
+  @include breakpoints.mobile {
+    display: flex;
+    flex-direction: row;
+    padding-left: 4rem;
+  }
+
+  @include breakpoints.tablet {
+    padding-left: 20rem;
+  }
 }
