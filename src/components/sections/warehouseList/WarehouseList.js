@@ -69,7 +69,7 @@ export const WarehouseList = ({
 						<span className="list-label-box_label-1">
 							warehouse
 							<img
-								className="warehouse-list_icon"
+								className="list-label-box_icon"
 								src={TagTopBottom}
 								alt="tags top and bottom"
 							/>
@@ -77,7 +77,7 @@ export const WarehouseList = ({
 						<span className="list-label-box_label-2">
 							address
 							<img
-								className="warehouse-list_icon"
+								className="list-label-box_icon"
 								src={TagTopBottom}
 								alt="tags top and bottom"
 							/>
@@ -85,7 +85,7 @@ export const WarehouseList = ({
 						<span className="list-label-box_label-3">
 							contact name
 							<img
-								className="warehouse-list_icon"
+								className="list-label-box_icon"
 								src={TagTopBottom}
 								alt="tags top and bottom"
 							/>
@@ -93,7 +93,7 @@ export const WarehouseList = ({
 						<span className="list-label-box_label-4">
 							contact information
 							<img
-								className="warehouse-list_icon"
+								className="list-label-box_icon"
 								src={TagTopBottom}
 								alt="tags top and bottom"
 							/>
