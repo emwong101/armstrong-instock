@@ -228,6 +228,13 @@
       background-position-x: right;
     }
 
+     &__status {
+      &-position {
+        justify-content: flex-start;
+        gap: 2rem;
+      }
+    }
+
     .itemDetail,
     .itemAvailability {
       flex-grow: 1;
