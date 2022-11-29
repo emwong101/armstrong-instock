@@ -252,13 +252,12 @@
       justify-content: flex-end;
       width: 100%;
       margin-top: 2rem;
-      // gap: 2rem;
-      // margin-right: 0;
+     
       &-cancel,
       &-save {
-        width: 4.5rem;
+       width: 4.5rem;
       }
-      &-cancel {
+       &-cancel {
         margin-right: 0;
       }
     }
