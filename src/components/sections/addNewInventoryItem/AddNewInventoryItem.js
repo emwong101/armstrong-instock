@@ -4,54 +4,52 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ArrowBack from "../../../assets/Icons/arrow_back-24px.svg";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const AddNewInventoryItem = ({ setShowList, setDisplayAdd }) => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
   const [inventoryList, setInventoryList] = useState([]);
   const [warehouse, setWarehouse] = useState([]);
   const [inventoryCategoriesList, setCategoriesList] = useState([]);
-   const [selectedCategory, setSelectedCategory] = useState("");
-   const [selectedStatus, setSelectedStatus] = useState("");
-    const [quantity, setQuantity] = useState("");
-     const [selectedWarehouseId, setSelectedWarehouseId] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedStatus, setSelectedStatus] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [selectedWarehouseId, setSelectedWarehouseId] = useState("");
   const navigate = useNavigate();
 
-   const handleSelectedCategory = (event) => {
-     setSelectedCategory(event.target.value);
-   };
+  const handleSelectedCategory = (event) => {
+    setSelectedCategory(event.target.value);
+  };
 
+  const handleRadioChange = (event) => {
+    setSelectedStatus(event.target.value);
+  };
 
-   const handleRadioChange = (event) => {
-     setSelectedStatus(event.target.value);
-   };
+  const handleQuantityChange = (event) => {
+    setQuantity(event.target.value);
+  };
 
-    const handleQuantityChange = (event) => {
-      setQuantity(event.target.value);
-    };
+  const handleSelectedWarehouse = (event) => {
+    setSelectedWarehouseId(
+      event.target[event.target.selectedIndex].getAttribute("data-warehouseid")
+    );
+  };
 
-      const handleSelectedWarehouse = (event) => {
-        setSelectedWarehouseId(
-          event.target[event.target.selectedIndex].getAttribute(
-            "data-warehouseid"
-          )
+  useEffect(() => {
+    const fetchInventory = async () => {
+      try {
+        const { data } = await axios.get(`${BASE_URL}/inventory`);
+        setInventoryList(data);
+        const list = data.map((item) => item.category);
+        setCategoriesList(
+          list.filter((item, index) => list.indexOf(item) === index)
         );
-      };
-
- useEffect(() => {
-   const fetchInventory = async () => {
-     try {
-       const { data } = await axios.get(`${BASE_URL}/inventory`);
-       setInventoryList(data);
-       const list = data.map((item) => item.category);
-       setCategoriesList(
-         list.filter((item, index) => list.indexOf(item) === index)
-       );
-     } catch (error) {
-       console.log("error");
-     }
-   };
-   fetchInventory();
- }, []);
+      } catch (error) {
+        console.log("error");
+      }
+    };
+    fetchInventory();
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -72,6 +70,15 @@ const AddNewInventoryItem = ({ setShowList, setDisplayAdd }) => {
           `${BASE_URL}/inventory`,
           newInventoryItem
         );
+        toast.success("Inventory updated succesfully!", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+          theme: "colored",
+          hideProgressBar: true,
+          autoClose: 1000,
+          onClose: setTimeout(() => {
+            navigate("/inventory");
+          }, 1500),
+        });
         setInventoryList(data);
       } catch {
         console.log("error");
@@ -81,19 +88,17 @@ const AddNewInventoryItem = ({ setShowList, setDisplayAdd }) => {
     addNewItem();
   };
 
-    useEffect(() => {
-      const fetchWarehouse = async () => {
-        try {
-          const { data } = await axios.get(`${BASE_URL}/warehouse/`);
-          setWarehouse(data);
-        } catch {
-          console.log("error");
-        }
-      };
-      fetchWarehouse();
-    }, []);
-
-
+  useEffect(() => {
+    const fetchWarehouse = async () => {
+      try {
+        const { data } = await axios.get(`${BASE_URL}/warehouse/`);
+        setWarehouse(data);
+      } catch {
+        console.log("error");
+      }
+    };
+    fetchWarehouse();
+  }, []);
 
   return (
     <div className="addInventoryItem">
