@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ArrowBack from "../../../assets/Icons/arrow_back-24px.svg";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
-const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
+const EditInventoryItem = () => {
   const params = useParams();
   const [inventoryItem, setInventoryItem] = useState([]);
   const [inventoryCategoriesList, setCategoriesList] = useState([]);
@@ -12,15 +13,20 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedWarehouseId, setSelectedWarehouseId] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
-  const [qtt, setQtt] = useState("");
-  // const []
-  //  const [editId, setEditId] = useState(null);
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
-
+  const [quantity, setQuantity] = useState("");
   const navigate = useNavigate();
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
 
   const handleSelectedCategory = (event) => {
     setSelectedCategory(event.target.value);
+  };
+
+  const handleRadioChange = (event) => {
+    setSelectedStatus(event.target.value);
+  };
+
+  const handleQuantityChange = (event) => {
+    setQuantity(event.target.value);
   };
 
   const handleSelectedWarehouse = (event) => {
@@ -28,49 +34,46 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
       event.target[event.target.selectedIndex].getAttribute("data-warehouseid")
     );
   };
-  const handleQttChange = (event) => {
-    setQtt(event.target.value);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("event", event);
-    // console.log("warehouse", selectedWarehouse);
-    // console.log("category", selectedCategory);
-    // console.log("status", event.target.inStock.value);
 
-    // setInventoryItem({
-    //   item_name: event.target.itemName.value,
-    //   description: event.target.description.value,
-    //   category: selectedCategory,
-    //   status: event.target.inStock.value,
-    //   quantity: event.target.quantity.value,
-    //   warehouse_id: selectedWarehouse,
-    // });
-
-     const newItem = {
+    const newItem = {
       item_name: event.target.itemName.value,
       description: event.target.description.value,
       category: selectedCategory,
       status: selectedStatus,
-      quantity: qtt,
+      quantity: quantity,
       warehouse_id: selectedWarehouseId,
     };
-    console.log(newItem)
+    
+    console.log(newItem);
 
+  
       const updateItem = async () => {
         try {
           const { data } = await axios.put(
-            `${BASE_URL}/inventory/${params.inventoryID}`, newItem
+            `${BASE_URL}/inventory/${params.inventoryID}`
+            ,
+            newItem
           );
+          toast.success("Inventory updated succesfully!", {
+            position: toast.POSITION.BOTTOM_RIGHT,
+            theme: "colored",
+            hideProgressBar: true,
+            autoClose: 1000,
+            onClose: setTimeout(() => {
+              navigate("/inventory");
+            }, 1500),
+          });
           setInventoryItem(data);
-          // setEditId(null);
         } catch {
           console.log("error");
         }
       };
-
       updateItem();
+    
+    
   };
 
   useEffect(() => {
@@ -83,11 +86,9 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
         setSelectedCategory(data.category);
         setSelectedWarehouseId(data.warehouse_id);
         setSelectedStatus(data.status);
-        setQtt(data.quantity);
-       
-        console.log("inventoryID", data);
+        setQuantity(data.quantity);
       } catch (error) {
-        //console.log("error");
+        console.log("error");
       }
     };
     fetchInventoryId();
@@ -97,9 +98,10 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
     const fetchInventory = async () => {
       try {
         const { data } = await axios.get(`${BASE_URL}/inventory/`);
-        const list = data.map(item => item.category);
-        setCategoriesList(list.filter((item, index) => list.indexOf(item)=== index));
-        // console.log("inventory", data);
+        const list = data.map((item) => item.category);
+        setCategoriesList(
+          list.filter((item, index) => list.indexOf(item) === index)
+        );
       } catch (error) {
         console.log("error");
       }
@@ -112,7 +114,6 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
       try {
         const { data } = await axios.get(`${BASE_URL}/warehouse/`);
         setWarehouse(data);
-        //console.log("warehouseData", data);
       } catch {
         console.log("error");
       }
@@ -120,36 +121,10 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
     fetchWarehouse();
   }, []);
 
-  // useEffect(() => {
-  //   const updateItem = async () => {
-  //     try {
-  //       const { data } = await axios.put(
-  //         `${BASE_URL}/inventory/${params.inventoryID}`
-  //       );
-  //       setInventoryItem(data);
-  //       // setEditId(null);
-  //     } catch {
-  //       console.log("error");
-  //     }
-  //   };
-  //   updateItem();
-  // }, []);
-
-  const handleRadioChange = (e) => {
-    setSelectedStatus(e.target.value);
-  };
-
   return (
     <div className="editInventoryItem">
       <div className="editInventoryItem__caption">
-        <Link
-          to="/inventory"
-          onClick={() => {
-            navigate(-1);
-            setDisplayEdit(false);
-            setShowList(true);
-          }}
-        >
+        <Link to="/inventory">
           <button className="editInventoryItem__arrow">
             <img
               src={ArrowBack}
@@ -166,10 +141,6 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
           <label htmlFor="itemName" className="editInventoryItem__label">
             Item Name
           </label>
-          {/* {inventoryItem &&
-            inventoryItem.map((inventoryItemInfo) => {
-              if (inventoryItemInfo.id === params.inventoryID)
-                return ( */}
           <React.Fragment key={inventoryItem.id}>
             <textarea
               defaultValue={inventoryItem.item_name}
@@ -202,13 +173,11 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
               defaultValue={selectedCategory}
             >
               {inventoryCategoriesList &&
-                inventoryCategoriesList.map((inventoryCategory, i) => {
-                  return <option key={i}>{inventoryCategory}</option>;
+                inventoryCategoriesList.map((inventoryCategory, index) => {
+                  return <option key={index}>{inventoryCategory}</option>;
                 })}
             </select>
           </React.Fragment>
-          {/* );
-            })} */}
         </div>
 
         <div className="itemAvailability">
@@ -231,7 +200,6 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
                 className="editInventoryItem__label-radio"
               >
                 In Stock
-                {/* {inventoryItem?.status} */}
               </label>
             </div>
 
@@ -250,7 +218,6 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
                 className="editInventoryItem__label-radio"
               >
                 Out of Stock
-                {/* {inventoryItem?.status} */}
               </label>
             </div>
           </div>
@@ -266,8 +233,8 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
                 type="text"
                 rows="1"
                 cols="30"
-                value={qtt}
-                onChange={handleQttChange}
+                value={quantity}
+                onChange={handleQuantityChange}
               ></textarea>
             </>
           )}
@@ -278,11 +245,10 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
           <select
             onChange={handleSelectedWarehouse}
             className="editInventoryItem__input-select"
-            
+            // value={selectedWarehouseId}
           >
             {warehouse &&
               warehouse.map((warehouseinfo) => {
-                // console.log("warehouseeinfo",warehouseinfo);
                 return (
                   <option
                     key={warehouseinfo.id}
@@ -300,17 +266,12 @@ const EditInventoryItem = ({ setShowList, setDisplayEdit }) => {
         </div>
 
         <div className="editInventoryItem__button">
-          <Link
-            to="/inventory"
-            onClick={() => {
-              setShowList(true);
-              setDisplayEdit(false);
-            }}
-          >
+          <Link to="/inventory">
             <button className="editInventoryItem__button-cancel" type="submit">
               Cancel
             </button>
           </Link>
+
           <button className="editInventoryItem__button-save" type="submit">
             Save
           </button>

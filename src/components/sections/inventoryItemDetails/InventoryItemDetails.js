@@ -35,15 +35,16 @@ const InventoryItemDetails = () => {
             </Link>
             <h1 className="IID__item-name">{`${item_name}`}</h1>
           </div>
-
-          <div className="IID__icon-container">
-            <img
-              src={EditWhite}
-              alt="white pencil icon in blue background"
-              className="IID__edit-icon"
-            />
-            <span className="IID__edit-text">Edit</span>
-          </div>
+          <Link to={`/inventory/${inventoryID}/edit`}>
+            <div className="IID__icon-container">
+              <img
+                src={EditWhite}
+                alt="white pencil icon in blue background"
+                className="IID__edit-icon"
+              />
+              <span className="IID__edit-text">Edit</span>
+            </div>
+          </Link>
         </section>
 
         <div className="IID__page-container">

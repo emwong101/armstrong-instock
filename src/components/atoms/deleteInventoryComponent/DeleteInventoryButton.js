@@ -3,8 +3,9 @@ import ReactDOM from "react-dom";
 import Modal from "react-modal";
 import closeButton from "../../../assets/Icons/close-24px.svg";
 import Trash from "../../../assets/Icons/delete_outline-24px.svg";
+import "./DeleteInventoryButton.scss";
 
-Modal.setAppElement("#root"); //whatisroot
+Modal.setAppElement("#root");
 
 const DeleteInventoryButton = ({ item, onDeleteInventory = () => {} }) => {
   const { item_name = "blah" } = item;
@@ -33,33 +34,46 @@ const DeleteInventoryButton = ({ item, onDeleteInventory = () => {} }) => {
       />
       <Modal
         isOpen={modalIsOpen}
-        //onAfterOpen={afterOpenModal}
+        className="modal-d"
+        overlayClassName="overlay-d
+        //onAfterOpen={afterOpenModal}"
         onRequestClose={closeModal}
-        //style={customStyles}
         contentLabel="Delete Inventory"
       >
-        <div className="delete">
-          <img
-            src={closeButton}
-            className="delete-w__x-button"
-            alt="close button"
-            onClick={closeModal}
-          />
-          <h1 className="delete__title">
-            {`Delete ${item_name} inventory item?`}{" "}
-          </h1>
-          <p className="delete__details">
-            {`Please confirm that you'd like to delete ${item_name} from the inventory list. You won't be able to undo this action.`}
-          </p>
-          <div className="delete__button-container">
-            <button className="delete-w__cancel-btn" onClick={closeModal}>
-              cancel
-            </button>
-            <button className="delete-w__delete-btn" onClick={deleteItem}>
-              delete
-            </button>
+        <div className="delete-">
+          <div className="delete__i-container">
+            <div className="delete__x-container">
+              <img
+                src={closeButton}
+                className="delete-i__x-button"
+                alt="close button"
+                onClick={closeModal}
+              />
+            </div>
+            <h1 className="delete-i__title">
+              {`Delete ${item_name} inventory item?`}{" "}
+            </h1>
+            <p className="delete-i__details">
+              {`Please confirm that you'd like to delete ${item_name} from the inventory list. You won't be able to undo this action.`}
+            </p>
+
+            <div className="outsidediv">
+              <div className="delete-i__button-container">
+                <div className="extradiv">
+                  <button className="delete-i__cancel-btn" onClick={closeModal}>
+                    cancel
+                  </button>
+                </div>
+                {/* //cancelout that div for issues below */}
+                <div className="delete-i__container">
+                  <button className="delete-i__delete-btn" onClick={deleteItem}>
+                    delete
+                  </button>
+                </div>
+              </div>
+               
+            </div>
           </div>
-           
         </div>
       </Modal>
     </>

@@ -54,13 +54,7 @@ export const InventoryList = ({
               className="title-inventory_icon"
             />
           </div>
-          <Link
-            to="/inventory/add"
-            onClick={() => {
-              setDisplayAdd(true);
-              setShowList(false);
-            }}
-          >
+          <Link to="/inventory/add">
             <div className="title-inventory_button">
               <span className="title-inventory_button-text">
                 + Add New Item
@@ -121,48 +115,44 @@ export const InventoryList = ({
                 statusBgRed = "redBG";
               }
 
-							return (
-								<React.Fragment key={item.id}>
-									<section className="inventory-list_item">
-										<div className="inventory-list_item-top">
-											<div className="inventory-list_item-top-left">
-												<span className="inventory-list_item-label inventory-list_item-label-item">
-													inventory item
-												</span>
-												<Link
-													to={`/inventory/${item.id}`}
-													onClick={() => {
-														setShowDetails(true);
-														setShowList(false);
-													}}
-												>
-													<div className="inventory-list_item-name-box">
-														<span className="inventory-list_item-name">
-															{item.item_name}
-														</span>
-														<img
-															src={Chevron}
-															alt="closing tag"
-														/>
-													</div>
-												</Link>
-												<span className="inventory-list_item-label inventory-list_item-label-category">
-													category
-												</span>
-												<span className="inventory-list_item-category">
-													{item.category}
-												</span>
-											</div>
-											<div className="inventory-list_item-top-right">
-												<span className="inventory-list_item-label ">
-													status
-												</span>
-												<span
-													className={`inventory-list_item-status ${statusBgRed}`}
-												>
-													{item.status}
-												</span>
-
+              return (
+                <React.Fragment key={item.id}>
+                  <section className="inventory-list_item">
+                    <div className="inventory-list_item-top">
+                      <div className="inventory-list_item-top-left">
+                        <span className="inventory-list_item-label inventory-list_item-label-item">
+                          inventory item
+                        </span>
+                        <Link
+                          to={`/inventory/${item.id}`}
+                          onClick={() => {
+                            setShowDetails(true);
+                            setShowList(false);
+                          }}
+                        >
+                          <div className="inventory-list_item-name-box">
+                            <span className="inventory-list_item-name">
+                              {item.item_name}
+                            </span>
+                            <img src={Chevron} alt="closing tag" />
+                          </div>
+                        </Link>
+                        <span className="inventory-list_item-label inventory-list_item-label-category">
+                          category
+                        </span>
+                        <span className="inventory-list_item-category">
+                          {item.category}
+                        </span>
+                      </div>
+                      <div className="inventory-list_item-top-right">
+                        <span className="inventory-list_item-label ">
+                          status
+                        </span>
+                        <span
+                          className={`inventory-list_item-status ${statusBgRed}`}
+                        >
+                          {item.status}
+                        </span>
 
                         <span className="inventory-list_item-label inventory-list_item-label-qty">
                           qty
@@ -196,75 +186,70 @@ export const InventoryList = ({
                     </div>
                   </section>
 
+                  <section className="inventory-list_item-tablet">
+                    <Link
+                      to={`/inventory/${item.id}`}
+                      onClick={() => {
+                        setShowDetails(true);
+                        setShowList(false);
+                      }}
+                    >
+                      <div className="inventory-list_item-tablet-name-box">
+                        <span className="inventory-list_item-tablet-name">
+                          {item.item_name}
+                        </span>
+                        <img src={Chevron} alt="closing tag" />
+                      </div>
+                    </Link>
 
-									<section className="inventory-list_item-tablet">
-										<Link
-											to={`/inventory/${item.id}`}
-											onClick={() => {
-												setShowDetails(true);
-												setShowList(false);
-											}}
-										>
-											<div className="inventory-list_item-tablet-name-box">
-												<span className="inventory-list_item-tablet-name">
-													{item.item_name}
-												</span>
-												<img
-													src={Chevron}
-													alt="closing tag"
-												/>
-											</div>
-										</Link>
+                    <span className="inventory-list_item-tablet-category">
+                      {item.category}
+                    </span>
 
-										<span className="inventory-list_item-tablet-category">
-											{item.category}
-										</span>
+                    <div className="inventory-list_item-tablet-status-box">
+                      <span
+                        className={`inventory-list_item-tablet-status ${statusBgRed}`}
+                      >
+                        {item.status}
+                      </span>
+                    </div>
 
-										<div className="inventory-list_item-tablet-status-box">
-											<span
-												className={`inventory-list_item-tablet-status ${statusBgRed}`}
-											>
-												{item.status}
-											</span>
-										</div>
+                    <span className="inventory-list_item-tablet-label inventory-list_item-tablet-label-qty">
+                      qty
+                    </span>
+                    <span className="inventory-list_item-tablet-qty">
+                      {item.quantity}
+                    </span>
 
-										<span className="inventory-list_item-tablet-label inventory-list_item-tablet-label-qty">
-											qty
-										</span>
-										<span className="inventory-list_item-tablet-qty">
-											{item.quantity}
-										</span>
+                    <span className="inventory-list_item-tablet-warehouse">
+                      {item.warehouse_name}
+                    </span>
 
-										<span className="inventory-list_item-tablet-warehouse">
-											{item.warehouse_name}
-										</span>
-
-										<div className="inventory-list_item-tablet-bottom">
-											<DeleteInventoryButton
-												item={item}
-												onDeleteInventory={() => deleteInventory(item.id)}
-											/>
-											<Link
-												to={`/inventory/${item.id}/edit`}
-												onClick={() => {
-													setDisplayEdit(true);
-													setShowList(false);
-												}}
-											>
-												<img
-													className="inventory-list_item-bottom-icon"
-													src={Edit}
-													alt="trash"
-												/>
-											</Link>
-										</div>
-									</section>
-								</React.Fragment>
-							);
-						})}
-				</main>
-			</div>
-		</>
-	);
-
+                    <div className="inventory-list_item-tablet-bottom">
+                      <DeleteInventoryButton
+                        item={item}
+                        onDeleteInventory={() => deleteInventory(item.id)}
+                      />
+                      <Link
+                        to={`/inventory/${item.id}/edit`}
+                        onClick={() => {
+                          setDisplayEdit(true);
+                          setShowList(false);
+                        }}
+                      >
+                        <img
+                          className="inventory-list_item-bottom-icon"
+                          src={Edit}
+                          alt="trash"
+                        />
+                      </Link>
+                    </div>
+                  </section>
+                </React.Fragment>
+              );
+            })}
+        </main>
+      </div>
+    </>
+  );
 };

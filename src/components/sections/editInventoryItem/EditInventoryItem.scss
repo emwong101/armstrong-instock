@@ -86,12 +86,18 @@
 
   &__input-select {
     appearance: none;
-    background: url(../../../assets/Icons/arrow_drop_down-24px.svg);
+    background-image: url(../../../assets/Icons/arrow_drop_down-24px.svg);
     background-repeat: no-repeat;
     background-position-y: center;
-    background-position-x: 12.5rem;
+    background-position-x: right;
     &:active {
       color: $Primary-medium;
+    }
+    &:hover {
+      background-image: url(../../../assets/Icons/arrow_drop_down_blue-24px.svg);
+      background-repeat: no-repeat;
+      background-position-y: center;
+      background-position-x: right;
     }
   }
 
@@ -99,11 +105,10 @@
   &__input,
   &__input-select,
   &__input-description {
-    padding-top: 0.5rem;
     color: $Primary-dark;
     border-radius: 1.25rem;
     border: 1px solid $Secondary-light;
-    padding: 0 1rem;
+    padding: 0.5rem 1rem;
     margin-bottom: 1rem;
     resize: none;
   }
@@ -114,7 +119,7 @@
     flex-direction: column;
     padding: 0 1.5rem;
   }
-  
+
   .itemDetail {
     border-bottom: 1px solid $Secondary-light;
     padding-bottom: 0.6rem;
@@ -122,10 +127,10 @@
 
   &__button {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     background-color: $Background-light;
     padding: 1rem 1.5rem;
-    margin-top: 1rem;
+    gap: 1rem;
 
     &-cancel,
     &-save {
@@ -141,7 +146,7 @@
     }
 
     &-cancel {
-      margin-right: 1rem;
+      margin-right: 2.5rem;
       border: 1px solid $Secondary-light;
       background-color: $Primary-light;
       color: $Secondary-dark;
@@ -153,6 +158,7 @@
     }
 
     &-save {
+      width: 7rem;
       background-color: $Primary-medium;
       color: $Primary-light;
       border: none;
@@ -221,7 +227,14 @@
     }
 
     &__input-select {
-      background-position-x: 16.5rem;
+      background-position-x: right;
+    }
+
+    &__status {
+      &-position {
+        justify-content: flex-start;
+        gap: 2rem;
+      }
     }
 
     .itemDetail,
@@ -239,9 +252,14 @@
       justify-content: flex-end;
       width: 100%;
       margin-top: 2rem;
+      // gap: 2rem;
+      // margin-right: 0;
       &-cancel,
       &-save {
-        width: fit-content;
+        width: 4.5rem;
+      }
+      &-cancel {
+        margin-right: 0;
       }
     }
   }
@@ -254,15 +272,8 @@
     }
 
     &__input-select {
-      background-position-x: 26.5rem;
+      background-position-x: right;
     }
-
-    // &__status {
-    //   &-position {
-    //     justify-content: flex-start;
-    //     gap: 2rem;
-    //   }
-    // }
 
     .outOfStock {
       padding-right: 7rem;

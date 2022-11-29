@@ -1,7 +1,6 @@
 import "./App.scss";
 import { Routes, Route, Navigate } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import Header from "./components/sections/header/Header";
 import Footer from "./components/sections/footer/Footer";
 import AddWarehouse from "./components/sections/addWarehouse/AddWarehouse";
@@ -18,7 +17,7 @@ function App() {
   return (
     <div className="main">
       <Header />
-  
+
       <div className="components">
         <Routes>
           <Route path="/" element={<Navigate to="/warehouse" />} />
