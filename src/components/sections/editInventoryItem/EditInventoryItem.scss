@@ -108,6 +108,7 @@
     color: $Primary-dark;
     border-radius: 1.25rem;
     border: 1px solid $Secondary-light;
+    outline-color: $Primary-medium;
     padding: 0.5rem 1rem;
     margin-bottom: 1rem;
     resize: none;
@@ -252,14 +253,6 @@
       justify-content: flex-end;
       width: 100%;
       margin-top: 2rem;
-     
-      &-cancel,
-      &-save {
-       width: 4.5rem;
-      }
-       &-cancel {
-        margin-right: 0;
-      }
     }
   }
 }
