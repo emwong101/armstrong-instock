@@ -3,12 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../../assets/Logo/InStock-Logo.svg";
 
-const Header = ({
-  setShowList,
-  setDisplayAdd,
-  setShowDetails,
-  setDisplayEdit,
-}) => {
+const Header = () => {
   return (
     <header className="header">
       <Link to="/warehouse" className="header__company-logo">
