@@ -256,15 +256,16 @@
       justify-content: flex-end;
       width: 100%;
       margin-top: 2rem;
-      &-cancel,
+     
       &-save {
-       width: 4.5rem;
-      }
-       &-cancel {
-        margin-right: 0;
-      }
+          width: 6.125rem;
+        }
+        &-cancel {
+          width: 4.5rem;
+          margin-right: 0;
     }
-  }
+    }
+
 }
 
 // Add New Inventory Item for Desktop
