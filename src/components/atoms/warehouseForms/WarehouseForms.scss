@@ -1,0 +1,214 @@
+@use "../../../styles/partials/breakpoints" as breakpoints;
+@use "../../../styles//partials/colors" as colors;
+@use "../../../styles/partials/fonts" as fonts;
+
+.button {
+  height: 2.25rem;
+  padding: 0 1rem;
+  border-radius: 20px;
+  width: 100%;
+  font-family: "Titillium-Web";
+  font-weight: 600;
+  line-height: 20px;
+  font-style: normal;
+  font-size: 0.8rem;
+}
+
+.warehouseForm {
+  &__heading {
+    display: flex;
+    border-bottom: 1px solid colors.$Secondary-light;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__back {
+    outline: none;
+    border: none;
+    background: none;
+    padding: 0;
+    padding-top: 0.5rem;
+    flex-grow: 1;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    margin: 0;
+    line-height: 36px;
+    flex-grow: 1;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size: 0.815rem;
+    padding-bottom: 0.25rem;
+    line-height: 1.25rem;
+  }
+
+  &__input {
+    border-radius: 20px;
+    border: 1px solid colors.$Secondary-light;
+    height: 2.25rem;
+    padding: 0 1rem;
+    outline-color: colors.$Primary-medium;
+
+    &::placeholder {
+      color: colors.$Secondary-dark;
+      font-family: "Titillium-Web";
+    }
+  }
+
+  &__buttons {
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: colors.$Background-light;
+    margin-top: 1rem;
+  }
+
+  &__cancel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    border: 1px solid colors.$Secondary-light;
+    background-color: colors.$Primary-light;
+    color: colors.$Secondary-dark;
+    text-decoration: none;
+
+    &:hover {
+      border-color: colors.$Primary-medium;
+      color: colors.$Primary-medium;
+    }
+  }
+
+  &__submit {
+    background-color: colors.$Primary-medium;
+    color: colors.$Primary-light;
+    border: none;
+
+    &:hover {
+      background-color: colors.$Background-dark;
+    }
+  }
+}
+
+.warehouse {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid colors.$Secondary-light;
+  padding: 0 1.5rem;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5rem;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+  display: flex;
+  align-items: center;
+  padding-bottom: 1rem;
+  padding-left: 0.5rem;
+  color: colors.$Support-light;
+  font-size: 0.8rem;
+}
+
+.error {
+  border: 2px solid colors.$Support-light;
+
+  &__icon {
+    width: 0.8rem;
+    margin-right: 0.25rem;
+  }
+}
+
+@include breakpoints.tablet {
+  .button {
+    width: fit-content;
+  }
+
+  .warehouseForm {
+    &__heading {
+      padding-top: 2rem;
+      padding-bottom: 1.25rem;
+      justify-content: flex-start;
+    }
+
+    &__subheading {
+      margin-top: 0;
+      padding-bottom: 1rem;
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+
+    &__title {
+      flex-grow: 0;
+      padding: 0 0.8rem;
+      font-size: 2rem;
+      line-height: 40px;
+    }
+
+    &__back {
+      flex-grow: 0;
+      padding-left: 2.25rem;
+    }
+
+    &__form {
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding-top: 1.5rem;
+    }
+
+    &__label {
+      font-size: 0.875rem;
+    }
+
+    &__input {
+      height: 38px;
+      font-size: 0.875rem;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    &__buttons {
+      width: 100%;
+      justify-content: flex-end;
+      margin-top: 2rem;
+    }
+  }
+
+  .warehouse {
+    flex-grow: 1;
+    border-bottom: none;
+    border-right: 1px solid colors.$Secondary-light;
+    padding: 0 2rem;
+  }
+
+  .contact {
+    flex-grow: 1;
+    padding: 0 2rem;
+  }
+}
+
+@include breakpoints.desktop {
+  .warehouseForm {
+    &__back {
+      padding: 0;
+    }
+  }
+}

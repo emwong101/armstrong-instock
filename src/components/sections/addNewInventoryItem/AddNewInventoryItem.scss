@@ -1,0 +1,287 @@
+@use "../../../styles/partials/breakpoints" as *;
+@use "../../../styles/partials/colors" as *;
+@use "../../../styles/partials/fonts" as *;
+
+// Add New Inventory Item for Mobile
+.addInventoryItem {
+  &__caption {
+    display: flex;
+    border-bottom: 1px solid $Secondary-light;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__arrow {
+    outline: none;
+    border: none;
+    background: none;
+    padding: 0;
+    padding-top: 0.5rem;
+    flex-grow: 1;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    margin: 0;
+    line-height: 2.25rem;
+    flex-grow: 1;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .label__show,
+  &__label,
+  &__label-radio,
+  &__status {
+    font-weight: 600;
+    font-size: 0.815rem;
+    padding-bottom: 0.25rem;
+    line-height: 1.25rem;
+  }
+
+  &__label-radio {
+    color: $Secondary-dark;
+    &:active {
+      color: $Primary-dark;
+    }
+  }
+  .outOfStock {
+    padding-right: 3rem;
+  }
+
+  input[type="radio"] {
+    margin-right: 0.5rem;
+  }
+
+  &__status {
+    margin: 0;
+    padding-left: 0.5rem;
+  }
+
+  &__status-position {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+  }
+
+  .hide {
+    visibility: hidden;
+  }
+
+  .input__show,
+  .label__show {
+    visibility: visible;
+  }
+
+  .input__show,
+  &__input,
+  &__input-select {
+    height: 2.25rem;
+  }
+
+  &__input-select {
+    appearance: none;
+    background: url(../../../assets/Icons/arrow_drop_down-24px.svg);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: right;
+    &:active {
+      color: $Primary-medium;
+    }
+    &:hover {
+      background-image: url(../../../assets/Icons/arrow_drop_down_blue-24px.svg);
+      background-repeat: no-repeat;
+      background-position-y: center;
+      background-position-x: right;
+    }
+  }
+
+  .input__show,
+  &__input,
+  &__input-select,
+  &__input-description {
+    border-radius: 1.25rem;
+    border: 1px solid $Secondary-light;
+    outline-color: $Primary-medium;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    resize: none;
+  }
+  
+  ::placeholder {
+    color: $Secondary-dark;
+    font-family: "Titillium-Web";
+  }
+
+  .itemDetail,
+  .itemAvailability {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.5rem;
+  }
+
+  .itemDetail {
+    border-bottom: 1px solid $Secondary-light;
+    padding-bottom: 0.6rem;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    background-color: $Background-light;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+
+    &-cancel,
+    &-add {
+      height: 2.25rem;
+      padding: 0 1rem;
+      border-radius: 1.25rem;
+      width: 100%;
+      font-family: "Titillium-Web";
+      font-weight: 600;
+      line-height: 1.25rem;
+      font-style: normal;
+      font-size: 0.8rem;
+    }
+
+    &-cancel {
+      margin-right: 1rem;
+      border: 1px solid $Secondary-light;
+      background-color: $Primary-light;
+      color: $Secondary-dark;
+
+      &:hover {
+        border-color: $Primary-medium;
+        color: $Primary-medium;
+      }
+    }
+
+    &-save {
+       width: 7rem;
+      background-color: $Primary-medium;
+      color: $Primary-light;
+      border: none;
+
+      &:hover {
+        background-color: $Background-dark;
+      }
+    }
+  }
+}
+
+// Add New Inventory Item for Tablet
+@include tablet {
+  .addInventoryItem {
+    &__caption {
+      padding-top: 2rem;
+      padding-bottom: 1.25rem;
+      justify-content: flex-start;
+    }
+
+    &__arrow {
+      flex-grow: 0;
+      padding-left: 2.25rem;
+    }
+
+    &__title {
+      flex-grow: 0;
+      padding: 0 0.8rem;
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
+
+    &__form {
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding-top: 1.5rem;
+    }
+
+    &__subtitle {
+      margin-top: 0;
+      padding-bottom: 1rem;
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+
+    .label__show,
+    &__label,
+    &__label-radio,
+    &__status {
+      font-size: 0.875rem;
+    }
+
+    .outOfStock {
+      padding-right: 6rem;
+    }
+
+    .input__show,
+    &__input,
+    &__input-select {
+      height: 2.375rem;
+      font-size: 0.875rem;
+    }
+
+    &__input-description {
+      height: 7.5rem;
+    }
+
+    &__input-select {
+      background-position-x: right;
+    }
+
+    &__status {
+      &-position {
+        justify-content: flex-start;
+        gap: 2rem;
+      }
+    }
+
+    .itemDetail,
+    .itemAvailability {
+      flex-grow: 1;
+      border-bottom: none;
+    }
+
+    .itemDetail {
+      border-right: 1px solid $Secondary-light;
+      border-bottom: none;
+    }
+
+    &__button {
+      justify-content: flex-end;
+      width: 100%;
+      margin-top: 2rem;
+     
+      &-add {
+          width: 6.125rem;
+        }
+
+        &-cancel {
+          width: 4.5rem;
+          margin-right: 0;
+    }
+    }
+}
+
+// Add New Inventory Item for Desktop
+@include desktop {
+  .addInventoryItem {
+    &__arrow {
+      padding: 0;
+    }
+
+    &__input-select {
+      background-position-x: right;
+    }
+
+    .outOfStock {
+      padding-right: 7rem;
+    }
+  }
+}
+}

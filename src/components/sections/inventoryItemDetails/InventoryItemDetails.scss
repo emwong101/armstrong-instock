@@ -1,0 +1,252 @@
+@use "../../../styles/partials/breakpoints" as breakpoints;
+@use "../../../styles/partials/colors" as *;
+@use "../../../styles/partials/fonts" as *;
+@use "../../../styles/partials/mixins" as *;
+
+//howto make the icon there edit bigger
+//how to remove line in middle
+
+.IID {
+  display: flex;
+  flex-direction: column;
+  font-family: "Titillium-Web";
+  background-color: $Background-light;
+
+  &__title-box {
+    display: flex;
+    padding: 2rem 1.5rem 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+  &__arrow {
+    outline: none;
+    border: none;
+    background: none;
+    padding: 0;
+    padding-top: 0.5rem;
+    flex-grow: 1;
+  }
+  &__link-box {
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__item-name {
+    font-size: 1.75rem;
+    margin: 0;
+    line-height: 36px;
+    flex-grow: 1;
+    font-family: $font-bold;
+    @include mobilePageHeader;
+    color: $Primary-dark;
+    padding-left: 0.5rem;
+    @include breakpoints.tablet {
+      @include pageHeader;
+    }
+  }
+  &__icon-container {
+    @include breakpoints.tablet {
+      background-color: #2e66e5;
+      width: 5rem;
+      height: 2.5rem;
+      border-radius: 1.25rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__edit-icon {
+    color: $Primary-light;
+    background-color: $Primary-medium;
+    border-radius: 50%;
+    padding: 0px 8px;
+    width: 31px;
+    height: 30px;
+  }
+
+  &__edit-text {
+    display: none;
+
+    @include breakpoints.tablet {
+      display: initial;
+      color: $Primary-light;
+    }
+  }
+
+  &__page-container {
+    @include breakpoints.tablet {
+      display: flex;
+      border-top: 1px solid $Secondary-light;
+    }
+  }
+}
+
+.item {
+  padding: 1rem 1.5rem;
+
+  @include breakpoints.mobile {
+    border-top: 1px solid $Secondary-light;
+  }
+
+  @include breakpoints.tablet {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-right: 1px solid $Secondary-light;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+
+    @include breakpoints.tablet {
+      width: 65%;
+    }
+    @include breakpoints.desktop {
+      width: 75%;
+    }
+  }
+
+  &__description-title {
+    @include mobileTableHeader;
+    color: $Secondary-dark;
+    padding-bottom: 0.25rem;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
+
+  &__description {
+    @include mobileLabelsLinksButtons;
+    color: $Primary-dark;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
+
+  &__category {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__category-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__category-title {
+    @include mobileTableHeader;
+    color: $Secondary-dark;
+    padding-bottom: 0.25rem;
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
+
+  &__category-description {
+    @include mobileLabelsLinksButtons;
+    color: $Primary-dark;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
+
+  &__status-container {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+    @include breakpoints.mobile {
+      padding: 1rem;
+    }
+
+    @include breakpoints.tablet {
+      margin-left: 2rem;
+    }
+  }
+
+  &__status-title {
+    @include mobileTableHeader;
+    color: $Secondary-dark;
+    padding-bottom: 0.25rem;
+    padding-right: 1rem;
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
+
+  &__status-field {
+    display: flex;
+
+    color: $Support-dark;
+    background: rgba(21, 132, 99, 0.07);
+    padding: 0.25rem 0.5rem;
+    width: fit-content;
+    border-radius: 1.25rem;
+    font-weight: 600;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
+
+  &__warehouse-title {
+    display: flex;
+    @include mobileTableHeader;
+    color: $Secondary-dark;
+    padding-bottom: 0.25rem;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+      padding-top: 2rem;
+    }
+  }
+
+  &__warehouse-name {
+    display: flex;
+    @include mobileLabelsLinksButtons;
+    color: $Primary-dark;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
+
+  &__quantity-container {
+    @include breakpoints.mobile {
+      padding-left: 5rem;
+    }
+
+    @include breakpoints.tablet {
+      padding-left: 6rem;
+    }
+  }
+
+  &__quantity-title {
+    @include mobileTableHeader;
+    color: $Secondary-dark;
+    padding-bottom: 0.25rem;
+    padding-top: 1.25rem;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
+
+  &__quantity-number {
+    display: flex;
+    @include mobileLabelsLinksButtons;
+    color: $Primary-dark;
+
+    @include breakpoints.tablet {
+      @include bodyMedium;
+    }
+  }
+}

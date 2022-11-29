@@ -1,0 +1,314 @@
+@use "../../../styles/partials/breakpoints" as breakpoints;
+@use "../../../styles/partials/colors" as *;
+@use "../../../styles/partials/fonts" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.el-container {
+	display: flex;
+	flex-direction: column;
+	font-family: "Titillium-Web";
+}
+
+.title-inventory {
+	display: flex;
+	padding: 2rem 1.5rem 1.5rem;
+	justify-content: space-between;
+	flex-direction: column;
+
+	@include breakpoints.tablet {
+		flex-direction: row;
+		align-items: center;
+	}
+
+	&-left,
+	&-right {
+		display: flex;
+		justify-content: center;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+
+		@include breakpoints.tablet {
+			width: 50%;
+			text-align: start;
+		}
+	}
+
+	&_title {
+		font-size: 1rem;
+		font-family: "Titillium-Web-bold";
+		@include mobilePageHeader;
+		width: inherit;
+
+		@include breakpoints.tablet {
+			@include pageHeader;
+			width: 100%;
+		}
+	}
+	&-right {
+		@include breakpoints.tablet {
+			width: 11.5625rem;
+			height: 2.5rem;
+			position: relative;
+		}
+
+		@include breakpoints.desktop {
+			width: 20rem;
+		}
+	}
+
+	&_search {
+		border: 1px solid $Secondary-light;
+		width: 100%;
+		border-radius: 1.25rem;
+		height: 2.25rem;
+		padding: 0 1rem;
+
+		&:hover {
+			border-color: $Primary-medium;
+		}
+	}
+
+	&_icon {
+		position: absolute;
+		right: 0;
+		right: 3.5rem;
+
+		@include breakpoints.tablet {
+			right: 1rem;
+		}
+	}
+
+	&_button {
+		background-color: $Primary-medium;
+		color: $Primary-light;
+		text-align: center;
+		height: 2.25rem;
+		border-radius: 1.25rem;
+		margin-top: 1.5rem;
+		cursor: pointer;
+		width: 100%;
+
+		@include breakpoints.tablet {
+			margin-top: 0;
+			width: 7.5rem;
+		}
+
+		&-text {
+			vertical-align: middle;
+			@include mobileLabelsLinksButtons;
+		}
+	}
+}
+
+.inventory-list {
+	display: flex;
+	flex-direction: column;
+
+	&_label-box {
+		display: none;
+
+		@include breakpoints.tablet {
+			display: initial;
+			display: flex;
+			padding: 1rem 1.5rem;
+			justify-content: space-between;
+			background-color: $Background-light;
+			@include bodySmall;
+			color: $Secondary-dark;
+			text-transform: uppercase;
+		}
+	}
+
+	&_label {
+		&-1 {
+			width: 8rem;
+		}
+		&-2 {
+			width: 6rem;
+		}
+		&-3 {
+			width: 6rem;
+		}
+		&-4 {
+			width: 4rem;
+		}
+		&-5 {
+			width: 6rem;
+		}
+		&-6 {
+			width: 5rem;
+			padding-left: 2rem;
+		}
+	}
+
+	&_icon {
+		padding-left: 1rem;
+	}
+
+	&_item {
+		@include breakpoints.tablet {
+			display: none;
+			border-top: 1px solid $Secondary-light;
+		}
+
+		&-top {
+			display: flex;
+			padding: 1rem 1.5rem;
+			border-top: 1px solid $Secondary-light;
+
+			@include breakpoints.tablet {
+				width: 90%;
+				border: none;
+			}
+
+			&-left,
+			&-right {
+				display: flex;
+				flex-direction: column;
+				width: 50%;
+
+				@include breakpoints.tablet {
+					flex-direction: row;
+					align-items: center;
+				}
+			}
+		}
+
+		&-label {
+			text-transform: uppercase;
+			@include mobileTableHeader;
+			color: $Secondary-dark;
+			padding-bottom: 0.25rem;
+
+			@include breakpoints.tablet {
+				display: none;
+			}
+
+			&-qty {
+				padding-top: 1.25rem;
+			}
+		}
+
+		&-name-box {
+			display: flex;
+			padding-bottom: 1.25rem;
+		}
+
+		&-name {
+			@include mobileBodyMedium;
+			font-weight: 600;
+			color: $Primary-medium;
+
+			@include breakpoints.tablet {
+				@include bodyMedium;
+			}
+		}
+
+		&-category {
+			@include mobileBodyMedium;
+		}
+
+		&-status {
+			@include mobileBodySmall;
+			text-transform: uppercase;
+			color: $Support-dark;
+			background: rgba(21, 132, 99, 0.07);
+			padding: 0.25rem 0.5rem;
+			width: fit-content;
+			border-radius: 1.25rem;
+			font-weight: 600;
+			text-align: center;
+		}
+
+		&-qty {
+			@include mobileBodyMedium;
+
+			&-box {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+
+		&-bottom {
+			padding: 0 1.5rem 1.5rem;
+			display: flex;
+			justify-content: space-between;
+
+			&-icon {
+				padding: 0 0.5rem;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.inventory-list_item-tablet {
+	display: none;
+
+	@include breakpoints.tablet {
+		display: flex;
+		padding: 1.25rem;
+		justify-content: space-between;
+		align-items: center;
+
+		&-label {
+			@include breakpoints.tablet;
+			display: none;
+		}
+
+		&-name-box {
+			width: 8rem;
+			display: flex;
+		}
+		&-name {
+			font-weight: 600;
+			color: $Primary-medium;
+
+			@include bodyMedium;
+		}
+
+		&-category {
+			width: 6rem;
+			@include bodyMedium;
+		}
+
+		&-status-box {
+			width: 6rem;
+		}
+		&-status {
+			@include bodySmall;
+			text-transform: uppercase;
+			color: $Support-dark;
+			background: rgba(21, 132, 99, 0.07);
+			padding: 0.5rem 0.5rem;
+			border-radius: 1.25rem;
+			font-weight: 600;
+			text-align: center;
+		}
+
+		&-qty {
+			width: 4rem;
+		}
+
+		&-warehouse {
+			width: 6rem;
+		}
+
+		&-bottom {
+			width: 5rem;
+			@include bodyMedium;
+
+			&-icon {
+				padding: 0 0.5rem;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.redBG {
+	color: $Support-light;
+	background: rgba(201, 69, 21, 0.07);
+	width: 6rem;
+}

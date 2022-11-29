@@ -1,0 +1,85 @@
+@use "../../../styles/partials/breakpoints" as *;
+@use "../../../styles/partials/colors" as *;
+@use "../../../styles/partials/mixins" as *;
+@use "../../../styles/partials/fonts" as *;
+
+// Header for mobile
+.header {
+  height: 12.5rem;
+  padding: 1rem;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  background-color: $Background-dark;
+
+  &__logo {
+    padding: 1rem 0;
+  }
+
+  &__buttons {
+    &-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__button {
+    @include mobileLabelsLinksButtons;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $font-regular;
+    font-family: "Titillium-Web";
+    align-self: center;
+    color: $Secondary-light;
+    background-color: $Background-dark;
+    border: none;
+    border-radius: 1.25rem;
+    width: 8.5rem;
+    height: 2.25rem;
+    &:focus {
+		background-color: $Primary-dark;
+    }
+    &-txt {
+		&:hover {
+        color: $Primary-light;
+        border-bottom: 0.5px solid $Primary-light;
+      }
+    }
+  }
+}
+
+// Header for tablet
+@include tablet {
+  .header {
+    height: 11.625rem;
+    padding: 1rem 2rem;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__buttons {
+      &-container {
+        display: flex;
+        flex-direction: row;
+        padding-top: 0.5rem;
+      }
+    }
+
+    &__button {
+      width: 6.6875rem;
+      height: 2.375rem;
+    }
+  }
+}
+
+// Header for Desktop
+@include desktop {
+  .header {
+    height: 11.625rem;
+    padding: 1rem 8.125rem;
+
+    &__logo {
+      height: 3.5rem;
+    }
+  }
+}

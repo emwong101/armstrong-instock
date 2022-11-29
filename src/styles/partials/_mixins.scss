@@ -1,0 +1,63 @@
+//mobile text styles
+@mixin mobilePageHeader {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+}
+@mixin mobileSubHeader {
+  font: size 1.25rem;
+  line-height: 1.75rem;
+}
+@mixin mobileLabelsLinksButtons {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+}
+
+@mixin mobileTableHeader {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+}
+@mixin mobileBodyLarge {
+  font-size: 0.9375rem;
+  line-height: 1.625rem;
+}
+
+@mixin mobileBodyMedium {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+}
+
+@mixin mobileBodySmall {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+}
+
+//desktop&tablet text styles
+
+@mixin pageHeader {
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+@mixin subHeader {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+@mixin labelsLinksButtons {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+@mixin tableHeader {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+}
+@mixin bodyLarge {
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+@mixin bodyMedium {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+@mixin bodySmall {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+}
